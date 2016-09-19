@@ -19,19 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wh-eJ-yDe" customClass="GTProgressBar">
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wh-eJ-yDe" customClass="GTProgressBar" customModule="GTProgressBar">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="xqZ-bA-1Vj"/>
+                                    <constraint firstAttribute="height" constant="15" id="wBL-Jd-CAw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="9dK-kw-Pab"/>
-                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="eCw-e7-Mc3"/>
-                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="fP7-aa-KTP"/>
-                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="jdB-2W-0ky"/>
+                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="J7h-mQ-ZWj"/>
+                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="ktc-Sv-lIK"/>
+                            <constraint firstItem="3Wh-eJ-yDe" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="qwP-54-xWh"/>
                         </constraints>
                     </view>
                     <connections>
