@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import GTProgressBar
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var progressBar: GTProgressBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
