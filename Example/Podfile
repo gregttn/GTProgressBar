@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GTProgressBar_Example' do
+  pod 'GTProgressBar', :path => '../'
+
+  target 'GTProgressBar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

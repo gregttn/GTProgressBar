@@ -1,0 +1,16 @@
+PODS:
+  - GTProgressBar (0.1.0)
+
+DEPENDENCIES:
+  - GTProgressBar (from `../`)
+
+EXTERNAL SOURCES:
+  GTProgressBar:
+    :path: ../
+
+SPEC CHECKSUMS:
+  GTProgressBar: 9f1d82f6b87eb8d8bc24e2ec1834acc5320d70f6
+
+PODFILE CHECKSUM: ece53e55fb4436d7bab033c121b985b9ab939b2f
+
+COCOAPODS: 1.1.0.rc.2
