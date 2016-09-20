@@ -33,11 +33,18 @@ public class GTProgressBar: UIView {
     }
     
     public override func layoutSubviews() {
+        setupBackgroundView()
+        setupFillView()
+    }
+    
+    private func setupBackgroundView() {
         backgroundView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
         backgroundView.backgroundColor = backgroundViewBackgroundColor
         backgroundView.layer.borderWidth = backgroundViewBorder
         backgroundView.layer.borderColor = backgroundViewBorderColor.cgColor
-        
+    }
+    
+    private func setupFillView() {
         let offset = backgroundViewBorder + fillViewInset
         fillView.frame = backgroundView.frame.insetBy(dx: offset, dy: offset)
         fillView.backgroundColor = fillViewBackgroundColor
