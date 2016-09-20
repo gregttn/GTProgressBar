@@ -42,11 +42,17 @@ public class GTProgressBar: UIView {
         backgroundView.backgroundColor = backgroundViewBackgroundColor
         backgroundView.layer.borderWidth = backgroundViewBorder
         backgroundView.layer.borderColor = backgroundViewBorderColor.cgColor
+        backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
     }
     
     private func setupFillView() {
         let offset = backgroundViewBorder + fillViewInset
         fillView.frame = backgroundView.frame.insetBy(dx: offset, dy: offset)
         fillView.backgroundColor = fillViewBackgroundColor
+        fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    private func cornerRadiusFor(view: UIView) -> CGFloat {
+        return view.frame.height / 2 * 0.7
     }
 }

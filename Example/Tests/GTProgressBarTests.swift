@@ -25,18 +25,19 @@ class GTProgressBarTests: XCTestCase {
         expect(view.subviews.first!.frame).to(equal(expectedFrame))
     }
     
-    func testLayoutSubviews_shouldCalculateCorrectFrameForFillView() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        
-        let expectedFrame = CGRect(x: 4, y: 4, width: 92, height: 92)
-        expect(view.subviews[1].frame).to(equal(expectedFrame))
-    }
-    
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultBorder() {
         let view = setupView()
         let backgroundView = view.subviews.first!
         
         expect(backgroundView.layer.borderWidth).to(equal(2))
+    }
+    
+    func testLayoutSubviews_shouldRenderBackgroundViewWithRoundedCorners() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        let backgroundView = view.subviews.first!
+        
+        let expectedRoundedCorners: CGFloat = 3.5
+        expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRoundedCorners, within: 0.01))
     }
     
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultColours() {
@@ -45,6 +46,20 @@ class GTProgressBarTests: XCTestCase {
         
         expect(backgroundView.layer.borderColor).to(equal(UIColor.black.cgColor))
         expect(backgroundView.backgroundColor).to(equal(UIColor.white))
+    }
+    
+    func testLayoutSubviews_shouldCalculateCorrectFrameForFillView() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        
+        let expectedFrame = CGRect(x: 4, y: 4, width: 92, height: 92)
+        expect(view.subviews[1].frame).to(equal(expectedFrame))
+    }
+    
+    func testLayoutSubviews_shouldRenderFillViewWithRoundedCorners() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        
+        let expectedRoundedCorners: CGFloat = 0.7
+        expect(view.subviews[1].layer.cornerRadius).to(beCloseTo(expectedRoundedCorners, within: 0.01))
     }
     
     func testLayoutSubviews_shouldRenderFillViewWithDefaultFillColor() {
