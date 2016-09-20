@@ -19,40 +19,45 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testLayoutSubviews_shouldSetBackgroundViewFrameToSameSizeAsTheParent() {
-        let frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        let view = GTProgressBar(frame: frame)
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         
         let expectedFrame = CGRect(x: 0, y: 0, width: 100, height: 100)
         expect(view.subviews.first!.frame).to(equal(expectedFrame))
     }
     
     func testLayoutSubviews_shouldCalculateCorrectFrameForFillView() {
-        let frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        let view = GTProgressBar(frame: frame)
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         
         let expectedFrame = CGRect(x: 4, y: 4, width: 92, height: 92)
         expect(view.subviews[1].frame).to(equal(expectedFrame))
     }
     
-    func testLayoutSubviews_shouldRenderBackgroundViewWithBorder() {
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        let view = GTProgressBar(frame: frame)
-        view.layoutSubviews()
-    
+    func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultBorder() {
+        let view = setupView()
         let backgroundView = view.subviews.first!
         
         expect(backgroundView.layer.borderWidth).to(equal(2))
-        expect(backgroundView.layer.borderColor).to(equal(UIColor.black.cgColor))
     }
     
-    func testLayoutSubviews_shouldRenderFillViewWithFillColor() {
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+    func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultColours() {
+        let view = setupView()
+        let backgroundView = view.subviews.first!
+        
+        expect(backgroundView.layer.borderColor).to(equal(UIColor.black.cgColor))
+        expect(backgroundView.backgroundColor).to(equal(UIColor.white))
+    }
+    
+    func testLayoutSubviews_shouldRenderFillViewWithDefaultFillColor() {
+        let view = setupView()
+        
+        expect(view.subviews[1].backgroundColor).to(equal(UIColor.black))
+    }
+    
+    private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()
         
-        expect(view.subviews[1].backgroundColor).to(equal(UIColor.black))
+        return view
     }
     
 }
