@@ -32,7 +32,7 @@ public class GTProgressBar: UIView {
     }
     
     public override func layoutSubviews() {
-        backgroundView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        backgroundView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
         backgroundView.layer.borderWidth = backgroundViewBorder
         backgroundView.layer.borderColor = backgroundViewBorderColor.cgColor
         
