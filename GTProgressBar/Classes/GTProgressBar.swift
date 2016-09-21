@@ -17,6 +17,23 @@ public class GTProgressBar: UIView {
     private let fillViewInset: CGFloat = 2
     private let fillViewBackgroundColor = UIColor.black
 
+    private var _progress: CGFloat = 1
+    public var progress: CGFloat {
+        get {
+            return self._progress
+        }
+        
+        set {
+            if newValue < 0 {
+                self._progress = 0
+            } else if newValue > 1 {
+                self._progress = 1
+            } else {
+                self._progress = newValue
+            }
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -47,7 +64,10 @@ public class GTProgressBar: UIView {
     
     private func setupFillView() {
         let offset = backgroundViewBorder + fillViewInset
-        fillView.frame = backgroundView.frame.insetBy(dx: offset, dy: offset)
+        let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
+        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * _progress, height: fillFrame.height)
+        
+        fillView.frame = CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
         fillView.backgroundColor = fillViewBackgroundColor
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
     }

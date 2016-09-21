@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        progressBar.progress = 0.5
     }
 
     override func didReceiveMemoryWarning() {

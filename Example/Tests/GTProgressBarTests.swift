@@ -68,6 +68,33 @@ class GTProgressBarTests: XCTestCase {
         expect(view.subviews[1].backgroundColor).to(equal(UIColor.black))
     }
     
+    func testLayoutSubivews_shouldSetCorrectWidthForFillViewWhenProgressSet() {
+        let view = setupView()
+        view.progress = 0.5
+        view.layoutSubviews()
+        
+        let expectedFrameWidth: CGFloat = 46
+        expect(view.subviews[1].frame.width).to(equal(expectedFrameWidth))
+    }
+    
+    func testLayoutSubivews_shouldNotAllowNegativeValuesForProgress() {
+        let view = setupView()
+        view.progress = -0.5
+        view.layoutSubviews()
+        
+        let expectedFrameWidth: CGFloat = 0
+        expect(view.subviews[1].frame.width).to(equal(expectedFrameWidth))
+    }
+    
+    func testLayoutSubivews_shouldNotAllowProgressToBeGreaterThanOne() {
+        let view = setupView()
+        view.progress = 1.5
+        view.layoutSubviews()
+        
+        let expectedFrameWidth: CGFloat = 92
+        expect(view.subviews[1].frame.width).to(equal(expectedFrameWidth))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()
