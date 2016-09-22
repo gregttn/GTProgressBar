@@ -12,12 +12,17 @@ public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
     private let backgroundViewBorder: CGFloat = 2
-    private let backgroundViewBorderColor: UIColor = UIColor.black
     private let backgroundViewBackgroundColor: UIColor = UIColor.white
     private let fillViewInset: CGFloat = 2
     private let fillViewBackgroundColor = UIColor.black
-
     private var _progress: CGFloat = 1
+    
+    public var barBorderColor: UIColor = UIColor.black {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     public var progress: CGFloat {
         get {
             return self._progress
@@ -60,7 +65,7 @@ public class GTProgressBar: UIView {
         backgroundView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
         backgroundView.backgroundColor = backgroundViewBackgroundColor
         backgroundView.layer.borderWidth = backgroundViewBorder
-        backgroundView.layer.borderColor = backgroundViewBorderColor.cgColor
+        backgroundView.layer.borderColor = barBorderColor.cgColor
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
     }
     
