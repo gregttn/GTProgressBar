@@ -31,6 +31,8 @@ public class GTProgressBar: UIView {
             } else {
                 self._progress = newValue
             }
+            
+            self.setNeedsLayout()
         }
     }
     
