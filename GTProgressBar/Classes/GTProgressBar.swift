@@ -8,41 +8,48 @@
 
 import UIKit
 
+@IBDesignable
 public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
     private var _progress: CGFloat = 1
     
+    @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
         didSet {
             self.setNeedsLayout()
         }
     }
     
+    @IBInspectable
     public var barBackgroundColor: UIColor = UIColor.white {
         didSet {
             self.setNeedsLayout()
         }
     }
     
+    @IBInspectable
     public var barFillColor: UIColor = UIColor.black {
         didSet {
             self.setNeedsLayout()
         }
     }
     
+    @IBInspectable
     public var barBorderWidth: CGFloat = 2 {
         didSet {
             self.setNeedsLayout()
         }
     }
     
+    @IBInspectable
     public var barFillInset: CGFloat = 2 {
         didSet {
             self.setNeedsLayout()
         }
     }
     
+    @IBInspectable
     public var progress: CGFloat {
         get {
             return self._progress
