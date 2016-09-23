@@ -132,6 +132,16 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.layer.borderWidth).to(equal(1))
     }
     
+    func testShouldRenderFillViewWithCorrectSizeWhenInsetSet() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        view.barFillInset = 5
+        
+        view.layoutSubviews()
+        
+        let expectedFrame = CGRect(x: 7, y: 7, width: 86, height: 86)
+        expect(view.subviews[1].frame).to(equal(expectedFrame))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()

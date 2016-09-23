@@ -11,7 +11,6 @@ import UIKit
 public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
-    private let fillViewInset: CGFloat = 2
     private var _progress: CGFloat = 1
     
     public var barBorderColor: UIColor = UIColor.black {
@@ -33,6 +32,12 @@ public class GTProgressBar: UIView {
     }
     
     public var barBorderWidth: CGFloat = 2 {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
+    public var barFillInset: CGFloat = 2 {
         didSet {
             self.setNeedsLayout()
         }
@@ -85,7 +90,7 @@ public class GTProgressBar: UIView {
     }
     
     private func setupFillView() {
-        let offset = barBorderWidth + fillViewInset
+        let offset = barBorderWidth + barFillInset
         let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
         let fillFrameAdjustedSize = CGSize(width: fillFrame.width * _progress, height: fillFrame.height)
         
