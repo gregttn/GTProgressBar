@@ -78,8 +78,13 @@ public class GTProgressBar: UIView {
     }
     
     public override func layoutSubviews() {
+        setupProgressLabel()
         setupBackgroundView()
         setupFillView()
+    }
+    
+    private func setupProgressLabel() {
+        progressLabel.text = "\(Int(_progress * 100))%"
     }
     
     private func setupBackgroundView() {

@@ -157,6 +157,16 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
+    func testShouldSetCorrectTextInProgressUILabel() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        view.progress = 0.6
+        
+        view.layoutSubviews()
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        expect(label.text!).to(equal("60%"))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()
