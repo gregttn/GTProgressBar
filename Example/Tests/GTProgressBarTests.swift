@@ -103,6 +103,15 @@ class GTProgressBarTests: XCTestCase {
         
         expect(view.subviews.first!.layer.borderColor).to(equal(UIColor.yellow.cgColor))
     }
+
+    func testShouldAllowSettingProgressBarBackgroundColor() {
+        let view = setupView()
+        view.barBackgroundColor = UIColor.yellow
+        
+        view.layoutSubviews()
+        
+        expect(view.subviews.first!.backgroundColor).to(equal(UIColor.yellow))
+    }
     
     func testShouldAllowSettingProgressBarFillColor() {
         let view = setupView()
