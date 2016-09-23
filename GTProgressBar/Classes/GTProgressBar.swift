@@ -3,8 +3,6 @@
 //  Pods
 //
 //  Created by Grzegorz Tatarzyn on 19/09/2016.
-//
-//
 
 import UIKit
 
@@ -56,13 +54,7 @@ public class GTProgressBar: UIView {
         }
         
         set {
-            if newValue < 0 {
-                self._progress = 0
-            } else if newValue > 1 {
-                self._progress = 1
-            } else {
-                self._progress = newValue
-            }
+            self._progress = min(max(newValue,0), 1)
             
             self.setNeedsLayout()
         }
