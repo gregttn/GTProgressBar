@@ -10,6 +10,7 @@ import UIKit
 public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
+    private let progressLabel = UILabel()
     private var _progress: CGFloat = 1
     
     @IBInspectable
@@ -71,6 +72,7 @@ public class GTProgressBar: UIView {
     }
     
     private func prepareSubviews() {
+        addSubview(progressLabel)
         addSubview(backgroundView)
         addSubview(fillView)
     }
