@@ -67,6 +67,13 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var labelTextColor: UIColor = UIColor.black {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -94,6 +101,7 @@ public class GTProgressBar: UIView {
         progressLabel.frame = CGRect(origin: CGPoint.zero, size: sizeForLabel())
         progressLabel.font = font
         progressLabel.textAlignment = NSTextAlignment.center
+        progressLabel.textColor = labelTextColor
     }
     
     private func setupBackgroundView() {

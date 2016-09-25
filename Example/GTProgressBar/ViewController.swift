@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         progressBar.barBackgroundColor = UIColor(red:0.77, green:0.93, blue:0.78, alpha:1.0)
         progressBar.barBorderWidth = 1
         progressBar.barFillInset = 3
+        progressBar.labelTextColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
     }
 
     override func didReceiveMemoryWarning() {

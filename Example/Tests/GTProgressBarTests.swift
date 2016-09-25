@@ -219,6 +219,17 @@ class GTProgressBarTests: XCTestCase {
         expect(label.textAlignment).to(equal(NSTextAlignment.center))
     }
     
+    func testShouldAllowSettingTextColorForProgressLabel() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        view.labelTextColor = UIColor.red
+        
+        view.layoutSubviews()
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.textColor).to(equal(UIColor.red))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()
