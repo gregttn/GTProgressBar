@@ -200,6 +200,18 @@ class GTProgressBarTests: XCTestCase {
         expect(label.font).to(equal(UIFont.systemFont(ofSize: 12)))
     }
     
+    func testShouldAllowSettingFontOnTheProgressLabel() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let font = UIFont.boldSystemFont(ofSize: 50)
+        
+        view.font = font
+        view.layoutSubviews()
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.font).to(equal(font))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()

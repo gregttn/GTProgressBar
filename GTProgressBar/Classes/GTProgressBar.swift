@@ -11,8 +11,13 @@ public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
     private let progressLabel = UILabel()
-    private let font = UIFont.systemFont(ofSize: 12)
     private var _progress: CGFloat = 1
+    
+    public var font: UIFont = UIFont.systemFont(ofSize: 12) {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
     
     @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
