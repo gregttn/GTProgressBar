@@ -187,10 +187,18 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testShouldSetCorrectFrameSizeForLabel() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let view = setupView()
         let label: UILabel = view.subviews.first! as! UILabel
         
         expect(label.frame.size).to(equal(defaultFontSize))
+    }
+    
+    func testShouldCenterLabelHorizontallyInView() {
+        let view = setupView()
+        let label: UILabel = view.subviews.first! as! UILabel
+    
+        let expectedCenter = CGPoint(x:label.center.x, y:view.frame.size.height/2)
+        expect(label.center).to(equal(expectedCenter))
     }
 
     func testShouldSetCorrectDefaultFontOnProgressLabel() {

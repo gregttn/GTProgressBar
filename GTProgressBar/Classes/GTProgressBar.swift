@@ -102,6 +102,9 @@ public class GTProgressBar: UIView {
         progressLabel.font = font
         progressLabel.textAlignment = NSTextAlignment.center
         progressLabel.textColor = labelTextColor
+        
+        let center = self.convert(self.center, from: self.superview)
+        progressLabel.center = CGPoint(x: progressLabel.center.x, y: center.y)
     }
     
     private func setupBackgroundView() {
