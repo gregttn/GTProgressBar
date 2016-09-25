@@ -167,6 +167,17 @@ class GTProgressBarTests: XCTestCase {
         expect(label.text!).to(equal("60%"))
     }
     
+    func testShouldSetCorrectFrameSizeForLabel() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let font = UIFont.systemFont(ofSize: 12)
+        let text: NSString = "100%"
+        let textSize = text.size(attributes: [NSFontAttributeName: font])
+        let expectedSize = CGSize(width: ceil(textSize.width), height: ceil(textSize.height	))
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.frame.size).to(equal(expectedSize))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()

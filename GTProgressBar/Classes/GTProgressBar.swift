@@ -11,6 +11,7 @@ public class GTProgressBar: UIView {
     private let backgroundView = UIView()
     private let fillView = UIView()
     private let progressLabel = UILabel()
+    private let font = UIFont.systemFont(ofSize: 12)
     private var _progress: CGFloat = 1
     
     @IBInspectable
@@ -85,6 +86,7 @@ public class GTProgressBar: UIView {
     
     private func setupProgressLabel() {
         progressLabel.text = "\(Int(_progress * 100))%"
+        progressLabel.frame = CGRect(origin: CGPoint.zero, size: sizeForLabel())
     }
     
     private func setupBackgroundView() {
@@ -107,5 +109,13 @@ public class GTProgressBar: UIView {
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {
         return view.frame.height / 2 * 0.7
+    }
+    
+    private func sizeForLabel() -> CGSize {
+        let text: NSString = "100%"
+        let textSize = text.size(attributes: [NSFontAttributeName : font])
+        
+        
+        return CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
     }
 }
