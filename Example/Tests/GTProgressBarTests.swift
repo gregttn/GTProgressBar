@@ -193,6 +193,35 @@ class GTProgressBarTests: XCTestCase {
         expect(label.frame.size).to(equal(defaultFontSize))
     }
     
+    func testShouldAllowToSetInsetsForProgressLabel() {
+        let view = setupView()
+        let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        view.progressLabelInsets = labelInsets
+        
+        view.layoutSubviews()
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        let expectedLabelX = labelInsets.left
+        expect(label.frame.size).to(equal(defaultFontSize))
+        expect(label.frame.origin.x).to(equal(expectedLabelX))
+    }
+    
+    func testShouldAdjustFrameForBackgroundViewWhenInsetsAreSet() {
+        let view = setupView()
+        let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        view.progressLabelInsets = labelInsets
+        
+        view.layoutSubviews()
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        let expectedOrigin = CGPoint(x: defaultFontSize.width + labelInsets.left + labelInsets.right, y: 0)
+        let expectedSize = CGSize(width: view.frame.size.width - expectedOrigin.x, height: view.frame.size.height)
+        expect(backgroundView.frame.size).to(equal(expectedSize))
+        expect(backgroundView.frame.origin).to(equal(expectedOrigin))
+    }
+    
     func testShouldCenterLabelHorizontallyInView() {
         let view = setupView()
         let label: UILabel = view.subviews.first! as! UILabel

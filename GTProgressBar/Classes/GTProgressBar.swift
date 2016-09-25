@@ -19,6 +19,12 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var progressLabelInsets: UIEdgeInsets = UIEdgeInsets.zero {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
         didSet {
@@ -98,7 +104,8 @@ public class GTProgressBar: UIView {
     
     private func setupProgressLabel() {
         progressLabel.text = "\(Int(_progress * 100))%"
-        progressLabel.frame = CGRect(origin: CGPoint.zero, size: sizeForLabel())
+        let origin = CGPoint(x: progressLabelInsets.left, y: 0)
+        progressLabel.frame = CGRect(origin: origin, size: sizeForLabel())
         progressLabel.font = font
         progressLabel.textAlignment = NSTextAlignment.center
         progressLabel.textColor = labelTextColor
@@ -108,8 +115,9 @@ public class GTProgressBar: UIView {
     }
     
     private func setupBackgroundView() {
-        let size = CGSize(width: frame.size.width - progressLabel.frame.width, height: frame.size.height)
-        let origin = CGPoint(x: progressLabel.frame.width, y: 0)
+        let insets = progressLabelInsets.left + progressLabelInsets.right
+        let size = CGSize(width: frame.size.width - progressLabel.frame.width - insets, height: frame.size.height)
+        let origin = CGPoint(x: progressLabel.frame.width + insets, y: 0)
         
         backgroundView.frame = CGRect(origin: origin, size: size)
         backgroundView.backgroundColor = barBackgroundColor
