@@ -87,10 +87,14 @@ public class GTProgressBar: UIView {
     private func setupProgressLabel() {
         progressLabel.text = "\(Int(_progress * 100))%"
         progressLabel.frame = CGRect(origin: CGPoint.zero, size: sizeForLabel())
+        progressLabel.font = font
     }
     
     private func setupBackgroundView() {
-        backgroundView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
+        let size = CGSize(width: frame.size.width - progressLabel.frame.width, height: frame.size.height)
+        let origin = CGPoint(x: progressLabel.frame.width, y: 0)
+        
+        backgroundView.frame = CGRect(origin: origin, size: size)
         backgroundView.backgroundColor = barBackgroundColor
         backgroundView.layer.borderWidth = barBorderWidth
         backgroundView.layer.borderColor = barBorderColor.cgColor

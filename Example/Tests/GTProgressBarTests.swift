@@ -13,6 +13,13 @@ import GTProgressBar
 class GTProgressBarTests: XCTestCase {
     private let backgroundViewIndex = 1
     private let fillViewIndex = 2
+    private var defaultFontSize: CGSize {
+        let font = UIFont.systemFont(ofSize: 12)
+        let text: NSString = "100%"
+        let textSize = text.size(attributes: [NSFontAttributeName: font])
+        
+        return  CGSize(width: ceil(textSize.width), height: ceil(textSize.height	))
+    }
     
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
@@ -23,12 +30,21 @@ class GTProgressBarTests: XCTestCase {
         expect(view.subviews[2]).to(beAKindOf(UIView.self))
     }
     
-    func testLayoutSubviews_shouldSetBackgroundViewFrameToSameSizeAsTheParent() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+    func testLayoutSubviews_shouldRenderBakgroundViewNextToLabel() {
+        let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let expectedFrame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        expect(backgroundView.frame).to(equal(expectedFrame))
+        let expectedOrigin = CGPoint(x: defaultFontSize.width, y: 0)
+        
+        expect(backgroundView.frame.origin).to(equal(expectedOrigin))
+    }
+    
+    func testLayoutSubviews_shouldSetBackgroundViewFrameToCorrectSize() {
+        let view = setupView()
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        let expectedSize = CGSize(width: 100 - defaultFontSize.width, height: 100)
+        expect(backgroundView.frame.size).to(equal(expectedSize))
     }
     
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultBorder() {
@@ -58,7 +74,7 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let fillView = view.subviews[fillViewIndex]
         
-        let expectedFrame = CGRect(x: 4, y: 4, width: 92, height: 92)
+        let expectedFrame = CGRect(x:35, y: 4, width: 61, height: 92)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -81,8 +97,9 @@ class GTProgressBarTests: XCTestCase {
         view.progress = 0.5
         view.layoutSubviews()
         let fillView = view.subviews[fillViewIndex]
+        let offset: CGFloat = 4
         
-        let expectedFrameWidth: CGFloat = 46
+        let expectedFrameWidth: CGFloat = (view.frame.width - 2*offset - defaultFontSize.width)/2
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
@@ -102,7 +119,7 @@ class GTProgressBarTests: XCTestCase {
         view.layoutSubviews()
         let fillView = view.subviews[fillViewIndex]
         
-        let expectedFrameWidth: CGFloat = 92
+        let expectedFrameWidth: CGFloat = 61
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
@@ -153,7 +170,9 @@ class GTProgressBarTests: XCTestCase {
         view.layoutSubviews()
         
         let fillView = view.subviews[fillViewIndex]
-        let expectedFrame = CGRect(x: 7, y: 7, width: 86, height: 86)
+        let expectedOrigin = CGPoint(x: 7 + defaultFontSize.width, y: 7)
+        let expectedSize = CGSize(width:view.frame.size.width - 2*7.0 - defaultFontSize.width, height: 86)
+        let expectedFrame = CGRect(origin: expectedOrigin, size: expectedSize)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -169,13 +188,16 @@ class GTProgressBarTests: XCTestCase {
     
     func testShouldSetCorrectFrameSizeForLabel() {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        let font = UIFont.systemFont(ofSize: 12)
-        let text: NSString = "100%"
-        let textSize = text.size(attributes: [NSFontAttributeName: font])
-        let expectedSize = CGSize(width: ceil(textSize.width), height: ceil(textSize.height	))
         let label: UILabel = view.subviews.first! as! UILabel
         
-        expect(label.frame.size).to(equal(expectedSize))
+        expect(label.frame.size).to(equal(defaultFontSize))
+    }
+
+    func testShouldSetCorrectDefaultFontOnProgressLabel() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.font).to(equal(UIFont.systemFont(ofSize: 12)))
     }
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
