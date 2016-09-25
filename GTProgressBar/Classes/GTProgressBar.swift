@@ -93,6 +93,7 @@ public class GTProgressBar: UIView {
         progressLabel.text = "\(Int(_progress * 100))%"
         progressLabel.frame = CGRect(origin: CGPoint.zero, size: sizeForLabel())
         progressLabel.font = font
+        progressLabel.textAlignment = NSTextAlignment.center
     }
     
     private func setupBackgroundView() {

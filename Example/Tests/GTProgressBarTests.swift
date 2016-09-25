@@ -212,6 +212,13 @@ class GTProgressBarTests: XCTestCase {
         expect(label.font).to(equal(font))
     }
     
+    func testShouldCenterTextInTheProgressLabelView() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.textAlignment).to(equal(NSTextAlignment.center))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
         view.layoutSubviews()
