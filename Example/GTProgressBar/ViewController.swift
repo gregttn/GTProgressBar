@@ -18,9 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        // Do any additional setup after loading the view, typically from a nib.
+
         progressBar.progress = 1
         progressBar.barBorderColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
         progressBar.barFillColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
@@ -28,11 +26,7 @@ class ViewController: UIViewController {
         progressBar.barBorderWidth = 1
         progressBar.barFillInset = 2
         progressBar.labelTextColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
-        progressBar.progressLabelInsets = labelInsets
-        
-        orangeProgressBar.progressLabelInsets = labelInsets
-        redProgressBar.progressLabelInsets = labelInsets
-        zeroProgressBar.progressLabelInsets = labelInsets
+        progressBar.progressLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
     }
 

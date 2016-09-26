@@ -19,7 +19,7 @@ public class GTProgressBar: UIView {
         }
     }
     
-    public var progressLabelInsets: UIEdgeInsets = UIEdgeInsets.zero {
+    public var progressLabelInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5) {
         didSet {
             self.setNeedsLayout()
         }

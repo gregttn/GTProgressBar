@@ -20,6 +20,7 @@ class GTProgressBarTests: XCTestCase {
         
         return  CGSize(width: ceil(textSize.width), height: ceil(textSize.height	))
     }
+    private let defaultLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
@@ -34,7 +35,7 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let expectedOrigin = CGPoint(x: defaultFontSize.width, y: 0)
+        let expectedOrigin = CGPoint(x: defaultFontSize.width + defaultLabelInsets.left + defaultLabelInsets.right, y: 0)
         
         expect(backgroundView.frame.origin).to(equal(expectedOrigin))
     }
@@ -43,7 +44,8 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let expectedSize = CGSize(width: 100 - defaultFontSize.width, height: 100)
+        let insets = defaultLabelInsets.left + defaultLabelInsets.right;
+        let expectedSize = CGSize(width: 100 - defaultFontSize.width - insets, height: 100)
         expect(backgroundView.frame.size).to(equal(expectedSize))
     }
     
@@ -74,7 +76,7 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let fillView = view.subviews[fillViewIndex]
         
-        let expectedFrame = CGRect(x:35, y: 4, width: 61, height: 92)
+        let expectedFrame = CGRect(x:45, y: 4, width: 51, height: 92)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -99,7 +101,8 @@ class GTProgressBarTests: XCTestCase {
         let fillView = view.subviews[fillViewIndex]
         let offset: CGFloat = 4
         
-        let expectedFrameWidth: CGFloat = (view.frame.width - 2*offset - defaultFontSize.width)/2
+        let insets = defaultLabelInsets.left + defaultLabelInsets.right
+        let expectedFrameWidth: CGFloat = (view.frame.width - insets - 2*offset - defaultFontSize.width)/2
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
@@ -119,7 +122,7 @@ class GTProgressBarTests: XCTestCase {
         view.layoutSubviews()
         let fillView = view.subviews[fillViewIndex]
         
-        let expectedFrameWidth: CGFloat = 61
+        let expectedFrameWidth: CGFloat = 51
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
@@ -170,8 +173,9 @@ class GTProgressBarTests: XCTestCase {
         view.layoutSubviews()
         
         let fillView = view.subviews[fillViewIndex]
-        let expectedOrigin = CGPoint(x: 7 + defaultFontSize.width, y: 7)
-        let expectedSize = CGSize(width:view.frame.size.width - 2*7.0 - defaultFontSize.width, height: 86)
+        let insets = defaultLabelInsets.left + defaultLabelInsets.right
+        let expectedOrigin = CGPoint(x: 7 + defaultFontSize.width + insets, y: 7)
+        let expectedSize = CGSize(width:view.frame.size.width - insets -  2*7.0 - defaultFontSize.width, height: 86)
         let expectedFrame = CGRect(origin: expectedOrigin, size: expectedSize)
         expect(fillView.frame).to(equal(expectedFrame))
     }
