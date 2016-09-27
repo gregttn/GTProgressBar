@@ -13,14 +13,9 @@ import GTProgressBar
 class GTProgressBarTests: XCTestCase {
     private let backgroundViewIndex = 1
     private let fillViewIndex = 2
-    private var defaultFontSize: CGSize {
-        let font = UIFont.systemFont(ofSize: 12)
-        let text: NSString = "100%"
-        let textSize = text.size(attributes: [NSFontAttributeName: font])
-        
-        return  CGSize(width: ceil(textSize.width), height: ceil(textSize.height	))
-    }
-    private let defaultLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    private let labelFrameSize: CGSize = CGSize(width: 31, height: 15)
+    private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    private let insetsOffset: CGFloat = 10
     
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
@@ -35,8 +30,7 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let expectedOrigin = CGPoint(x: defaultFontSize.width + defaultLabelInsets.left + defaultLabelInsets.right, y: 0)
-        
+        let expectedOrigin = CGPoint(x: labelFrameSize.width + insetsOffset, y: 0)
         expect(backgroundView.frame.origin).to(equal(expectedOrigin))
     }
     
@@ -44,14 +38,13 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let insets = defaultLabelInsets.left + defaultLabelInsets.right;
-        let expectedSize = CGSize(width: 100 - defaultFontSize.width - insets, height: 100)
+        let expectedSize = CGSize(width: 100 - labelFrameSize.width - insetsOffset, height: 100)
         expect(backgroundView.frame.size).to(equal(expectedSize))
     }
     
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultBorder() {
         let view = setupView()
-        let backgroundView = view.subviews[1]
+        let backgroundView = view.subviews[backgroundViewIndex]
         
         expect(backgroundView.layer.borderWidth).to(equal(2))
     }
@@ -60,8 +53,8 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let expectedRoundedCorners: CGFloat = 3.5
-        expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRoundedCorners, within: 0.01))
+        let expectedRadius: CGFloat = 3.5
+        expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
     }
     
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultColors() {
@@ -84,32 +77,33 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         let fillView = view.subviews[fillViewIndex]
         
-        let expectedRoundedCorners: CGFloat = 0.7
-        expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRoundedCorners, within: 0.01))
+        let expectedRadius: CGFloat = 0.7
+        expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
     }
     
     func testLayoutSubviews_shouldRenderFillViewWithDefaultFillColor() {
         let view = setupView()
         
-        expect(view.subviews[2].backgroundColor).to(equal(UIColor.black))
+        expect(view.subviews[self.fillViewIndex].backgroundColor).to(equal(UIColor.black))
     }
     
     func testLayoutSubivews_shouldSetCorrectWidthForFillViewWhenProgressSet() {
-        let view = setupView()
-        view.progress = 0.5
-        view.layoutSubviews()
-        let fillView = view.subviews[fillViewIndex]
-        let offset: CGFloat = 4
+        let view = setupView() { v in
+            v.progress = 0.5
+        }
         
-        let insets = defaultLabelInsets.left + defaultLabelInsets.right
-        let expectedFrameWidth: CGFloat = (view.frame.width - insets - 2*offset - defaultFontSize.width)/2
+        let fillView = view.subviews[fillViewIndex]
+        
+        let offset: CGFloat = 4
+        let expectedFrameWidth: CGFloat = (view.frame.width - insetsOffset - 2*offset - labelFrameSize.width)/2
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
     func testLayoutSubivews_shouldNotAllowNegativeValuesForProgress() {
-        let view = setupView()
-        view.progress = -0.5
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.progress = -0.5
+        }
+        
         let fillView = view.subviews[fillViewIndex]
         
         let expectedFrameWidth: CGFloat = 0
@@ -117,9 +111,10 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testLayoutSubivews_shouldNotAllowProgressToBeGreaterThanOne() {
-        let view = setupView()
-        view.progress = 1.5
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.progress = 1.5
+        }
+
         let fillView = view.subviews[fillViewIndex]
         
         let expectedFrameWidth: CGFloat = 51
@@ -127,64 +122,58 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testShouldAllowSettingProgressBarBorderColor() {
-        let view = setupView()
-        view.barBorderColor = UIColor.yellow
-        
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.barBorderColor = UIColor.yellow
+        }
         
         let backgroundView = view.subviews[backgroundViewIndex]
         expect(backgroundView.layer.borderColor).to(equal(UIColor.yellow.cgColor))
     }
 
     func testShouldAllowSettingProgressBarBackgroundColor() {
-        let view = setupView()
-        view.barBackgroundColor = UIColor.yellow
-        
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.barBackgroundColor = UIColor.yellow
+        }
         
         let backgroundView = view.subviews[backgroundViewIndex]
         expect(backgroundView.backgroundColor).to(equal(UIColor.yellow))
     }
     
     func testShouldAllowSettingProgressBarFillColor() {
-        let view = setupView()
-        view.barFillColor = UIColor.blue
-        
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.barFillColor = UIColor.blue
+        }
         
         let fillView = view.subviews[fillViewIndex]
         expect(fillView.backgroundColor).to(equal(UIColor.blue))
     }
     
     func testShouldAllowSettingProgressBarWidth() {
-        let view = setupView()
-        view.barBorderWidth = 1
-        
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.barBorderWidth = 1
+        }
         
         let backgroundView = view.subviews[1]
         expect(backgroundView.layer.borderWidth).to(equal(1))
     }
     
     func testShouldRenderFillViewWithCorrectSizeWhenInsetSet() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        view.barFillInset = 5
-        
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { v in
+            v.barFillInset = 5
+        }
         
         let fillView = view.subviews[fillViewIndex]
-        let insets = defaultLabelInsets.left + defaultLabelInsets.right
-        let expectedOrigin = CGPoint(x: 7 + defaultFontSize.width + insets, y: 7)
-        let expectedSize = CGSize(width:view.frame.size.width - insets -  2*7.0 - defaultFontSize.width, height: 86)
+        let insets = labelInsets.left + labelInsets.right
+        let expectedOrigin = CGPoint(x: 7 + labelFrameSize.width + insets, y: 7)
+        let expectedSize = CGSize(width:view.frame.size.width - insets -  2*7.0 - labelFrameSize.width, height: 86)
         let expectedFrame = CGRect(origin: expectedOrigin, size: expectedSize)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
     func testShouldSetCorrectTextInProgressUILabel() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        view.progress = 0.6
-        
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { v in
+            v.progress = 0.6
+        }
         
         let label: UILabel = view.subviews.first! as! UILabel
         expect(label.text!).to(equal("60%"))
@@ -194,36 +183,20 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView()
         let label: UILabel = view.subviews.first! as! UILabel
         
-        expect(label.frame.size).to(equal(defaultFontSize))
+        expect(label.frame.size).to(equal(labelFrameSize))
     }
     
     func testShouldAllowToSetInsetsForProgressLabel() {
-        let view = setupView()
         let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        view.progressLabelInsets = labelInsets
-        
-        view.layoutSubviews()
+        let view = setupView() { v in
+            v.progressLabelInsets = labelInsets
+        }
         
         let label: UILabel = view.subviews.first! as! UILabel
         
         let expectedLabelX = labelInsets.left
-        expect(label.frame.size).to(equal(defaultFontSize))
+        expect(label.frame.size).to(equal(labelFrameSize))
         expect(label.frame.origin.x).to(equal(expectedLabelX))
-    }
-    
-    func testShouldAdjustFrameForBackgroundViewWhenInsetsAreSet() {
-        let view = setupView()
-        let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        view.progressLabelInsets = labelInsets
-        
-        view.layoutSubviews()
-        
-        let backgroundView = view.subviews[backgroundViewIndex]
-        
-        let expectedOrigin = CGPoint(x: defaultFontSize.width + labelInsets.left + labelInsets.right, y: 0)
-        let expectedSize = CGSize(width: view.frame.size.width - expectedOrigin.x, height: view.frame.size.height)
-        expect(backgroundView.frame.size).to(equal(expectedSize))
-        expect(backgroundView.frame.origin).to(equal(expectedOrigin))
     }
     
     func testShouldCenterLabelHorizontallyInView() {
@@ -242,14 +215,12 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testShouldAllowSettingFontOnTheProgressLabel() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let font = UIFont.boldSystemFont(ofSize: 50)
-        
-        view.font = font
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { v in
+            v.font = font
+        }
         
         let label: UILabel = view.subviews.first! as! UILabel
-        
         expect(label.font).to(equal(font))
     }
     
@@ -261,18 +232,18 @@ class GTProgressBarTests: XCTestCase {
     }
     
     func testShouldAllowSettingTextColorForProgressLabel() {
-        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        view.labelTextColor = UIColor.red
-        
-        view.layoutSubviews()
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { v in
+            v.labelTextColor = UIColor.red
+        }
         
         let label: UILabel = view.subviews.first! as! UILabel
-        
         expect(label.textColor).to(equal(UIColor.red))
     }
     
-    private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100)) -> GTProgressBar {
+    private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
+) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
+        configure(view)
         view.layoutSubviews()
         
         return view

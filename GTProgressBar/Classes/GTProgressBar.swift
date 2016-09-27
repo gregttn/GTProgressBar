@@ -144,7 +144,6 @@ public class GTProgressBar: UIView {
         let text: NSString = "100%"
         let textSize = text.size(attributes: [NSFontAttributeName : font])
         
-        
         return CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
     }
 }
