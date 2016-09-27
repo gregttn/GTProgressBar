@@ -240,6 +240,26 @@ class GTProgressBarTests: XCTestCase {
         expect(label.textColor).to(equal(UIColor.red))
     }
     
+    func testShouldHideProgressLabelWhenDisplayLabelSetToFalse() {
+        let view = setupView() { v in
+            v.displayLabel = false
+        }
+        
+        let label = view.subviews.first!
+        expect(label.isHidden).to(beTrue())
+    }
+    
+    func testShouldGiveAllSpaceForProgressBarWhenLabelNotDisplayed() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 15)) { v in
+            v.displayLabel = false
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size).to(equal(CGSize(width: 100, height: 15)))
+        expect(backgroundView.frame.origin).to(equal(CGPoint(x: 0, y: 0)))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

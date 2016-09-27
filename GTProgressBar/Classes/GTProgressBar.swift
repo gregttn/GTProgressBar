@@ -80,6 +80,14 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var displayLabel: Bool = true {
+        didSet {
+            self.progressLabel.isHidden = !self.displayLabel
+            self.setNeedsLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -115,9 +123,9 @@ public class GTProgressBar: UIView {
     }
     
     private func setupBackgroundView() {
-        let insets = progressLabelInsets.left + progressLabelInsets.right
-        let size = CGSize(width: frame.size.width - progressLabel.frame.width - insets, height: frame.size.height)
-        let origin = CGPoint(x: progressLabel.frame.width + insets, y: 0)
+        let xOffset = backgroundViewXOffset()
+        let size = CGSize(width: frame.size.width - xOffset, height: frame.size.height)
+        let origin = CGPoint(x: xOffset, y: 0)
         
         backgroundView.frame = CGRect(origin: origin, size: size)
         backgroundView.backgroundColor = barBackgroundColor
@@ -134,6 +142,10 @@ public class GTProgressBar: UIView {
         fillView.frame = CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
         fillView.backgroundColor = barFillColor
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    private func backgroundViewXOffset() -> CGFloat {
+        return displayLabel ? progressLabel.frame.width + progressLabelInsets.left + progressLabelInsets.right : 0.0
     }
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {

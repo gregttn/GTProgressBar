@@ -119,11 +119,45 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8t-2f-aim" customClass="GTProgressBar" customModule="GTProgressBar">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="JyE-Cv-woS"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="KLq-Be-Owh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="OHC-mx-Nom"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="YQS-PD-Gsz"/>
+                                    <constraint firstAttribute="width" constant="343" id="jEv-9G-1ng"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                        <color key="value" red="0.3529411764705882" green="0.79607843137254897" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                        <color key="value" red="0.3529411764705882" green="0.79607843137254897" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                        <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                        <color key="value" red="0.77254901960784317" green="0.92549019607843142" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="urx-e8-jKi" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="0hx-oX-B6P"/>
                             <constraint firstItem="QHt-jH-dMm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="3Ub-rD-Bp0"/>
+                            <constraint firstItem="g8t-2f-aim" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="5fV-GK-O06"/>
                             <constraint firstItem="QHt-jH-dMm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="A1b-Tb-GzQ"/>
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="LPJ-oM-hgJ"/>
                             <constraint firstItem="QHt-jH-dMm" firstAttribute="top" secondItem="GPw-8u-MbZ" secondAttribute="bottom" constant="30" id="M5U-rd-jns"/>
@@ -132,6 +166,8 @@
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="top" secondItem="urx-e8-jKi" secondAttribute="bottom" constant="30" id="h6t-Zs-mor"/>
                             <constraint firstItem="3Wh-eJ-yDe" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="jxa-kp-Wm2"/>
                             <constraint firstItem="3Wh-eJ-yDe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="lzP-0A-zwz"/>
+                            <constraint firstItem="g8t-2f-aim" firstAttribute="top" secondItem="QHt-jH-dMm" secondAttribute="bottom" constant="30" id="raF-Lk-R8c"/>
+                            <constraint firstItem="g8t-2f-aim" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="sMH-XB-TSX"/>
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="vPU-gh-573"/>
                             <constraint firstItem="urx-e8-jKi" firstAttribute="top" secondItem="3Wh-eJ-yDe" secondAttribute="bottom" constant="30" id="ysL-aY-ayU"/>
                         </constraints>
