@@ -260,6 +260,26 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.frame.origin).to(equal(CGPoint(x: 0, y: 0)))
     }
     
+    func testShouldAllowMaxHeightOfTheBarToBeRestricted() {
+        let view = setupView() { v in
+            v.barMaxHeight = 10.0
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.height).to(equal(10.0))
+    }
+    
+    func testShouldNotDrawBarHeigherThanViewWhenBarMaxHeightLargerThanFrame() {
+        let view = setupView() { v in
+            v.barMaxHeight = 1000.0
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.height).to(equal(100.0))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

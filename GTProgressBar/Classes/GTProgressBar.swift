@@ -25,6 +25,12 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var barMaxHeight: CGFloat? {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
         didSet {
@@ -124,7 +130,8 @@ public class GTProgressBar: UIView {
     
     private func setupBackgroundView() {
         let xOffset = backgroundViewXOffset()
-        let size = CGSize(width: frame.size.width - xOffset, height: frame.size.height)
+        let height = min(barMaxHeight ?? frame.size.height, frame.size.height)
+        let size = CGSize(width: frame.size.width - xOffset, height: height)
         let origin = CGPoint(x: xOffset, y: 0)
         
         backgroundView.frame = CGRect(origin: origin, size: size)
