@@ -152,6 +152,35 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALz-5w-p8o" customClass="GTProgressBar" customModule="GTProgressBar">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1pl-rA-VhE"/>
+                                    <constraint firstAttribute="width" constant="343" id="NBW-tQ-n4o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                        <color key="value" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.56000000000000005"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                        <color key="value" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                        <color key="value" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                        <color key="value" red="0.94509803920000002" green="0.87843137250000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -161,11 +190,14 @@
                             <constraint firstItem="QHt-jH-dMm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="A1b-Tb-GzQ"/>
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="LPJ-oM-hgJ"/>
                             <constraint firstItem="QHt-jH-dMm" firstAttribute="top" secondItem="GPw-8u-MbZ" secondAttribute="bottom" constant="30" id="M5U-rd-jns"/>
+                            <constraint firstItem="ALz-5w-p8o" firstAttribute="top" secondItem="g8t-2f-aim" secondAttribute="bottom" constant="30" id="O23-ns-xq9"/>
+                            <constraint firstItem="ALz-5w-p8o" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TFJ-G5-j1t"/>
                             <constraint firstItem="urx-e8-jKi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Xpe-eD-8zu"/>
                             <constraint firstItem="3Wh-eJ-yDe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="fHP-Oo-hCP"/>
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="top" secondItem="urx-e8-jKi" secondAttribute="bottom" constant="30" id="h6t-Zs-mor"/>
                             <constraint firstItem="3Wh-eJ-yDe" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="jxa-kp-Wm2"/>
                             <constraint firstItem="3Wh-eJ-yDe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="lzP-0A-zwz"/>
+                            <constraint firstItem="ALz-5w-p8o" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="pNu-Pa-s0U"/>
                             <constraint firstItem="g8t-2f-aim" firstAttribute="top" secondItem="QHt-jH-dMm" secondAttribute="bottom" constant="30" id="raF-Lk-R8c"/>
                             <constraint firstItem="g8t-2f-aim" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="sMH-XB-TSX"/>
                             <constraint firstItem="GPw-8u-MbZ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="vPU-gh-573"/>
@@ -173,10 +205,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="orangeProgressBar" destination="urx-e8-jKi" id="TGv-M6-9qk"/>
                         <outlet property="progressBar" destination="3Wh-eJ-yDe" id="GWv-5u-6M6"/>
-                        <outlet property="redProgressBar" destination="GPw-8u-MbZ" id="No6-0z-49b"/>
-                        <outlet property="zeroProgressBar" destination="QHt-jH-dMm" id="ATV-AD-hjx"/>
+                        <outlet property="progressBarLargerFont" destination="ALz-5w-p8o" id="hAs-nP-Q4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

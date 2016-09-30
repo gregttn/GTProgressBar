@@ -124,8 +124,7 @@ public class GTProgressBar: UIView {
         progressLabel.textAlignment = NSTextAlignment.center
         progressLabel.textColor = labelTextColor
         
-        let center = self.convert(self.center, from: self.superview)
-        progressLabel.center = CGPoint(x: progressLabel.center.x, y: center.y)
+        centerVerticallyInView(view: progressLabel)
     }
     
     private func setupBackgroundView() {
@@ -139,6 +138,10 @@ public class GTProgressBar: UIView {
         backgroundView.layer.borderWidth = barBorderWidth
         backgroundView.layer.borderColor = barBorderColor.cgColor
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
+        
+        if let _ = barMaxHeight {
+            centerVerticallyInView(view: backgroundView)
+        }
     }
     
     private func setupFillView() {
@@ -164,5 +167,10 @@ public class GTProgressBar: UIView {
         let textSize = text.size(attributes: [NSFontAttributeName : font])
         
         return CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
+    }
+    
+    private func centerVerticallyInView(view: UIView) {
+        let center = self.convert(self.center, from: self.superview)
+        view.center = CGPoint(x: view.center.x, y: center.y)
     }
 }

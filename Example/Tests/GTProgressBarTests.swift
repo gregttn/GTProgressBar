@@ -280,6 +280,15 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.frame.size.height).to(equal(100.0))
     }
     
+    func testShouldCenterBarVerticallyInViewWhenHeightRestrictedWithBarMaxHeight() {
+        let view = setupView() { v in
+            v.barMaxHeight = 10.0
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        expect(backgroundView.center.y).to(equal(50.0))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
