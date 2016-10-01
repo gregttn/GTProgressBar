@@ -5,7 +5,7 @@ language: objective-c
 podfile: Example/Podfile
 osx_image: xcode8
 before_install:
-- gem install cocoapods
+- gem install cocoapods --pre
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
 - set -o pipefail && xcodebuild test -workspace Example/GTProgressBar.xcworkspace -scheme GTProgressBar-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0'  ONLY_ACTIVE_ARCH=NO | xcpretty -c
