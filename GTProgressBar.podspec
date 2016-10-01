@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+GTProgressBar is a customisable progress bar written in Swift 3.
                        DESC
 
   s.homepage         = 'https://github.com/gregttn/GTProgressBar'
