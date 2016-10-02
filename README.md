@@ -24,7 +24,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
 
 * @IBInspectable progress: CGFloat
 
-  This property specifies how much of the bar is filled. The allowed values are from 0 - 1. Default is 0.
+  This property specifies how much of the bar is filled. The allowed values are from 0.0 to 1.0 . Default is 0.
   If progress label is displayed the value provided in here will be displayed as %
   The following example will cause 50% of the bar to be filled. The label will show 50%
 
