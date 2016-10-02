@@ -105,7 +105,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barMaxHeight = 12
   ```
 
-To put it altogether her is a complete example configure GTProgressBar in code:
+To put it altogether here is a complete example configure GTProgressBar in code:
 
 ```swift
 var progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
