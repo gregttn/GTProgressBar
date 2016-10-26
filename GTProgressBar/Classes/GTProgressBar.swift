@@ -94,6 +94,15 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.masksToBounds = cornerRadius != 0.0
+            self.layer.cornerRadius = cornerRadius
+            self.setNeedsLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -159,6 +168,10 @@ public class GTProgressBar: UIView {
     }
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {
+        if cornerRadius != 0.0 {
+            return cornerRadius
+        }
+        
         return view.frame.height / 2 * 0.7
     }
     
