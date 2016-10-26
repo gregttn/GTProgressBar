@@ -57,6 +57,17 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
     }
     
+    func testLayoutSubviews_shouldRenderBackgroundViewCorrectCornerRaius() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        let backgroundView = view.subviews[backgroundViewIndex]
+        view.cornerRadius = view.bounds.height / 2.0
+        view.layoutSubviews()
+        
+        let expectedRadius: CGFloat = 5.0
+        
+        expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
+    }
+    
     func testLayoutSubviews_shouldRenderBackgroundViewWithDefaultColors() {
         let view = setupView()
         let backgroundView = view.subviews[backgroundViewIndex]
@@ -78,6 +89,16 @@ class GTProgressBarTests: XCTestCase {
         let fillView = view.subviews[fillViewIndex]
         
         let expectedRadius: CGFloat = 0.7
+        expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
+    }
+    
+    func testLayoutSubviews_shouldRenderFillViewWithCorrectRoundedCorners() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        let fillView = view.subviews[fillViewIndex]
+        view.cornerRadius = view.bounds.height / 2.0
+        view.layoutSubviews()
+        
+        let expectedRadius: CGFloat = 5.0
         expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
     }
     
