@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         progressBarLargerFont.font = UIFont.boldSystemFont(ofSize: 18)
         progressBarLargerFont.barMaxHeight = 12
-    
+        progressBarLargerFont.cornerRadius = (progressBarLargerFont.barMaxHeight ?? progressBarLargerFont.bounds.height) / 2.0
     }
 
     override func didReceiveMemoryWarning() {

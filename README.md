@@ -89,6 +89,15 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   ```swift
   progressBar.progressLabelInsets = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
+  
+* @IBInspectable cornerRadius: CGFloat
+
+  This property specifies the radius of corners. Default is 0.0
+
+  ```swift
+  progressBar.cornerRadius = 10.0
+  ```
+
 * font: UIFont
 
   This property allows you to specify the font for the progress label. Default is UIFont.systemFont(ofSize: 12)
