@@ -310,6 +310,13 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.center.y).to(equal(50.0))
     }
     
+    func testShouldUpdateProgressWhenAnimatingProgress() {
+        let view = setupView()
+        view.animateTo(progress: 0.69)
+        
+        expect(view.progress).to(equal(0.69))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

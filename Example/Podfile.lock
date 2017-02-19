@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   GTProgressBar:
-    :path: "../"
+    :path: ../
   Nimble:
     :commit: db706fc
     :git: https://github.com/Quick/Nimble.git
@@ -24,4 +24,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2e144c7fcb8743e86a7827d214c37803d33a244c
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.1.0.rc.2

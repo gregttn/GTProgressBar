@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var progressBar: GTProgressBar!
     @IBOutlet weak var progressBarLargerFont: GTProgressBar!
+    @IBOutlet weak var animatedProgressBar: GTProgressBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
         progressBarLargerFont.font = UIFont.boldSystemFont(ofSize: 18)
         progressBarLargerFont.barMaxHeight = 12
         progressBarLargerFont.cornerRadius = (progressBarLargerFont.barMaxHeight ?? progressBarLargerFont.bounds.height) / 2.0
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,5 +38,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func animateProgressBarButtonPressed(_ sender: Any) {
+        let newProgress: CGFloat = animatedProgressBar.progress == 0.75 ? 0.45 : 0.75
+        animatedProgressBar.animateTo(progress: newProgress)
+    }
 }
 

@@ -154,13 +154,37 @@ public class GTProgressBar: UIView {
     }
     
     private func setupFillView() {
-        let offset = barBorderWidth + barFillInset
-        let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
-        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * _progress, height: fillFrame.height)
-        
-        fillView.frame = CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
+        fillView.frame = fillViewFrameFor(progress: _progress)
         fillView.backgroundColor = barFillColor
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    public func animateTo(progress: CGFloat) {
+        let newProgress = min(max(progress,0), 1)
+        let fillViewFrame = fillViewFrameFor(progress: newProgress)
+        let frameChange: () -> () = {
+            self.fillView.frame.size.width = fillViewFrame.size.width
+            self._progress = newProgress
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIViewPropertyAnimator(duration: 0.8, curve: .easeInOut, animations: frameChange)
+                .startAnimation()
+        } else {
+            UIView.animate(withDuration: 0.8,
+                delay: 0,
+                options: [UIViewAnimationOptions.curveEaseInOut],
+                animations: frameChange,
+                completion: nil);
+        }
+    }
+    
+    private func fillViewFrameFor(progress: CGFloat) -> CGRect {
+        let offset = barBorderWidth + barFillInset
+        let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
+        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
+        
+        return CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
     }
     
     private func backgroundViewXOffset() -> CGFloat {
