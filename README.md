@@ -7,7 +7,7 @@
 
 GTProgressBar is a customisable progress bar. You can adjust many visual settings of the progress bar to suit your use case. Customisation can be done in both the Interface Builder and in code. Here is a preview from the example app:
 
-![Preview](https://raw.githubusercontent.com/gregttn/GTProgressBar/master/preview.png)
+![Preview](https://raw.githubusercontent.com/gregttn/GTProgressBar/master/demo.gif)
 
 
 ## Example App
@@ -89,7 +89,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   ```swift
   progressBar.progressLabelInsets = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
-  
+
 * @IBInspectable cornerRadius: CGFloat
 
   This property specifies the radius of corners. Default is 0.0
@@ -112,6 +112,13 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
 
   ```swift
   progressBar.barMaxHeight = 12
+  ```
+* animateTo(progress: CGFloat)
+
+  This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
+
+  ```swift
+  progressBar.animateTo(progress: 0.9)
   ```
 
 To put it altogether here is a complete example configure GTProgressBar in code:
