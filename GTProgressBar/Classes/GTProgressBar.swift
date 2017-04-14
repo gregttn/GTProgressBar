@@ -128,7 +128,7 @@ public class GTProgressBar: UIView {
     private func setupProgressLabel() {
         progressLabel.text = "\(Int(_progress * 100))%"
         let origin = CGPoint(x: progressLabelInsets.left, y: 0)
-        progressLabel.frame = CGRect(origin: origin, size: sizeForLabel())
+        progressLabel.frame = CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: font))
         progressLabel.font = font
         progressLabel.textAlignment = NSTextAlignment.center
         progressLabel.textColor = labelTextColor
@@ -197,13 +197,6 @@ public class GTProgressBar: UIView {
         }
         
         return view.frame.height / 2 * 0.7
-    }
-    
-    private func sizeForLabel() -> CGSize {
-        let text: NSString = "100%"
-        let textSize = text.size(attributes: [NSFontAttributeName : font])
-        
-        return CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
     }
     
     private func centerVerticallyInView(view: UIView) {
