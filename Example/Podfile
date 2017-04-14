@@ -5,6 +5,6 @@ target 'GTProgressBar_Example' do
 
   target 'GTProgressBar_Tests' do
     inherit! :search_paths
-    pod 'Nimble', :git => 'https://github.com/Quick/Nimble.git', :commit => 'db706fc'
+    pod 'Nimble', '~> 6.0.0'
   end
 end
