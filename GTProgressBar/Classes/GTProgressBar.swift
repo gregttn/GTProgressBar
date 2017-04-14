@@ -198,8 +198,10 @@ public class GTProgressBar: UIView {
         
         return view.frame.height / 2 * 0.7
     }
-    
-    private func centerVerticallyInView(view: UIView) {
+}
+
+extension UIView {
+    public func centerVerticallyInView(view: UIView) {
         let center = self.convert(self.center, from: self.superview)
         view.center = CGPoint(x: view.center.x, y: center.y)
     }
