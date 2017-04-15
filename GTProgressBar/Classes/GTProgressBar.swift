@@ -140,17 +140,12 @@ public class GTProgressBar: UIView {
     }
     
     private func updateViewsLocation() {
-        let origin = CGPoint(x: progressLabelInsets.left, y: 0)
-        progressLabel.frame = CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: font))
+        let frameCalculator: FrameCalculator = LabelLeftFrameCalculator(progressBar: self)
         
+        progressLabel.frame = frameCalculator.labelFrame()
         centerVerticallyInView(view: progressLabel)
         
-        let xOffset = backgroundViewXOffset()
-        let height = min(barMaxHeight ?? frame.size.height, frame.size.height)
-        let size = CGSize(width: frame.size.width - xOffset, height: height)
-        let bvOrigin = CGPoint(x: xOffset, y: 0)
-        
-        backgroundView.frame = CGRect(origin: bvOrigin, size: size)
+        backgroundView.frame = frameCalculator.backgroundViewFrame()
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
         
         if let _ = barMaxHeight {
@@ -191,10 +186,6 @@ public class GTProgressBar: UIView {
         let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
         
         return CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
-    }
-    
-    private func backgroundViewXOffset() -> CGFloat {
-        return displayLabel ? progressLabel.frame.width + progressLabelInsets.left + progressLabelInsets.right : 0.0
     }
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {

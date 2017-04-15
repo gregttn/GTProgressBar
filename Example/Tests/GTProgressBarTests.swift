@@ -57,7 +57,7 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
     }
     
-    func testLayoutSubviews_shouldRenderBackgroundViewCorrectCornerRaius() {
+    func testLayoutSubviews_shouldRenderBackgroundViewWithCorrectCornerRadius() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         let backgroundView = view.subviews[backgroundViewIndex]
         view.cornerRadius = view.bounds.height / 2.0
@@ -291,7 +291,7 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.frame.size.height).to(equal(10.0))
     }
     
-    func testShouldNotDrawBarHeigherThanViewWhenBarMaxHeightLargerThanFrame() {
+    func testShouldNotDrawBarHeigherThanParentView() {
         let view = setupView() { v in
             v.barMaxHeight = 1000.0
         }
