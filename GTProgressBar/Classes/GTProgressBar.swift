@@ -123,40 +123,48 @@ public class GTProgressBar: UIView {
         setupProgressLabel()
         setupBackgroundView()
         setupFillView()
+        
+        updateViewsLocation()
     }
     
-    private func setupProgressLabel() {
-        progressLabel.text = "\(Int(_progress * 100))%"
+    private func updateViewsLocation() {
         let origin = CGPoint(x: progressLabelInsets.left, y: 0)
         progressLabel.frame = CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: font))
-        progressLabel.font = font
-        progressLabel.textAlignment = NSTextAlignment.center
-        progressLabel.textColor = labelTextColor
         
         centerVerticallyInView(view: progressLabel)
-    }
-    
-    private func setupBackgroundView() {
+        
         let xOffset = backgroundViewXOffset()
         let height = min(barMaxHeight ?? frame.size.height, frame.size.height)
         let size = CGSize(width: frame.size.width - xOffset, height: height)
-        let origin = CGPoint(x: xOffset, y: 0)
+        let bvOrigin = CGPoint(x: xOffset, y: 0)
         
-        backgroundView.frame = CGRect(origin: origin, size: size)
-        backgroundView.backgroundColor = barBackgroundColor
-        backgroundView.layer.borderWidth = barBorderWidth
-        backgroundView.layer.borderColor = barBorderColor.cgColor
+        backgroundView.frame = CGRect(origin: bvOrigin, size: size)
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
         
         if let _ = barMaxHeight {
             centerVerticallyInView(view: backgroundView)
         }
+        
+        fillView.frame = fillViewFrameFor(progress: _progress)
+        fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    private func setupProgressLabel() {
+        progressLabel.text = "\(Int(_progress * 100))%"
+        progressLabel.font = font
+        progressLabel.textAlignment = NSTextAlignment.center
+        progressLabel.textColor = labelTextColor
+    }
+    
+    private func setupBackgroundView() {
+        backgroundView.backgroundColor = barBackgroundColor
+        backgroundView.layer.borderWidth = barBorderWidth
+        backgroundView.layer.borderColor = barBorderColor.cgColor
+        
     }
     
     private func setupFillView() {
-        fillView.frame = fillViewFrameFor(progress: _progress)
         fillView.backgroundColor = barFillColor
-        fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
     }
     
     public func animateTo(progress: CGFloat) {
