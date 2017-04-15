@@ -15,6 +15,7 @@ public class GTProgressBar: UIView {
     
     public var font: UIFont = UIFont.systemFont(ofSize: 12) {
         didSet {
+            progressLabel.font = font
             self.setNeedsLayout()
         }
     }
@@ -34,6 +35,7 @@ public class GTProgressBar: UIView {
     @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
         didSet {
+            backgroundView.layer.borderColor = barBorderColor.cgColor
             self.setNeedsLayout()
         }
     }
@@ -41,6 +43,7 @@ public class GTProgressBar: UIView {
     @IBInspectable
     public var barBackgroundColor: UIColor = UIColor.white {
         didSet {
+            backgroundView.backgroundColor = barBackgroundColor
             self.setNeedsLayout()
         }
     }
@@ -48,6 +51,7 @@ public class GTProgressBar: UIView {
     @IBInspectable
     public var barFillColor: UIColor = UIColor.black {
         didSet {
+            fillView.backgroundColor = barFillColor
             self.setNeedsLayout()
         }
     }
@@ -55,6 +59,7 @@ public class GTProgressBar: UIView {
     @IBInspectable
     public var barBorderWidth: CGFloat = 2 {
         didSet {
+            backgroundView.layer.borderWidth = barBorderWidth
             self.setNeedsLayout()
         }
     }
@@ -82,6 +87,7 @@ public class GTProgressBar: UIView {
     @IBInspectable
     public var labelTextColor: UIColor = UIColor.black {
         didSet {
+            progressLabel.textColor = labelTextColor
             self.setNeedsLayout()
         }
     }
@@ -114,16 +120,22 @@ public class GTProgressBar: UIView {
     }
     
     private func prepareSubviews() {
+        progressLabel.textAlignment = NSTextAlignment.center
+        progressLabel.font = font
+        progressLabel.textColor = labelTextColor
         addSubview(progressLabel)
+
+        backgroundView.backgroundColor = barBackgroundColor
+        backgroundView.layer.borderWidth = barBorderWidth
+        backgroundView.layer.borderColor = barBorderColor.cgColor
         addSubview(backgroundView)
+        
+        fillView.backgroundColor = barFillColor
         addSubview(fillView)
     }
     
     public override func layoutSubviews() {
-        setupProgressLabel()
-        setupBackgroundView()
-        setupFillView()
-        
+        updateProgressLabelText()
         updateViewsLocation()
     }
     
@@ -149,22 +161,8 @@ public class GTProgressBar: UIView {
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
     }
     
-    private func setupProgressLabel() {
+    private func updateProgressLabelText() {
         progressLabel.text = "\(Int(_progress * 100))%"
-        progressLabel.font = font
-        progressLabel.textAlignment = NSTextAlignment.center
-        progressLabel.textColor = labelTextColor
-    }
-    
-    private func setupBackgroundView() {
-        backgroundView.backgroundColor = barBackgroundColor
-        backgroundView.layer.borderWidth = barBorderWidth
-        backgroundView.layer.borderColor = barBorderColor.cgColor
-        
-    }
-    
-    private func setupFillView() {
-        fillView.backgroundColor = barFillColor
     }
     
     public func animateTo(progress: CGFloat) {
