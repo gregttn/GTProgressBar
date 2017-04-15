@@ -47,3 +47,34 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
         return hasLabel ? labelFrame().width + insets.left + insets.right : 0.0
     }
 }
+
+internal class LabelRightFrameCalculator: FrameCalculator {
+    let hasLabel: Bool
+    let parentFrame: CGRect
+    let barMaxHeight: CGFloat?
+    let insets: UIEdgeInsets
+    let font: UIFont
+    
+    public init(progressBar: GTProgressBar) {
+        self.hasLabel = progressBar.displayLabel
+        self.barMaxHeight = progressBar.barMaxHeight
+        self.parentFrame = progressBar.frame
+        self.insets = progressBar.progressLabelInsets
+        self.font = progressBar.font
+    }
+    
+    public func labelFrame() -> CGRect {
+        let size = UILabel.sizeFor(content: "100%", font: font)
+        let origin = CGPoint(x: parentFrame.size.width - insets.right - size.width, y: 0)
+        
+        return CGRect(origin: origin, size: size)
+    }
+    
+    public func backgroundViewFrame() -> CGRect {
+        let height = min(self.barMaxHeight ?? parentFrame.size.height, parentFrame.size.height)
+        let width = hasLabel ? parentFrame.size.width - insets.right - insets.left - labelFrame().width : parentFrame.size.width
+        let size = CGSize(width: width, height: height)
+        
+        return CGRect(origin: CGPoint.zero, size: size)
+    }
+}

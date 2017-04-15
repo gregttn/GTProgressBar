@@ -317,6 +317,67 @@ class GTProgressBarTests: XCTestCase {
         expect(view.progress).to(equal(0.69))
     }
     
+    func testShouldSetCorrectFrameForLabelWhenPlacedOnTheRight() {
+        let view = setupView() { view in
+            view.labelPostion = GTProgressBarLabelPostion.right
+        }
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        let labelOrigin = CGPoint(x: 100 - 5 - labelFrameSize.width, y: 42.5)
+        expect(label.frame.size).to(equal(labelFrameSize))
+        expect(label.frame.origin).to(equal(labelOrigin))
+    }
+    
+    func testShouldSetCorrectFrameForBackgroundViewWhenLabelPlacedOnTheRight() {
+        let view = setupView() { view in
+            view.labelPostion = GTProgressBarLabelPostion.right
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let origin = CGPoint.zero
+        let frameSize = CGSize(width: 100 - labelFrameSize.width - insetsOffset, height: 100)
+        
+        expect(backgroundView.frame.size).to(equal(frameSize))
+        expect(backgroundView.frame.origin).to(equal(origin))
+    }
+    
+    func testShouldSetCorrectFrameForBackgroundViewWhenNoLabelButPlacementSetOnTheRight() {
+        let view = setupView() { view in
+            view.displayLabel = false
+            view.labelPostion = GTProgressBarLabelPostion.right
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let origin = CGPoint.zero
+        let frameSize = CGSize(width: 100, height: 100)
+        
+        expect(backgroundView.frame.size).to(equal(frameSize))
+        expect(backgroundView.frame.origin).to(equal(origin))
+    }
+    
+    func testShouldCapFrameForBackgroundViewWhenLabelPlacedOnTheRight() {
+        let view = setupView() { view in
+            view.barMaxHeight = 10
+            view.labelPostion = GTProgressBarLabelPostion.right
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.height).to(equal(10))
+    }
+    
+    func testShouldCapFrameForBackgroundViewToParentIfTooLargeAndLabelOnTheRight() {
+        let view = setupView() { view in
+            view.barMaxHeight = 10000
+            view.labelPostion = GTProgressBarLabelPostion.right
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.height).to(equal(100))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

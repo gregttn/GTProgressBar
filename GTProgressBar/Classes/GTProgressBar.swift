@@ -109,6 +109,12 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var labelPostion: GTProgressBarLabelPostion = GTProgressBarLabelPostion.left {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -140,7 +146,7 @@ public class GTProgressBar: UIView {
     }
     
     private func updateViewsLocation() {
-        let frameCalculator: FrameCalculator = LabelLeftFrameCalculator(progressBar: self)
+        let frameCalculator: FrameCalculator = createFrameCalculator()
         
         progressLabel.frame = frameCalculator.labelFrame()
         centerVerticallyInView(view: progressLabel)
@@ -154,6 +160,15 @@ public class GTProgressBar: UIView {
         
         fillView.frame = fillViewFrameFor(progress: _progress)
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    private func createFrameCalculator() -> FrameCalculator {
+        switch labelPostion {
+        case .right:
+            return LabelRightFrameCalculator(progressBar: self)
+        default:
+            return LabelLeftFrameCalculator(progressBar: self)
+        }
     }
     
     private func updateProgressLabelText() {
