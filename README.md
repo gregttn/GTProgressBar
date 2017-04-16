@@ -113,6 +113,15 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   ```swift
   progressBar.barMaxHeight = 12
   ```
+
+* labelPostion: GTProgressBarLabelPostion
+
+  This property allows you to specify on which side the progress label should be placed. Currently supported positions are left and right. Default is GTProgressBarLabelPostion.left
+
+  ```swift
+  progressBar.labelPostion = GTProgressBarLabelPostion.right
+  ```
+  
 * animateTo(progress: CGFloat)
 
   This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
