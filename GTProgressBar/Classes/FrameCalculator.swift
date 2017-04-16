@@ -20,6 +20,12 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
     let insets: UIEdgeInsets
     let font: UIFont
     
+    lazy private var _labelFrame: CGRect = {
+        let origin = CGPoint(x: self.insets.left, y: 0)
+        
+        return CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: self.font))
+    }()
+    
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
@@ -29,9 +35,7 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
     }
     
     public func labelFrame() -> CGRect {
-        let origin = CGPoint(x: insets.left, y: 0)
-        
-        return CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: font))
+        return _labelFrame
     }
     
     public func backgroundViewFrame() -> CGRect {
@@ -55,6 +59,13 @@ internal class LabelRightFrameCalculator: FrameCalculator {
     let insets: UIEdgeInsets
     let font: UIFont
     
+    lazy private var _labelFrame: CGRect = {
+        let size = UILabel.sizeFor(content: "100%", font: self.font)
+        let origin = CGPoint(x: self.parentFrame.size.width - self.insets.right - size.width, y: 0)
+        
+        return CGRect(origin: origin, size: size)
+    }()
+    
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
@@ -64,10 +75,7 @@ internal class LabelRightFrameCalculator: FrameCalculator {
     }
     
     public func labelFrame() -> CGRect {
-        let size = UILabel.sizeFor(content: "100%", font: font)
-        let origin = CGPoint(x: parentFrame.size.width - insets.right - size.width, y: 0)
-        
-        return CGRect(origin: origin, size: size)
+        return _labelFrame
     }
     
     public func backgroundViewFrame() -> CGRect {
