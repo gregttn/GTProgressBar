@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         progressBarLargerFont.cornerRadius = (progressBarLargerFont.barMaxHeight ?? progressBarLargerFont.bounds.height) / 2.0
         
         labelRightProgressBars.forEach { progressBar in
-            progressBar.labelPostion = GTProgressBarLabelPostion.right
+            progressBar.labelPosition = GTProgressBarLabelPosition.right
         }
     }
 

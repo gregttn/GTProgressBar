@@ -319,7 +319,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testShouldSetCorrectFrameForLabelWhenPlacedOnTheRight() {
         let view = setupView() { view in
-            view.labelPostion = GTProgressBarLabelPostion.right
+            view.labelPosition = GTProgressBarLabelPosition.right
         }
         
         let label: UILabel = view.subviews.first! as! UILabel
@@ -331,7 +331,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testShouldSetCorrectFrameForBackgroundViewWhenLabelPlacedOnTheRight() {
         let view = setupView() { view in
-            view.labelPostion = GTProgressBarLabelPostion.right
+            view.labelPosition = GTProgressBarLabelPosition.right
         }
         
         let backgroundView = view.subviews[backgroundViewIndex]
@@ -345,7 +345,7 @@ class GTProgressBarTests: XCTestCase {
     func testShouldSetCorrectFrameForBackgroundViewWhenNoLabelButPlacementSetOnTheRight() {
         let view = setupView() { view in
             view.displayLabel = false
-            view.labelPostion = GTProgressBarLabelPostion.right
+            view.labelPosition = GTProgressBarLabelPosition.right
         }
         
         let backgroundView = view.subviews[backgroundViewIndex]
@@ -359,7 +359,7 @@ class GTProgressBarTests: XCTestCase {
     func testShouldCapFrameForBackgroundViewWhenLabelPlacedOnTheRight() {
         let view = setupView() { view in
             view.barMaxHeight = 10
-            view.labelPostion = GTProgressBarLabelPostion.right
+            view.labelPosition = GTProgressBarLabelPosition.right
         }
         
         let backgroundView = view.subviews[backgroundViewIndex]
@@ -370,7 +370,7 @@ class GTProgressBarTests: XCTestCase {
     func testShouldCapFrameForBackgroundViewToParentIfTooLargeAndLabelOnTheRight() {
         let view = setupView() { view in
             view.barMaxHeight = 10000
-            view.labelPostion = GTProgressBarLabelPostion.right
+            view.labelPosition = GTProgressBarLabelPosition.right
         }
         
         let backgroundView = view.subviews[backgroundViewIndex]

@@ -109,7 +109,7 @@ public class GTProgressBar: UIView {
         }
     }
     
-    public var labelPostion: GTProgressBarLabelPostion = GTProgressBarLabelPostion.left {
+    public var labelPosition: GTProgressBarLabelPosition = GTProgressBarLabelPosition.left {
         didSet {
             self.setNeedsLayout()
         }
@@ -163,7 +163,7 @@ public class GTProgressBar: UIView {
     }
     
     private func createFrameCalculator() -> FrameCalculator {
-        switch labelPostion {
+        switch labelPosition {
         case .right:
             return LabelRightFrameCalculator(progressBar: self)
         default:
