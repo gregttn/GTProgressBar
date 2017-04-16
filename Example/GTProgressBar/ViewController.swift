@@ -10,6 +10,7 @@ import UIKit
 import GTProgressBar
 
 class ViewController: UIViewController {
+    @IBOutlet var labelRightProgressBars: [GTProgressBar]!
 
     @IBOutlet weak var progressBar: GTProgressBar!
     @IBOutlet weak var progressBarLargerFont: GTProgressBar!
@@ -31,6 +32,9 @@ class ViewController: UIViewController {
         progressBarLargerFont.barMaxHeight = 12
         progressBarLargerFont.cornerRadius = (progressBarLargerFont.barMaxHeight ?? progressBarLargerFont.bounds.height) / 2.0
         
+        labelRightProgressBars.forEach { progressBar in
+            progressBar.labelPostion = GTProgressBarLabelPostion.right
+        }
     }
 
     override func didReceiveMemoryWarning() {
