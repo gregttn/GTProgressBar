@@ -121,7 +121,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   ```swift
   progressBar.labelPostion = GTProgressBarLabelPostion.right
   ```
-  
+
 * animateTo(progress: CGFloat)
 
   This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
@@ -143,6 +143,7 @@ progressBar.barFillInset = 2
 progressBar.labelTextColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
 progressBar.progressLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
 progressBar.font = UIFont.boldSystemFont(ofSize: 18)
+progressBar.labelPostion = GTProgressBarLabelPostion.right
 progressBar.barMaxHeight = 12
 
 view.addSubview(progressBar)
