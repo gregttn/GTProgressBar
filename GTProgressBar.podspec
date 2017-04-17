@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GTProgressBar'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'GTProgressBar is a customisable progress bar written in Swift 3'
 
 # This description is used to generate tags and improve search results.
