@@ -21,6 +21,10 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
     let font: UIFont
     
     lazy private var _labelFrame: CGRect = {
+        if (!self.hasLabel) {
+            return CGRect.zero
+        }
+        
         let origin = CGPoint(x: self.insets.left, y: 0)
         
         return CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: self.font))
@@ -60,6 +64,10 @@ internal class LabelRightFrameCalculator: FrameCalculator {
     let font: UIFont
     
     lazy private var _labelFrame: CGRect = {
+        if (!self.hasLabel) {
+            return CGRect.zero
+        }
+        
         let size = UILabel.sizeFor(content: "100%", font: self.font)
         let origin = CGPoint(x: self.parentFrame.size.width - self.insets.right - size.width, y: 0)
         
