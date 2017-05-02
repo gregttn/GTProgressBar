@@ -155,7 +155,7 @@ public class GTProgressBar: UIView {
         let minLabelWidth = displayLabel ? labelSize.width + progressLabelInsets.left + progressLabelInsets.right : 0.0
         
         let height = max(labelSize.height, minProgressBarWidth)
-        let width =  minLabelWidth + minimumProgressBarWidth
+        let width =  max(size.width, minLabelWidth + minimumProgressBarWidth)
         
         return CGSize(width: width, height: height)
     }

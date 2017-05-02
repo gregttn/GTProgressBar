@@ -393,17 +393,16 @@ class GTProgressBarTests: XCTestCase {
         expect(view.frame.size.width).to(equal(width))
     }
     
-    func testSizeToFitChangesFrameSizeWhenBiggerThanNeeded() {
+    func testSizeToFitChangesFrameHeightWhenBiggerThanNeeded() {
         let view = setupView()
         view.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
         
         view.sizeToFit()
         
         let height: CGFloat = labelFrameSize.height
-        let width: CGFloat = labelFrameSize.width + labelInsets.left + labelInsets.right + minimumBarWidth
         
         expect(view.frame.size.height).to(equal(height))
-        expect(view.frame.size.width).to(equal(width))
+        expect(view.frame.size.width).to(equal(100))
     }
     
     func testSizeToFitCreatesEnsuresProgressBarIsVisibleWhenVerySmallFontSet() {
