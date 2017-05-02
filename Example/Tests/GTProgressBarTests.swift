@@ -16,6 +16,7 @@ class GTProgressBarTests: XCTestCase {
     private let labelFrameSize: CGSize = CGSize(width: 31, height: 15)
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
+    private let minimumBarWidth: CGFloat = 20
     
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
@@ -376,6 +377,65 @@ class GTProgressBarTests: XCTestCase {
         let backgroundView = view.subviews[backgroundViewIndex]
         
         expect(backgroundView.frame.size.height).to(equal(100))
+    }
+    
+    func testSizeToFitCreatesMinimalSizeWithDefaultSettings() {
+        let view = setupView()
+        view.frame = CGRect.zero
+        
+        view.sizeToFit()
+        
+        let height: CGFloat = labelFrameSize.height
+        let width: CGFloat = labelFrameSize.width + labelInsets.left + labelInsets.right + minimumBarWidth
+    
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitChangesFrameSizeWhenBiggerThanNeeded() {
+        let view = setupView()
+        view.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
+        
+        view.sizeToFit()
+        
+        let height: CGFloat = labelFrameSize.height
+        let width: CGFloat = labelFrameSize.width + labelInsets.left + labelInsets.right + minimumBarWidth
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitCreatesEnsuresProgressBarIsVisibleWhenVerySmallFontSet() {
+        let view = setupView() { view in
+            view.font = UIFont.systemFont(ofSize: 1.0)
+        }
+        
+        view.frame = CGRect.zero
+        
+        view.sizeToFit()
+        
+        let height: CGFloat = 9.0
+        let width: CGFloat = 33.0
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitCreatesMinimalSizeWhenLabelNotDisplayed() {
+        let view = setupView() { view in
+            view.displayLabel = false
+        }
+        
+        view.frame = CGRect.zero
+        
+        view.sizeToFit()
+        
+        let height: CGFloat = 9
+        let width: CGFloat = minimumBarWidth
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
     }
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }

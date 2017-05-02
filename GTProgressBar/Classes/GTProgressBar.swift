@@ -8,6 +8,8 @@ import UIKit
 
 @IBDesignable
 public class GTProgressBar: UIView {
+    private let minimumProgressBarWidth: CGFloat = 20
+    private let minimumProgressBarFillHeight: CGFloat = 1
     private let backgroundView = UIView()
     private let fillView = UIView()
     private let progressLabel = UILabel()
@@ -143,6 +145,19 @@ public class GTProgressBar: UIView {
     public override func layoutSubviews() {
         updateProgressLabelText()
         updateViewsLocation()
+    }
+    
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let frameCalculator = createFrameCalculator()
+        
+        let minProgressBarWidth = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
+        let labelSize = frameCalculator.labelFrame().size
+        let minLabelWidth = displayLabel ? labelSize.width + progressLabelInsets.left + progressLabelInsets.right : 0.0
+        
+        let height = max(labelSize.height, minProgressBarWidth)
+        let width =  minLabelWidth + minimumProgressBarWidth
+        
+        return CGSize(width: width, height: height)
     }
     
     private func updateViewsLocation() {
