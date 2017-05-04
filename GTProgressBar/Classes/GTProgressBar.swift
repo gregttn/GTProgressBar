@@ -151,11 +151,10 @@ public class GTProgressBar: UIView {
         let frameCalculator = createFrameCalculator()
         
         let minProgressBarWidth = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
-        let labelSize = frameCalculator.labelFrame().size
-        let minLabelWidth = displayLabel ? labelSize.width + progressLabelInsets.left + progressLabelInsets.right : 0.0
+        let labelContainerSize = frameCalculator.labelContainerSize()
         
-        let height = max(labelSize.height, minProgressBarWidth)
-        let width =  max(size.width, minLabelWidth + minimumProgressBarWidth)
+        let height = max(labelContainerSize.height, minProgressBarWidth)
+        let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
         
         return CGSize(width: width, height: height)
     }

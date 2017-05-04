@@ -9,8 +9,25 @@
 import Foundation
 
 internal protocol FrameCalculator {
+    var hasLabel: Bool {get}
+    var insets: UIEdgeInsets {get}
+    
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
+
+}
+
+extension FrameCalculator {
+    func labelContainerSize() -> CGSize {
+        if (!self.hasLabel) {
+            return CGSize.zero
+        }
+        
+        return CGSize(
+            width: labelFrame().width + insets.left + insets.right,
+            height: labelFrame().height
+        )
+    }
 }
 
 internal class LabelLeftFrameCalculator: FrameCalculator {
@@ -43,16 +60,12 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
     }
     
     public func backgroundViewFrame() -> CGRect {
-        let xOffset = backgroundViewXOffset()
+        let xOffset = labelContainerSize().width
         let height = min(self.barMaxHeight ?? parentFrame.size.height, parentFrame.size.height)
         let size = CGSize(width: parentFrame.size.width - xOffset, height: height)
         let origin = CGPoint(x: xOffset, y: 0)
         
         return CGRect(origin: origin, size: size)
-    }
-    
-    private func backgroundViewXOffset() -> CGFloat {
-        return hasLabel ? labelFrame().width + insets.left + insets.right : 0.0
     }
 }
 
@@ -88,7 +101,7 @@ internal class LabelRightFrameCalculator: FrameCalculator {
     
     public func backgroundViewFrame() -> CGRect {
         let height = min(self.barMaxHeight ?? parentFrame.size.height, parentFrame.size.height)
-        let width = hasLabel ? parentFrame.size.width - insets.right - insets.left - labelFrame().width : parentFrame.size.width
+        let width = hasLabel ? parentFrame.size.width -  labelContainerSize().width : parentFrame.size.width
         let size = CGSize(width: width, height: height)
         
         return CGRect(origin: CGPoint.zero, size: size)
