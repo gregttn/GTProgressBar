@@ -9,12 +9,21 @@
 import Foundation
 
 internal protocol FrameCalculator {
+    var minimumProgressBarWidth: CGFloat {get}
+    var minimumProgressBarFillHeight: CGFloat {get}
+
     var hasLabel: Bool {get}
     var insets: UIEdgeInsets {get}
+    var barBorderWidth: CGFloat {get}
+    var barFillInset: CGFloat {get}
     
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
+}
 
+extension FrameCalculator {
+    var minimumProgressBarWidth: CGFloat { return 20}
+    var minimumProgressBarFillHeight: CGFloat { return 1 }
 }
 
 extension FrameCalculator {
@@ -28,6 +37,16 @@ extension FrameCalculator {
             height: labelFrame().height
         )
     }
+    
+    func sizeThatFits(_ size: CGSize) -> CGSize {
+        let minProgressBarWidth = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
+        let labelContainerSize = self.labelContainerSize()
+        
+        let height = max(labelContainerSize.height, minProgressBarWidth)
+        let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
+        
+        return CGSize(width: width, height: height)
+    }
 }
 
 internal class LabelLeftFrameCalculator: FrameCalculator {
@@ -36,6 +55,8 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
     let barMaxHeight: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
     
     lazy private var _labelFrame: CGRect = {
         if (!self.hasLabel) {
@@ -53,6 +74,8 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
     }
     
     public func labelFrame() -> CGRect {
@@ -67,6 +90,7 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
         
         return CGRect(origin: origin, size: size)
     }
+
 }
 
 internal class LabelRightFrameCalculator: FrameCalculator {
@@ -75,6 +99,8 @@ internal class LabelRightFrameCalculator: FrameCalculator {
     let barMaxHeight: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
     
     lazy private var _labelFrame: CGRect = {
         if (!self.hasLabel) {
@@ -93,6 +119,8 @@ internal class LabelRightFrameCalculator: FrameCalculator {
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
     }
     
     public func labelFrame() -> CGRect {

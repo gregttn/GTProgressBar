@@ -148,15 +148,7 @@ public class GTProgressBar: UIView {
     }
     
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let frameCalculator = createFrameCalculator()
-        
-        let minProgressBarWidth = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
-        let labelContainerSize = frameCalculator.labelContainerSize()
-        
-        let height = max(labelContainerSize.height, minProgressBarWidth)
-        let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
-        
-        return CGSize(width: width, height: height)
+        return createFrameCalculator().sizeThatFits(size)
     }
     
     private func updateViewsLocation() {
