@@ -565,6 +565,69 @@ class GTProgressBarTests: XCTestCase {
         expect(view.frame.size.width).to(equal(20))
     }
     
+    func testSettingProgressBarLabelInsetLeftChangesTheInsetsUsedByTheConrol() {
+        let view = setupView() { view in
+            view.progressLabelInsetLeft = 999
+        }
+        
+        expect(view.progressLabelInsets.left).to(equal(999))
+    }
+    
+    func testSettingProgressBarLabelInsetLeftDoesNotAllowNegativeValues() {
+        let view = setupView() { view in
+            view.progressLabelInsetLeft = -999
+        }
+        
+        expect(view.progressLabelInsets.left).to(equal(0))
+    }
+    
+    func testSettingProgressBarLabelInsetRightChangesTheInsetsUsedByTheConrol() {
+        let view = setupView() { view in
+            view.progressLabelInsetRight = 999
+        }
+        
+        expect(view.progressLabelInsets.right).to(equal(999))
+    }
+    
+    func testSettingProgressBarLabelInsetRightDoesNotAllowNegativeValues() {
+        let view = setupView() { view in
+            view.progressLabelInsetRight = -999
+        }
+        
+        expect(view.progressLabelInsets.right).to(equal(0))
+    }
+    
+    func testSettingProgressBarLabelInsetTopChangesTheInsetsUsedByTheConrol() {
+        let view = setupView() { view in
+            view.progressLabelInsetTop = 999
+        }
+        
+        expect(view.progressLabelInsets.top).to(equal(999))
+    }
+    
+    func testSettingProgressBarLabelInsetTopDoesNotAllowNegativeValues() {
+        let view = setupView() { view in
+            view.progressLabelInsetTop = -999
+        }
+        
+        expect(view.progressLabelInsets.top).to(equal(0))
+    }
+    
+    func testSettingProgressBarLabelInsetBottomChangesTheInsetsUsedByTheConrol() {
+        let view = setupView() { view in
+            view.progressLabelInsetBottom = 999
+        }
+        
+        expect(view.progressLabelInsets.bottom).to(equal(999))
+    }
+    
+    func testSettingProgressBarLabelInsetBottomDoesNotAllowNegativeValues() {
+        let view = setupView() { view in
+            view.progressLabelInsetBottom = -999
+        }
+        
+        expect(view.progressLabelInsets.bottom).to(equal(0))
+    }
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

@@ -28,6 +28,38 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var progressLabelInsetLeft: CGFloat = 0.0 {
+        didSet {
+            self.progressLabelInsets.left = max(0.0, progressLabelInsetLeft)
+            self.setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var progressLabelInsetRight: CGFloat = 0.0 {
+        didSet {
+            self.progressLabelInsets.right = max(0.0, progressLabelInsetRight)
+            self.setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var progressLabelInsetTop: CGFloat = 0.0 {
+        didSet {
+            self.progressLabelInsets.top = max(0.0, progressLabelInsetTop)
+            self.setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var progressLabelInsetBottom: CGFloat = 0.0 {
+        didSet {
+            self.progressLabelInsets.bottom = max(0.0, progressLabelInsetBottom)
+            self.setNeedsLayout()
+        }
+    }
+    
     public var barMaxHeight: CGFloat? {
         didSet {
             self.setNeedsLayout()

@@ -72,6 +72,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPw-8u-MbZ" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -210,6 +213,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
+                                                <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -444,8 +450,6 @@
                         <outlet property="animatedProgressBar" destination="YhR-YX-bg2" id="ifc-YS-D6w"/>
                         <outlet property="progressBar" destination="3Wh-eJ-yDe" id="GWv-5u-6M6"/>
                         <outlet property="progressBarLargerFont" destination="ALz-5w-p8o" id="hAs-nP-Q4u"/>
-                        <outletCollection property="progressBarsWithLabelTop" destination="urx-e8-jKi" collectionClass="NSMutableArray" id="b13-hY-x75"/>
-                        <outletCollection property="progressBarsWithLabelTop" destination="bE8-mG-J5g" collectionClass="NSMutableArray" id="VeS-vX-b5q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
