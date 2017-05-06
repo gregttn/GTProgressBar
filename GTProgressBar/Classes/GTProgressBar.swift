@@ -117,6 +117,17 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var labelPositionInt: Int = 0 {
+        didSet {
+            let enumPosition = GTProgressBarLabelPosition(rawValue: labelPositionInt)
+            
+            if let position = enumPosition {
+                self.labelPosition = position
+            }
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()

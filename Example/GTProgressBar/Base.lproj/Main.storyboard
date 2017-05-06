@@ -132,6 +132,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The whole bar filled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njt-4Z-fYZ">
@@ -233,6 +236,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -432,8 +438,6 @@
                         <outlet property="animatedProgressBar" destination="YhR-YX-bg2" id="ifc-YS-D6w"/>
                         <outlet property="progressBar" destination="3Wh-eJ-yDe" id="GWv-5u-6M6"/>
                         <outlet property="progressBarLargerFont" destination="ALz-5w-p8o" id="hAs-nP-Q4u"/>
-                        <outletCollection property="labelRightProgressBars" destination="QHt-jH-dMm" collectionClass="NSMutableArray" id="mOg-uU-xrn"/>
-                        <outletCollection property="labelRightProgressBars" destination="QPA-Gd-Rfs" collectionClass="NSMutableArray" id="gQo-6r-Vbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
