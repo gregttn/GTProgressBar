@@ -81,14 +81,44 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.labelTextColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
 
-* @IBInspectable progressLabelInsets: UIEdgeInsets
+* progressLabelInsets: UIEdgeInsets
 
   This property specifies the insets for the progress label. Default is UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
 
-  Currently only the left and right inset is taken into account. The label itself will stay vertically centered within the view.
+  ```swift
+  progressBar.progressLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+  ```
+
+* @IBInspectable progressLabelInsetLeft: CGFloat
+
+  This property allows you to specify the left property of the progressLabelInsets in the Interface Builder. Default is 0.
 
   ```swift
-  progressBar.progressLabelInsets = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
+  progressBar.progressLabelInsetLeft = 5.0
+  ```
+
+* @IBInspectable progressLabelInsetRight: CGFloat
+
+  This property allows you to specify the right property of the progressLabelInsets in the Interface Builder. Default is 0.
+
+  ```swift
+  progressBar.progressLabelInsetRight = 5.0
+  ```
+
+* @IBInspectable progressLabelInsetTop: CGFloat
+
+  This property allows you to specify the top property of the progressLabelInsets in the Interface Builder. Default is 0.
+
+  ```swift
+  progressBar.progressLabelInsetTop = 5.0
+  ```
+
+* @IBInspectable progressLabelInsetBottom: CGFloat
+
+  This property allows you to specify the bottom property of the progressLabelInsets in the Interface Builder. Default is 0.
+
+  ```swift
+  progressBar.progressLabelInsetBottom = 5.0
   ```
 
 * @IBInspectable cornerRadius: CGFloat
@@ -117,7 +147,20 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
 
 * labelPosition: GTProgressBarLabelPosition
 
-  This property allows you to specify on which side the progress label should be placed. Currently supported positions are left and right. Default is GTProgressBarLabelPosition.left
+  This property allows you to specify on which side the progress label should be placed. Default is GTProgressBarLabelPosition.left
+
+  ```swift
+  progressBar.labelPosition = GTProgressBarLabelPosition.right
+  ```
+
+* @IBInspectable  labelPositionInt: Int
+
+  This property allows you to specify the position of the progress label using integers in the Interface Builder. Current mapping is
+
+  0 -> GTProgressBarLabelPosition.left
+  1 -> GTProgressBarLabelPosition.right
+  2 -> GTProgressBarLabelPosition.top
+  3 -> GTProgressBarLabelPosition.bottom
 
   ```swift
   progressBar.labelPosition = GTProgressBarLabelPosition.right
