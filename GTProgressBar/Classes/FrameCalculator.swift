@@ -16,11 +16,13 @@ internal protocol FrameCalculator {
     var insets: UIEdgeInsets {get}
     var barBorderWidth: CGFloat {get}
     var barFillInset: CGFloat {get}
+    var barMaxHeight: CGFloat? {get}
     
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
     
     func center(view: UIView, parent: UIView)
+    func sizeThatFits(_ size: CGSize) -> CGSize
 }
 
 extension FrameCalculator {
@@ -39,29 +41,47 @@ extension FrameCalculator {
             height: labelFrame().height + insets.top + insets.bottom
         )
     }
-    
-    func sizeThatFits(_ size: CGSize) -> CGSize {
-        let minProgressBarWidth = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
-        let labelContainerSize = self.labelContainerSize()
-        
-        let height = max(labelContainerSize.height, minProgressBarWidth)
-        let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
-        
-        return CGSize(width: width, height: height)
-    }
 }
 
 protocol VerticalFrameCalculator: FrameCalculator {}
 protocol HorizontalFrameCalculator: FrameCalculator {}
 
 extension VerticalFrameCalculator {
+    
     func center(view: UIView, parent: UIView) {
         let center = parent.convert(parent.center, from: parent.superview)
         view.center = CGPoint(x: center.x, y: view.center.y)
     }
+    
+    func sizeThatFits(_ size: CGSize) -> CGSize {
+        let minProgressBarHeight = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
+        let labelContainerSize = self.labelContainerSize()
+        let totalHeight = labelContainerSize.height + max(minProgressBarHeight, barMaxHeight ?? minProgressBarHeight)
+        
+        var height: CGFloat = 0
+        if  let _ = barMaxHeight {
+            height = totalHeight
+        } else {
+            height = max(size.height, totalHeight)
+        }
+        
+        let width =  max(size.width, max(labelContainerSize.width, minimumProgressBarWidth))
+        
+        return CGSize(width: width, height: height)
+    }
 }
 
 extension HorizontalFrameCalculator {
+    func sizeThatFits(_ size: CGSize) -> CGSize {
+        let minProgressBarHeight = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
+        let labelContainerSize = self.labelContainerSize()
+        
+        let height = max(labelContainerSize.height, minProgressBarHeight)
+        let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
+        
+        return CGSize(width: width, height: height)
+    }
+    
     func center(view: UIView, parent: UIView) {
         let center = parent.convert(parent.center, from: parent.superview)
         view.center = CGPoint(x: view.center.x, y: center.y)
@@ -71,11 +91,11 @@ extension HorizontalFrameCalculator {
 internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
-    let barMaxHeight: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
+    var barMaxHeight: CGFloat?
     
     lazy private var _labelFrame: CGRect = {
         if (!self.hasLabel) {

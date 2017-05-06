@@ -17,6 +17,7 @@ class GTProgressBarTests: XCTestCase {
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
     private let minimumBarWidth: CGFloat = 20
+    private let minimumBarHeight: CGFloat = 9
     
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
@@ -480,7 +481,7 @@ class GTProgressBarTests: XCTestCase {
         expect(view.frame.size.width).to(equal(100))
     }
     
-    func testSizeToFitCreatesEnsuresProgressBarIsVisibleWhenVerySmallFontSet() {
+    func testSizeToFitEnsuresProgressBarIsVisibleWhenVerySmallFontSet() {
         let view = setupView() { view in
             view.font = UIFont.systemFont(ofSize: 1.0)
         }
@@ -510,6 +511,58 @@ class GTProgressBarTests: XCTestCase {
         
         expect(view.frame.size.height).to(equal(height))
         expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitCreatesMinimalSizeWhenLabelWithInsetsOnTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.progressLabelInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        }
+        
+        view.frame = CGRect.zero
+        view.sizeToFit()
+        
+        let height: CGFloat = labelFrameSize.height + minimumBarHeight + view.progressLabelInsets.top + view.progressLabelInsets.bottom
+        let width: CGFloat = labelFrameSize.width + view.progressLabelInsets.left + view.progressLabelInsets.right
+        
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitDoesNotChangeFrameWhenBiggerThanMiniumNeededWithLabelOnTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+        }
+        
+        view.sizeToFit()
+        
+        expect(view.frame.size.height).to(equal(100))
+        expect(view.frame.size.width).to(equal(100))
+    }
+    
+    func testSizeToFitChangeFrameHeightWhenMaxBarHeightSpecifiedWithLabelOnTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.barMaxHeight = 30
+        }
+        
+        view.sizeToFit()
+        
+        expect(view.frame.size.height).to(equal(labelFrameSize.height + 30))
+        expect(view.frame.size.width).to(equal(100))
+    }
+    
+    func testSizeToFitEnsuresMinimumBarWidthWhenSmallFontAndSmallFrame() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.font = UIFont.systemFont(ofSize: 1)
+        }
+        
+        view.frame = CGRect.zero
+        view.sizeToFit()
+        
+        expect(view.frame.size.width).to(equal(20))
     }
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
