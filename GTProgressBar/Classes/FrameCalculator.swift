@@ -17,6 +17,7 @@ internal protocol FrameCalculator {
     var barBorderWidth: CGFloat {get}
     var barFillInset: CGFloat {get}
     var barMaxHeight: CGFloat? {get}
+    var font: UIFont {get}
     
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
@@ -37,8 +38,12 @@ extension FrameCalculator {
         }
         
         return CGSize(
-            width: labelFrame().width + insets.left + insets.right,
-            height: labelFrame().height + insets.top + insets.bottom
+            width: labelFrameSize().width + insets.left + insets.right,
+            height: labelFrameSize().height + insets.top + insets.bottom
         )
+    }
+    
+    func labelFrameSize() -> CGSize {
+        return UILabel.sizeFor(content: "100%", font: self.font)
     }
 }

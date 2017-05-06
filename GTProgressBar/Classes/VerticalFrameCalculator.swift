@@ -48,11 +48,10 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
         if (!self.hasLabel) {
             return CGRect.zero
         }
-        
-        let size = UILabel.sizeFor(content: "100%", font: self.font)
+    
         let origin = CGPoint(x: 0, y: self.insets.top)
         
-        return CGRect(origin: origin, size: size)
+        return CGRect(origin: origin, size: self.labelFrameSize())
     }()
     
     public init(progressBar: GTProgressBar) {
@@ -75,5 +74,55 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
         let origin = CGPoint(x: 0, y: labelContainerSize().height)
         
         return CGRect(origin: origin, size: CGSize(width: width, height: height))
+    }
+}
+
+internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
+    let hasLabel: Bool
+    let parentFrame: CGRect
+    let barMaxHeight: CGFloat?
+    let insets: UIEdgeInsets
+    let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
+    
+    lazy private var _labelFrame: CGRect = {
+        if (!self.hasLabel) {
+            return CGRect.zero
+        }
+        
+        let size = self.labelFrameSize()
+        var yCoordinate: CGFloat = 0.0
+        
+        if let _ = self.barMaxHeight {
+            yCoordinate = self.backgroundViewFrame().height
+        } else {
+            yCoordinate = self.parentFrame.height - size.height - self.insets.top - self.insets.bottom
+        }
+        
+        let origin = CGPoint(x: 0, y: yCoordinate)
+        
+        return CGRect(origin: origin, size: size)
+    }()
+    
+    public init(progressBar: GTProgressBar) {
+        self.hasLabel = progressBar.displayLabel
+        self.barMaxHeight = progressBar.barMaxHeight
+        self.parentFrame = progressBar.frame
+        self.insets = progressBar.progressLabelInsets
+        self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
+    }
+    
+    public func labelFrame() -> CGRect {
+        return _labelFrame
+    }
+    
+    public func backgroundViewFrame() -> CGRect {
+        let height = min(parentFrame.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
+        let size = CGSize(width: parentFrame.width, height: height)
+        
+        return CGRect(origin: CGPoint.zero, size: size)
     }
 }

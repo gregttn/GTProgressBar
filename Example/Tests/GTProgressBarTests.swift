@@ -455,6 +455,109 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.frame.origin).to(equal(origin))
     }
     
+     func testShouldSetCorrectFrameForLabelWhenPlacedOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+        }
+         
+        let label: UILabel = view.subviews.first! as! UILabel
+         
+        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height)
+        expect(label.frame.size).to(equal(labelFrameSize))
+        expect(label.frame.origin).to(equal(labelOrigin))
+     }
+ 
+     func testShouldTakeIntoAccountInsetsWhenCalculatingFrameOriginForLabelPlacedOnTheTop() {
+        let insets = UIEdgeInsets(top: 5.0, left: 0, bottom: 5, right: 0)
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.progressLabelInsets = insets
+        }
+         
+        let label: UILabel = view.subviews.first! as! UILabel
+         
+        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height - insets.top - insets.bottom)
+        expect(label.frame.origin).to(equal(labelOrigin))
+     }
+    
+   
+    func testShouldReturnZeroFrameForLabelWhenPlacedOnTheBottomButNoDisplay() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.displayLabel = false
+        }
+
+        let label: UILabel = view.subviews.first! as! UILabel
+        expect(label.frame.size).to(equal(CGSize.zero))
+    }
+
+    
+    func testShouldSetCorrectFrameForBackgroundViewWhenLabelPlacedOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+        }
+
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let origin = CGPoint(x: 0, y: 0)
+        let frameSize = CGSize(width: view.frame.width, height: view.frame.height - labelFrameSize.height)
+
+        expect(backgroundView.frame.size).to(equal(frameSize))
+        expect(backgroundView.frame.origin).to(equal(origin))
+    }
+
+    func testShouldSetCorrectFrameForBackgroundViewWhenLabelWithInsetsPlacedOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.progressLabelInsets = UIEdgeInsets(top: 7.0, left: 0, bottom: 7.0, right: 0)
+        }
+
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let frameSize = CGSize(width: 100, height: 100 - labelFrameSize.height - 14)
+
+        expect(backgroundView.frame.size).to(equal(frameSize))
+        expect(backgroundView.frame.origin).to(equal(CGPoint.zero))
+    }
+    
+    func testShouldSetCorrectFrameForBackgroundViewWhenHeightRestrictedAndLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.barMaxHeight = 20.0
+        }
+
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let frameSize = CGSize(width: 100, height: 20)
+
+        expect(backgroundView.frame.size).to(equal(frameSize))
+        expect(backgroundView.frame.origin).to(equal(CGPoint.zero))
+    }
+
+    func testShouldSetCorrectFrameForProgressLabelWhenBarHeightRestrictedAndLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.barMaxHeight = 20.0
+        }
+
+        let label: UILabel = view.subviews.first! as! UILabel
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        let labelOrigin = CGPoint(x: 34.5, y: backgroundView.frame.height)
+        
+        expect(label.frame.size).to(equal(labelFrameSize))
+        expect(label.frame.origin).to(equal(labelOrigin))
+    }
+    
+    func testBackgroundViewTakesTheWholeFrameIfNoLabelPresentAndLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = GTProgressBarLabelPosition.bottom
+            view.displayLabel = false
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size).to(equal(CGSize(width: 100, height: 100)))
+        expect(backgroundView.frame.origin).to(equal(CGPoint.zero))
+    }
+    
     func testSizeToFitCreatesMinimalSizeWithDefaultSettings() {
         let view = setupView()
         view.frame = CGRect.zero

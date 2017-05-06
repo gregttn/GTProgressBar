@@ -43,7 +43,7 @@ internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
         
         let origin = CGPoint(x: self.insets.left, y: 0)
         
-        return CGRect(origin: origin, size: UILabel.sizeFor(content: "100%", font: self.font))
+        return CGRect(origin: origin, size: self.labelFrameSize())
     }()
     
     public init(progressBar: GTProgressBar) {
@@ -85,7 +85,7 @@ internal class LabelRightFrameCalculator: HorizontalFrameCalculator {
             return CGRect.zero
         }
         
-        let size = UILabel.sizeFor(content: "100%", font: self.font)
+        let size = self.labelFrameSize()
         let origin = CGPoint(x: self.parentFrame.size.width - self.insets.right - size.width, y: 0)
         
         return CGRect(origin: origin, size: size)

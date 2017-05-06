@@ -217,6 +217,8 @@ public class GTProgressBar: UIView {
             return LabelRightFrameCalculator(progressBar: self)
         case .top:
             return LabelTopFrameCalculator(progressBar: self)
+        case .bottom:
+            return LabelBottomFrameCalculator(progressBar: self)
         default:
             return LabelLeftFrameCalculator(progressBar: self)
         }
