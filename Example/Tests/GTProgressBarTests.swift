@@ -668,6 +668,59 @@ class GTProgressBarTests: XCTestCase {
         expect(view.frame.size.width).to(equal(20))
     }
     
+    
+    func testSizeToFitCreatesMinimalSizeWhenLabelWithInsetsOnBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+            view.progressLabelInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        }
+        
+        view.frame = CGRect.zero
+        view.sizeToFit()
+        
+        let height: CGFloat = labelFrameSize.height + minimumBarHeight + view.progressLabelInsets.top + view.progressLabelInsets.bottom
+        let width: CGFloat = labelFrameSize.width + view.progressLabelInsets.left + view.progressLabelInsets.right
+        
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitDoesNotChangeFrameWhenBiggerThanMiniumNeededWithLabelOnBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+        }
+        
+        view.sizeToFit()
+        
+        expect(view.frame.size.height).to(equal(100))
+        expect(view.frame.size.width).to(equal(100))
+    }
+
+    func testSizeToFitChangeFrameHeightWhenMaxBarHeightSpecifiedWithLabelOnBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+            view.barMaxHeight = 30
+        }
+        
+        view.sizeToFit()
+        
+        expect(view.frame.size.height).to(equal(labelFrameSize.height + 30))
+        expect(view.frame.size.width).to(equal(100))
+    }
+
+    func testSizeToFitEnsuresMinimumBarWidthWhenSmallFontAndSmallFrameWithLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+            view.font = UIFont.systemFont(ofSize: 1)
+        }
+        
+        view.frame = CGRect.zero
+        view.sizeToFit()
+        
+        expect(view.frame.size.width).to(equal(20))
+    }
+    
     func testSettingProgressBarLabelInsetLeftChangesTheInsetsUsedByTheConrol() {
         let view = setupView() { view in
             view.progressLabelInsetLeft = 999
