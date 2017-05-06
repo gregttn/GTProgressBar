@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-Qk-Hw1">
-                                <rect key="frame" x="16" y="36" width="343" height="595"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-Qk-Hw1">
+                                <rect key="frame" x="16" y="36" width="343" height="565"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfC-nJ-tpa">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="19"/>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wh-eJ-yDe" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="34" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="29" width="343" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="yFG-xS-XYe"/>
                                         </constraints>
@@ -42,9 +42,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urx-e8-jKi" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="64" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="54" width="343" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="NSe-iR-Wve"/>
+                                            <constraint firstAttribute="height" constant="15" id="NSe-iR-Wve"/>
                                             <constraint firstAttribute="width" constant="343" id="sUf-dv-Os5"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -70,19 +70,15 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
-                                                <real key="value" value="3"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPw-8u-MbZ" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="109" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="79" width="343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="343" id="RVF-Zi-xdv"/>
-                                            <constraint firstAttribute="height" constant="15" id="jFx-KZ-x7K"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="nbM-0j-0nU"/>
+                                            <constraint firstAttribute="height" constant="30" id="jFx-KZ-x7K"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
@@ -106,15 +102,19 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-jH-dMm" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="139" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="119" width="343" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="VYb-Bg-eyU"/>
-                                            <constraint firstAttribute="height" constant="15" id="ipx-je-dhN"/>
+                                            <constraint firstAttribute="height" constant="30" id="ipx-je-dhN"/>
                                             <constraint firstAttribute="width" constant="343" id="nFC-g3-BLn"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="vLb-9K-Jfh"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
@@ -139,18 +139,24 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
-                                                <integer key="value" value="1"/>
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetTop">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The whole bar filled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njt-4Z-fYZ">
-                                        <rect key="frame" x="0.0" y="169" width="343" height="19"/>
+                                        <rect key="frame" x="0.0" y="159" width="343" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4B-sJ-y83" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="203" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="188" width="343" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="343" id="59T-Sd-ydu"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="6uv-th-dL7"/>
@@ -184,9 +190,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE8-mG-J5g" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="233" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="213" width="343" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="C8M-g6-dwE"/>
+                                            <constraint firstAttribute="height" constant="15" id="C8M-g6-dwE"/>
                                             <constraint firstAttribute="width" constant="343" id="wrk-R5-wTi"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -212,19 +218,17 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
-                                                <real key="value" value="3"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPA-Gd-Rfs" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="278" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="238" width="343" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="Uef-ZS-LMo"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="dNb-VF-fh3"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="l9F-jQ-C7f"/>
+                                            <constraint firstAttribute="height" constant="30" id="Uef-ZS-LMo"/>
                                             <constraint firstAttribute="width" constant="343" id="ni3-Zw-3WC"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -250,18 +254,57 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
-                                                <integer key="value" value="1"/>
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-At-bo5" customClass="GTProgressBar" customModule="GTProgressBar">
+                                        <rect key="frame" x="0.0" y="278" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="59n-m9-xXB"/>
+                                            <constraint firstAttribute="width" constant="343" id="RqI-jb-cam"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                                <color key="value" red="0.87058823529999996" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                <real key="value" value="0.050000000000000003"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                                <color key="value" red="0.87058823529999996" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                                <color key="value" red="0.87058823529999996" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                                <color key="value" red="0.95294117649999999" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barBorderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetTop">
+                                                <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress label not displayed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-b5-uh5">
-                                        <rect key="frame" x="0.0" y="308" width="343" height="19"/>
+                                        <rect key="frame" x="0.0" y="318" width="343" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8t-2f-aim" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="342" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="347" width="343" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="JyE-Cv-woS"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="15" id="KLq-Be-Owh"/>
@@ -326,7 +369,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifc-Ch-qUN" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="402" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="397" width="343" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="343" id="OZR-W6-b5S"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="YZI-fD-dye"/>
@@ -358,13 +401,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b8-WL-PC7">
-                                        <rect key="frame" x="0.0" y="432" width="343" height="19"/>
+                                        <rect key="frame" x="0.0" y="422" width="343" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALz-5w-p8o" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="466" width="343" height="20"/>
+                                        <rect key="frame" x="0.0" y="451" width="343" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="1pl-rA-VhE"/>
                                             <constraint firstAttribute="width" constant="343" id="NBW-tQ-n4o"/>
@@ -394,13 +437,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animated Bar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbe-3J-UbJ">
-                                        <rect key="frame" x="0.0" y="501" width="343" height="19"/>
+                                        <rect key="frame" x="0.0" y="481" width="343" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-YX-bg2" customClass="GTProgressBar" customModule="GTProgressBar">
-                                        <rect key="frame" x="0.0" y="535" width="343" height="15"/>
+                                        <rect key="frame" x="0.0" y="510" width="343" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="343" id="CPu-0r-Ytp"/>
                                             <constraint firstAttribute="height" constant="15" id="Vnf-Vr-xEb"/>
@@ -430,7 +473,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWd-ru-fMK">
-                                        <rect key="frame" x="0.0" y="565" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="535" width="343" height="30"/>
                                         <state key="normal" title="Animate Progress Bar"/>
                                         <connections>
                                             <action selector="animateProgressBarButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eSJ-zo-4R7"/>
