@@ -91,18 +91,9 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
             return CGRect.zero
         }
         
-        let size = self.labelFrameSize()
-        var yCoordinate: CGFloat = 0.0
+        let origin = CGPoint(x: 0, y: self.backgroundViewFrame().height + self.insets.top)
         
-        if let _ = self.barMaxHeight {
-            yCoordinate = self.backgroundViewFrame().height
-        } else {
-            yCoordinate = self.parentFrame.height - size.height - self.insets.top - self.insets.bottom
-        }
-        
-        let origin = CGPoint(x: 0, y: yCoordinate)
-        
-        return CGRect(origin: origin, size: size)
+        return CGRect(origin: origin, size: self.labelFrameSize())
     }()
     
     public init(progressBar: GTProgressBar) {

@@ -476,7 +476,7 @@ class GTProgressBarTests: XCTestCase {
          
         let label: UILabel = view.subviews.first! as! UILabel
          
-        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height - insets.top - insets.bottom)
+        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height - insets.bottom)
         expect(label.frame.origin).to(equal(labelOrigin))
      }
     
