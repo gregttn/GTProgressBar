@@ -11,4 +11,5 @@ import Foundation
 public enum GTProgressBarLabelPosition {
     case left
     case right
+    case top
 }

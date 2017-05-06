@@ -19,6 +19,8 @@ internal protocol FrameCalculator {
     
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
+    
+    func center(view: UIView, parent: UIView)
 }
 
 extension FrameCalculator {
@@ -34,7 +36,7 @@ extension FrameCalculator {
         
         return CGSize(
             width: labelFrame().width + insets.left + insets.right,
-            height: labelFrame().height
+            height: labelFrame().height + insets.top + insets.bottom
         )
     }
     
@@ -49,7 +51,24 @@ extension FrameCalculator {
     }
 }
 
-internal class LabelLeftFrameCalculator: FrameCalculator {
+protocol VerticalFrameCalculator: FrameCalculator {}
+protocol HorizontalFrameCalculator: FrameCalculator {}
+
+extension VerticalFrameCalculator {
+    func center(view: UIView, parent: UIView) {
+        let center = parent.convert(parent.center, from: parent.superview)
+        view.center = CGPoint(x: center.x, y: view.center.y)
+    }
+}
+
+extension HorizontalFrameCalculator {
+    func center(view: UIView, parent: UIView) {
+        let center = parent.convert(parent.center, from: parent.superview)
+        view.center = CGPoint(x: view.center.x, y: center.y)
+    }
+}
+
+internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
@@ -93,7 +112,7 @@ internal class LabelLeftFrameCalculator: FrameCalculator {
 
 }
 
-internal class LabelRightFrameCalculator: FrameCalculator {
+internal class LabelRightFrameCalculator: HorizontalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
@@ -135,3 +154,47 @@ internal class LabelRightFrameCalculator: FrameCalculator {
         return CGRect(origin: CGPoint.zero, size: size)
     }
 }
+
+internal class LabelTopFrameCalculator: VerticalFrameCalculator {
+    let hasLabel: Bool
+    let parentFrame: CGRect
+    let barMaxHeight: CGFloat?
+    let insets: UIEdgeInsets
+    let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
+    
+    lazy private var _labelFrame: CGRect = {
+        if (!self.hasLabel) {
+            return CGRect.zero
+        }
+        
+        let size = UILabel.sizeFor(content: "100%", font: self.font)
+        let origin = CGPoint(x: 0, y: self.insets.top)
+        
+        return CGRect(origin: origin, size: size)
+    }()
+    
+    public init(progressBar: GTProgressBar) {
+        self.hasLabel = progressBar.displayLabel
+        self.barMaxHeight = progressBar.barMaxHeight
+        self.parentFrame = progressBar.frame
+        self.insets = progressBar.progressLabelInsets
+        self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
+    }
+    
+    public func labelFrame() -> CGRect {
+        return _labelFrame
+    }
+    
+    public func backgroundViewFrame() -> CGRect {
+        let height = min(parentFrame.size.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
+        let width = parentFrame.width
+        let origin = CGPoint(x: 0, y: labelContainerSize().height)
+        
+        return CGRect(origin: origin, size: CGSize(width: width, height: height))
+    }
+}
+

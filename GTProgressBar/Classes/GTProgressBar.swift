@@ -155,13 +155,13 @@ public class GTProgressBar: UIView {
         let frameCalculator: FrameCalculator = createFrameCalculator()
         
         progressLabel.frame = frameCalculator.labelFrame()
-        centerVerticallyInView(view: progressLabel)
-        
+        frameCalculator.center(view: progressLabel, parent: self)
+
         backgroundView.frame = frameCalculator.backgroundViewFrame()
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
         
-        if let _ = barMaxHeight {
-            centerVerticallyInView(view: backgroundView)
+        if (barMaxHeight != nil) {
+            frameCalculator.center(view: backgroundView, parent: self)
         }
         
         fillView.frame = fillViewFrameFor(progress: _progress)
@@ -172,6 +172,8 @@ public class GTProgressBar: UIView {
         switch labelPosition {
         case .right:
             return LabelRightFrameCalculator(progressBar: self)
+        case .top:
+            return LabelTopFrameCalculator(progressBar: self)
         default:
             return LabelLeftFrameCalculator(progressBar: self)
         }
@@ -215,12 +217,5 @@ public class GTProgressBar: UIView {
         }
         
         return view.frame.height / 2 * 0.7
-    }
-}
-
-extension UIView {
-    public func centerVerticallyInView(view: UIView) {
-        let center = self.convert(self.center, from: self.superview)
-        view.center = CGPoint(x: view.center.x, y: center.y)
     }
 }
