@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631C6A2B1F13A606004117ED /* HorizontalFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C6A2A1F13A606004117ED /* HorizontalFrameCalculator.swift */; };
+		631C6A2D1F13A60F004117ED /* VerticalFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C6A2C1F13A60F004117ED /* VerticalFrameCalculator.swift */; };
 		BC8B28261EBA3CC900BF1A1C /* GTProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BC8B28241EBA3CC900BF1A1C /* GTProgressBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC8B28331EBA3DD800BF1A1C /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */; };
 		BC8B28341EBA3DD800BF1A1C /* GTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		631C6A2A1F13A606004117ED /* HorizontalFrameCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalFrameCalculator.swift; sourceTree = "<group>"; };
+		631C6A2C1F13A60F004117ED /* VerticalFrameCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalFrameCalculator.swift; sourceTree = "<group>"; };
 		BC8B28211EBA3CC900BF1A1C /* GTProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8B28241EBA3CC900BF1A1C /* GTProgressBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTProgressBar.h; sourceTree = "<group>"; };
 		BC8B28251EBA3CC900BF1A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		BC8B282C1EBA3DD800BF1A1C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				631C6A2C1F13A60F004117ED /* VerticalFrameCalculator.swift */,
+				631C6A2A1F13A606004117ED /* HorizontalFrameCalculator.swift */,
 				BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */,
 				BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */,
 				BC8B28301EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift */,
@@ -153,6 +159,8 @@
 			files = (
 				BC8B28361EBA3DD800BF1A1C /* UILabelExtensions.swift in Sources */,
 				BC8B28331EBA3DD800BF1A1C /* FrameCalculator.swift in Sources */,
+				631C6A2B1F13A606004117ED /* HorizontalFrameCalculator.swift in Sources */,
+				631C6A2D1F13A60F004117ED /* VerticalFrameCalculator.swift in Sources */,
 				BC8B28341EBA3DD800BF1A1C /* GTProgressBar.swift in Sources */,
 				BC8B28351EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift in Sources */,
 			);
