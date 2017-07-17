@@ -33,6 +33,14 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progress = 0.5
   ```
 
+* @IBInspectable displayLabel: Bool
+
+  This property specifies if the progress label should be displayed. Default is true.
+
+  ```swift
+  progressBar.displayLabel = false
+  ```
+
 * @IBInspectable barBorderColor: UIColor
 
   This property specifies the colour of the bar's border. Default is UIColor.black
@@ -158,8 +166,11 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   This property allows you to specify the position of the progress label using integers in the Interface Builder. Current mapping is
 
   0 -> GTProgressBarLabelPosition.left
+
   1 -> GTProgressBarLabelPosition.right
+
   2 -> GTProgressBarLabelPosition.top
+
   3 -> GTProgressBarLabelPosition.bottom
 
   ```swift
