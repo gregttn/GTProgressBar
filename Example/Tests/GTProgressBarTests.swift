@@ -333,6 +333,14 @@ class GTProgressBarTests: XCTestCase {
         expect(view.progress).to(equal(0.69))
     }
     
+    func testShouldUpdateProgressLabeWhenAnimatingProgress() {
+        let view = setupView()
+        view.animateTo(progress: 0.69)
+        
+        let label = view.subviews[0] as! UILabel
+        expect(label.text).to(equal("69%"))
+    }
+    
     func testShouldSetCorrectFrameForLabelWhenPlacedOnTheRight() {
         let view = setupView() { view in
             view.labelPosition = GTProgressBarLabelPosition.right

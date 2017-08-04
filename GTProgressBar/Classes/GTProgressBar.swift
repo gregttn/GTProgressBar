@@ -251,6 +251,7 @@ public class GTProgressBar: UIView {
         let frameChange: () -> () = {
             self.fillView.frame.size.width = fillViewFrame.size.width
             self._progress = newProgress
+            self.updateProgressLabelText()
         }
         
         if #available(iOS 10.0, *) {
