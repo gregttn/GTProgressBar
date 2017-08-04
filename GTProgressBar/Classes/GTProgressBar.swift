@@ -249,7 +249,7 @@ public class GTProgressBar: UIView {
         let newProgress = min(max(progress,0), 1)
         let fillViewFrame = createFrameCalculator().fillViewFrameFor(progress: newProgress)
         let frameChange: () -> () = {
-            self.fillView.frame.size.width = fillViewFrame.size.width
+            self.fillView.frame = fillViewFrame
             self._progress = newProgress
             self.updateProgressLabelText()
         }

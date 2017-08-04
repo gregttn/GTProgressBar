@@ -545,11 +545,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zac-rt-hN4">
+                                <rect key="frame" x="16" y="580" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="q8w-fB-7E5"/>
+                                </constraints>
+                                <state key="normal" title="Animate Progress Bar"/>
+                                <connections>
+                                    <action selector="animateProgressBar:" destination="RCd-01-8B1" eventType="touchUpInside" id="RTi-eL-crp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98012200910000002" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="k6x-Iw-zjX" firstAttribute="top" secondItem="Zac-rt-hN4" secondAttribute="bottom" constant="8" id="4MV-HV-Nd1"/>
+                            <constraint firstItem="Zac-rt-hN4" firstAttribute="leading" secondItem="2OW-vI-wGO" secondAttribute="leadingMargin" id="944-j6-CxR"/>
                             <constraint firstItem="EQz-dg-xqN" firstAttribute="centerX" secondItem="2OW-vI-wGO" secondAttribute="centerX" id="QxL-kc-tgX"/>
                             <constraint firstItem="EQz-dg-xqN" firstAttribute="centerY" secondItem="2OW-vI-wGO" secondAttribute="centerY" id="Re2-49-i0g"/>
+                            <constraint firstItem="Zac-rt-hN4" firstAttribute="trailing" secondItem="2OW-vI-wGO" secondAttribute="trailingMargin" id="UY4-Lv-KY4"/>
                             <constraint firstItem="TEh-sL-sZh" firstAttribute="top" secondItem="LbU-Zo-GK9" secondAttribute="bottom" id="iTd-D9-lOO"/>
                             <constraint firstItem="TEh-sL-sZh" firstAttribute="centerX" secondItem="2OW-vI-wGO" secondAttribute="centerX" id="vcp-rR-2Ew"/>
                         </constraints>
