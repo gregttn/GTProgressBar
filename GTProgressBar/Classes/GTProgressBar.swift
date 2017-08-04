@@ -66,6 +66,12 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var barMaxWidth: CGFloat? {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     @IBInspectable
     public var barBorderColor: UIColor = UIColor.black {
         didSet {

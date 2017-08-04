@@ -402,6 +402,94 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.frame.size.height).to(equal(100))
     }
     
+    func testShouldCapWidthWhenMaxWidthSpecifiedAndLabelOnTheLeft() {
+        let view = setupView() { view in
+            view.labelPosition = .left
+            view.barMaxWidth = 10
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(10))
+    }
+    
+    func testShouldCapWidthAtAvailableSpaceIfTooBig() {
+        let view = setupView() { view in
+            view.labelPosition = .left
+            view.barMaxWidth = 10000
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(100 - labelFrameSize.width - labelInsets.left - labelInsets.right))
+    }
+    
+    func testShouldCapWidthWhenMaxWidthSpecifiedAndLabelOnTheRight() {
+        let view = setupView() { view in
+            view.labelPosition = .right
+            view.barMaxWidth = 10
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(10))
+    }
+    
+    func testShouldCapWidthAtAvailableSpaceIfTooBigWithLabelOnTheRight() {
+        let view = setupView() { view in
+            view.labelPosition = .right
+            view.barMaxWidth = 10000
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(100 - labelFrameSize.width - labelInsets.left - labelInsets.right))
+    }
+    
+    func testShouldCapWidthWhenMaxWidthSpecifiedAndLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+            view.barMaxWidth = 10
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(10))
+    }
+    
+    func testShouldCapWidthAtAvailableSpaceIfTooBigWithLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+            view.barMaxWidth = 10000
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(100))
+    }
+    
+    func testShouldCapWidthWhenMaxWidthSpecifiedAndLabelOnTheTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.barMaxWidth = 10
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(10))
+    }
+    
+    func testShouldCapWidthAtAvailableSpaceIfTooBigWithLabelOnTheTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.barMaxWidth = 10000
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.frame.size.width).to(equal(100))
+    }
+    
     func testShouldSetCorrectFrameForLabelWhenPlacedOnTheTop() {
         let view = setupView() { view in
             view.labelPosition = GTProgressBarLabelPosition.top

@@ -35,6 +35,7 @@ internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
     var barMaxHeight: CGFloat?
+    var barMaxWidth: CGFloat?
     var orientation: GTProgressBarOrientation
     
     lazy private var _labelFrame: CGRect = {
@@ -50,6 +51,7 @@ internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
@@ -65,7 +67,8 @@ internal class LabelLeftFrameCalculator: HorizontalFrameCalculator {
     public func backgroundViewFrame() -> CGRect {
         let xOffset = labelContainerSize().width
         let height = min(self.barMaxHeight ?? parentFrame.size.height, parentFrame.size.height)
-        let size = CGSize(width: parentFrame.size.width - xOffset, height: height)
+        let width = min(self.barMaxWidth ?? parentFrame.size.width - xOffset, parentFrame.size.width - xOffset)
+        let size = CGSize(width: width, height: height)
         let origin = CGPoint(x: xOffset, y: 0)
         
         return CGRect(origin: origin, size: size)
@@ -77,6 +80,7 @@ internal class LabelRightFrameCalculator: HorizontalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
+    let barMaxWidth: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
     let barBorderWidth: CGFloat
@@ -97,6 +101,7 @@ internal class LabelRightFrameCalculator: HorizontalFrameCalculator {
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
@@ -110,8 +115,9 @@ internal class LabelRightFrameCalculator: HorizontalFrameCalculator {
     }
     
     public func backgroundViewFrame() -> CGRect {
+        let xOffset = labelContainerSize().width
         let height = min(self.barMaxHeight ?? parentFrame.size.height, parentFrame.size.height)
-        let width = hasLabel ? parentFrame.size.width -  labelContainerSize().width : parentFrame.size.width
+        let width = min(self.barMaxWidth ?? parentFrame.size.width - xOffset, parentFrame.size.width - xOffset)
         let size = CGSize(width: width, height: height)
         
         return CGRect(origin: CGPoint.zero, size: size)

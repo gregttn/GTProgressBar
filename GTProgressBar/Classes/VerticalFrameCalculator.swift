@@ -39,6 +39,7 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
+    let barMaxWidth: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
     let barBorderWidth: CGFloat
@@ -58,6 +59,7 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
@@ -72,7 +74,7 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
     
     public func backgroundViewFrame() -> CGRect {
         let height = min(parentFrame.size.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
-        let width = parentFrame.width
+        let width = min(self.barMaxWidth ?? parentFrame.width, parentFrame.width)
         let origin = CGPoint(x: 0, y: labelContainerSize().height)
         
         return CGRect(origin: origin, size: CGSize(width: width, height: height))
@@ -83,6 +85,7 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
+    let barMaxWidth: CGFloat?
     let insets: UIEdgeInsets
     let font: UIFont
     let barBorderWidth: CGFloat
@@ -102,6 +105,7 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
         self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
         self.parentFrame = progressBar.frame
         self.insets = progressBar.progressLabelInsets
         self.font = progressBar.font
@@ -116,7 +120,8 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
     
     public func backgroundViewFrame() -> CGRect {
         let height = min(parentFrame.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
-        let size = CGSize(width: parentFrame.width, height: height)
+        let width = min(self.barMaxWidth ?? parentFrame.width, parentFrame.width)
+        let size = CGSize(width: width, height: height)
         
         return CGRect(origin: CGPoint.zero, size: size)
     }

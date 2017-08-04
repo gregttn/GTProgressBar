@@ -16,6 +16,7 @@ class VerticalViewController: UIViewController {
         super.viewDidLoad()
 
         self.progressBar.font = UIFont.boldSystemFont(ofSize: 18)
+        self.progressBar.barMaxWidth = 20
     }
 
     override func didReceiveMemoryWarning() {
