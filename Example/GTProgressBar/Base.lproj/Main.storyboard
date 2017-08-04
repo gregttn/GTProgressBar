@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dO2-KO-HPq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Horizontal-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="GTProgressBar_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-Qk-Hw1">
                                 <rect key="frame" x="16" y="36" width="343" height="565"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfC-nJ-tpa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horizontal Examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfC-nJ-tpa">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -484,11 +484,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98012200907419855" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nMw-Qk-Hw1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="KKy-cn-vh0"/>
-                            <constraint firstItem="nMw-Qk-Hw1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TBd-gf-tvn"/>
-                            <constraint firstItem="nMw-Qk-Hw1" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ria-C6-tVb"/>
+                            <constraint firstItem="nMw-Qk-Hw1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="Ff3-Zc-uqO"/>
+                            <constraint firstItem="nMw-Qk-Hw1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="k6r-qO-y0F"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Horizontal" id="db6-gb-TTA"/>
                     <connections>
                         <outlet property="animatedProgressBar" destination="YhR-YX-bg2" id="ifc-YS-D6w"/>
                         <outlet property="progressBar" destination="3Wh-eJ-yDe" id="GWv-5u-6M6"/>
@@ -497,7 +497,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="-157"/>
+            <point key="canvasLocation" x="1036" y="-157.87106446776613"/>
+        </scene>
+        <!--Vertical-->
+        <scene sceneID="SpR-Dt-tIx">
+            <objects>
+                <viewController id="RCd-01-8B1" customClass="VerticalViewController" customModule="GTProgressBar_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LbU-Zo-GK9"/>
+                        <viewControllerLayoutGuide type="bottom" id="k6x-Iw-zjX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2OW-vI-wGO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertical Examples" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEh-sL-sZh">
+                                <rect key="frame" x="127" y="20" width="121" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQz-dg-xqN" customClass="GTProgressBar" customModule="GTProgressBar">
+                                <rect key="frame" x="162" y="183" width="50" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="DDg-nJ-rbr"/>
+                                    <constraint firstAttribute="height" constant="300" id="wnR-rd-TXc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="orientationInt">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98012200910000002" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EQz-dg-xqN" firstAttribute="centerX" secondItem="2OW-vI-wGO" secondAttribute="centerX" id="QxL-kc-tgX"/>
+                            <constraint firstItem="EQz-dg-xqN" firstAttribute="centerY" secondItem="2OW-vI-wGO" secondAttribute="centerY" id="Re2-49-i0g"/>
+                            <constraint firstItem="TEh-sL-sZh" firstAttribute="top" secondItem="LbU-Zo-GK9" secondAttribute="bottom" id="iTd-D9-lOO"/>
+                            <constraint firstItem="TEh-sL-sZh" firstAttribute="centerX" secondItem="2OW-vI-wGO" secondAttribute="centerX" id="vcp-rR-2Ew"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vertical" id="jma-41-XUO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bkZ-dm-kIT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016.8" y="605.84707646176912"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Xg8-uF-Pab">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dO2-KO-HPq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="nAI-3O-Svn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="5iI-PX-FGx"/>
+                        <segue destination="RCd-01-8B1" kind="relationship" relationship="viewControllers" id="PkT-WI-jiD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCD-Hg-rdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="-157.87106446776613"/>
         </scene>
     </scenes>
 </document>

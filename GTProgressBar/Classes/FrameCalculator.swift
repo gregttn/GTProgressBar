@@ -18,6 +18,7 @@ internal protocol FrameCalculator {
     var barFillInset: CGFloat {get}
     var barMaxHeight: CGFloat? {get}
     var font: UIFont {get}
+    var orientation: GTProgressBarOrientation {get}
     
     func labelFrame() -> CGRect
     func backgroundViewFrame() -> CGRect
@@ -52,8 +53,17 @@ extension FrameCalculator {
     func fillViewFrameFor(progress: CGFloat) -> CGRect {
         let offset = barBorderWidth + barFillInset
         let fillFrame = backgroundViewFrame().insetBy(dx: offset, dy: offset)
-        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
         
-        return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
+        switch orientation {
+        case .horizontal:
+            let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
+    
+            return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
+        case .vertical:
+            let fillFrameAdjustedSize = CGSize(width: fillFrame.width, height: fillFrame.height * progress)
+            let origin = CGPoint(x: offset, y: fillFrame.height - fillFrameAdjustedSize.height + offset)
+            
+            return CGRect(origin: origin, size: fillFrameAdjustedSize)
+        }
     }
 }

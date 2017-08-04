@@ -14,6 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		63C7FDA01D9072100024CE78 /* GTProgressBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FD9F1D9072100024CE78 /* GTProgressBarTests.swift */; };
+		63D45B8F1F34EA3E006A76DE /* GTProgressBarVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D45B8E1F34EA3E006A76DE /* GTProgressBarVertical.swift */; };
+		63D45B911F34F42B006A76DE /* VerticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D45B901F34F42B006A76DE /* VerticalViewController.swift */; };
 		A84EA549B902592B179727C3 /* Pods_GTProgressBar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214875FE6AD99995EF2E8C1D /* Pods_GTProgressBar_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		607FACE51AFB9204008FA782 /* GTProgressBar_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTProgressBar_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63C7FD9F1D9072100024CE78 /* GTProgressBarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBarTests.swift; sourceTree = "<group>"; };
+		63D45B8E1F34EA3E006A76DE /* GTProgressBarVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBarVertical.swift; sourceTree = "<group>"; };
+		63D45B901F34F42B006A76DE /* VerticalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalViewController.swift; sourceTree = "<group>"; };
 		6ED04799B44C2A5BEA80443B /* Pods-GTProgressBar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTProgressBar_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GTProgressBar_Example/Pods-GTProgressBar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9223A8E2EE48A539230CB8B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C2DBFEA0C8E945E44F553FE3 /* Pods-GTProgressBar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTProgressBar_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GTProgressBar_Tests/Pods-GTProgressBar_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				63D45B901F34F42B006A76DE /* VerticalViewController.swift */,
 			);
 			name = "Example for GTProgressBar";
 			path = GTProgressBar;
@@ -128,6 +133,7 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				63C7FD9F1D9072100024CE78 /* GTProgressBarTests.swift */,
+				63D45B8E1F34EA3E006A76DE /* GTProgressBarVertical.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				63D45B911F34F42B006A76DE /* VerticalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C7FDA01D9072100024CE78 /* GTProgressBarTests.swift in Sources */,
+				63D45B8F1F34EA3E006A76DE /* GTProgressBarVertical.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

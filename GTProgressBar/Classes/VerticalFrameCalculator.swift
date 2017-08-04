@@ -43,6 +43,7 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
     let font: UIFont
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
+    let orientation: GTProgressBarOrientation
     
     lazy private var _labelFrame: CGRect = {
         if (!self.hasLabel) {
@@ -62,6 +63,7 @@ internal class LabelTopFrameCalculator: VerticalFrameCalculator {
         self.font = progressBar.font
         self.barBorderWidth = progressBar.barBorderWidth
         self.barFillInset = progressBar.barFillInset
+        self.orientation = progressBar.orientation
     }
     
     public func labelFrame() -> CGRect {
@@ -85,6 +87,7 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
     let font: UIFont
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
+    let orientation: GTProgressBarOrientation
     
     lazy private var _labelFrame: CGRect = {
         if (!self.hasLabel) {
@@ -104,6 +107,7 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
         self.font = progressBar.font
         self.barBorderWidth = progressBar.barBorderWidth
         self.barFillInset = progressBar.barFillInset
+        self.orientation = progressBar.orientation
     }
     
     public func labelFrame() -> CGRect {
