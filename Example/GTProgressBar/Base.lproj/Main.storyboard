@@ -518,21 +518,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQz-dg-xqN" customClass="GTProgressBar" customModule="GTProgressBar">
-                                <rect key="frame" x="162" y="183" width="50" height="300"/>
+                                <rect key="frame" x="152" y="183" width="70" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="DDg-nJ-rbr"/>
+                                    <constraint firstAttribute="width" constant="70" id="DDg-nJ-rbr"/>
                                     <constraint firstAttribute="height" constant="300" id="wnR-rd-TXc"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="orientationInt">
                                         <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
+                                        <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
+                                        <color key="value" red="0.35294117650000001" green="0.79607843140000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
+                                        <color key="value" red="0.7725490196" green="0.92549019610000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -546,6 +555,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Vertical" id="jma-41-XUO"/>
+                    <connections>
+                        <outlet property="progressBar" destination="EQz-dg-xqN" id="U3c-fz-aht"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkZ-dm-kIT" sceneMemberID="firstResponder"/>
             </objects>

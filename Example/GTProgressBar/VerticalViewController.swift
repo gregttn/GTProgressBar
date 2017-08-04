@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import GTProgressBar
 
 class VerticalViewController: UIViewController {
+    @IBOutlet weak var progressBar: GTProgressBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.progressBar.font = UIFont.boldSystemFont(ofSize: 18)
     }
 
     override func didReceiveMemoryWarning() {
