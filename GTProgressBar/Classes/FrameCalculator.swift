@@ -47,3 +47,13 @@ extension FrameCalculator {
         return UILabel.sizeFor(content: "100%", font: self.font)
     }
 }
+
+extension FrameCalculator {
+    func fillViewFrameFor(progress: CGFloat) -> CGRect {
+        let offset = barBorderWidth + barFillInset
+        let fillFrame = backgroundViewFrame().insetBy(dx: offset, dy: offset)
+        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
+        
+        return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
+    }
+}

@@ -207,7 +207,7 @@ public class GTProgressBar: UIView {
             frameCalculator.center(view: backgroundView, parent: self)
         }
         
-        fillView.frame = fillViewFrameFor(progress: _progress)
+        fillView.frame = createFrameCalculator().fillViewFrameFor(progress: _progress)
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
     }
     
@@ -230,7 +230,7 @@ public class GTProgressBar: UIView {
     
     public func animateTo(progress: CGFloat) {
         let newProgress = min(max(progress,0), 1)
-        let fillViewFrame = fillViewFrameFor(progress: newProgress)
+        let fillViewFrame = createFrameCalculator().fillViewFrameFor(progress: newProgress)
         let frameChange: () -> () = {
             self.fillView.frame.size.width = fillViewFrame.size.width
             self._progress = newProgress
@@ -246,14 +246,6 @@ public class GTProgressBar: UIView {
                 animations: frameChange,
                 completion: nil);
         }
-    }
-    
-    private func fillViewFrameFor(progress: CGFloat) -> CGRect {
-        let offset = barBorderWidth + barFillInset
-        let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
-        let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
-        
-        return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
     }
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {
