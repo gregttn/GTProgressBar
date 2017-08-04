@@ -160,6 +160,23 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var orientation: GTProgressBarOrientation = GTProgressBarOrientation.horizontal {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var orientationInt: Int = 0 {
+        didSet {
+            let enumOrientation = GTProgressBarOrientation(rawValue: orientationInt)
+            
+            if let orientation = enumOrientation {
+                self.orientation = orientation
+            }
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()

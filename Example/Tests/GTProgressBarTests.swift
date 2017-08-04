@@ -767,7 +767,7 @@ class GTProgressBarTests: XCTestCase {
         expect(view.progressLabelInsets.right).to(equal(0))
     }
     
-    func testSettingProgressBarLabelInsetTopChangesTheInsetsUsedByTheConrol() {
+    func testSettingProgressBarLabelInsetTopChangesTheInsetsUsedByTheControl() {
         let view = setupView() { view in
             view.progressLabelInsetTop = 999
         }
@@ -798,6 +798,17 @@ class GTProgressBarTests: XCTestCase {
         
         expect(view.progressLabelInsets.bottom).to(equal(0))
     }
+    
+    func testSettingIntOrientationAssignsCorrectOrientationEnum() {
+        let view = setupView()
+        
+        view.orientationInt = 1
+        expect(view.orientation).to(equal(GTProgressBarOrientation.vertical))
+        
+        view.orientationInt = 0
+        expect(view.orientation).to(equal(GTProgressBarOrientation.horizontal))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
