@@ -33,6 +33,16 @@ class GTProgressBarVertical: XCTestCase {
         expect(fillView.frame).to(equal(expectedFillViewFrame))
     }
     
+    func testShouldCalculateRoundedCornerBasedOnWidth() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 20, height: 100)) { view in
+            view.displayLabel = false
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.layer.cornerRadius).to(equal(7))
+    }
+    
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
         ) -> GTProgressBar {
