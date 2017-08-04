@@ -22,10 +22,13 @@ class GTProgressBarTests: XCTestCase {
     func testInitWithFrame_shouldCreateAllSubviews() {
         let view = GTProgressBar(frame: CGRect.zero)
         
-        expect(view.subviews).to(haveCount(3))
+        expect(view.subviews).to(haveCount(2))
         expect(view.subviews.first!).to(beAKindOf(UILabel.self))
-        expect(view.subviews[1]).to(beAKindOf(UIView.self))
-        expect(view.subviews[2]).to(beAKindOf(UIView.self))
+        
+        let backgroundView = view.subviews[self.backgroundViewIndex]
+        expect(backgroundView).to(beAKindOf(UIView.self))
+        expect(backgroundView.subviews).to(haveCount(1))
+        expect(backgroundView.subviews.first!).to(beAKindOf(UIView.self))
     }
     
     func testLayoutSubviews_shouldRenderBakgroundViewNextToLabel() {
@@ -80,9 +83,9 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldCalculateCorrectFrameForFillView() {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrame = CGRect(x:45, y: 4, width: 51, height: 92)
+        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 92)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -91,15 +94,15 @@ class GTProgressBarTests: XCTestCase {
             view.barMaxHeight = 20
         }
         
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrame = CGRect(x:45, y: 14, width: 51, height: 12)
+        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 12)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
     func testLayoutSubviews_shouldRenderFillViewWithRoundedCorners() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
         let expectedRadius: CGFloat = 0.7
         expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
@@ -107,7 +110,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldRenderFillViewWithCorrectRoundedCorners() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         view.cornerRadius = view.bounds.height / 2.0
         view.layoutSubviews()
         
@@ -117,8 +120,9 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldRenderFillViewWithDefaultFillColor() {
         let view = setupView()
+        let fillView: UIView = view.subviews[backgroundViewIndex].subviews.first!
         
-        expect(view.subviews[self.fillViewIndex].backgroundColor).to(equal(UIColor.black))
+        expect(fillView.backgroundColor).to(equal(UIColor.black))
     }
     
     func testLayoutSubivews_shouldSetCorrectWidthForFillViewWhenProgressSet() {
@@ -126,7 +130,7 @@ class GTProgressBarTests: XCTestCase {
             v.progress = 0.5
         }
         
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
         let offset: CGFloat = 4
         let expectedFrameWidth: CGFloat = (view.frame.width - insetsOffset - 2*offset - labelFrameSize.width)/2
@@ -138,7 +142,7 @@ class GTProgressBarTests: XCTestCase {
             v.progress = -0.5
         }
         
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
         let expectedFrameWidth: CGFloat = 0
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
@@ -149,7 +153,7 @@ class GTProgressBarTests: XCTestCase {
             v.progress = 1.5
         }
 
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
         let expectedFrameWidth: CGFloat = 51
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
@@ -178,7 +182,7 @@ class GTProgressBarTests: XCTestCase {
             v.barFillColor = UIColor.blue
         }
         
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         expect(fillView.backgroundColor).to(equal(UIColor.blue))
     }
     
@@ -196,9 +200,9 @@ class GTProgressBarTests: XCTestCase {
             v.barFillInset = 5
         }
         
-        let fillView = view.subviews[fillViewIndex]
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
         let insets = labelInsets.left + labelInsets.right
-        let expectedOrigin = CGPoint(x: 7 + labelFrameSize.width + insets, y: 7)
+        let expectedOrigin = CGPoint(x: 7, y: 7)
         let expectedSize = CGSize(width:view.frame.size.width - insets -  2*7.0 - labelFrameSize.width, height: 86)
         let expectedFrame = CGRect(origin: expectedOrigin, size: expectedSize)
         expect(fillView.frame).to(equal(expectedFrame))

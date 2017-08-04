@@ -182,7 +182,7 @@ public class GTProgressBar: UIView {
         addSubview(backgroundView)
         
         fillView.backgroundColor = barFillColor
-        addSubview(fillView)
+        backgroundView.addSubview(fillView)
     }
     
     public override func layoutSubviews() {
@@ -253,7 +253,7 @@ public class GTProgressBar: UIView {
         let fillFrame = backgroundView.frame.insetBy(dx: offset, dy: offset)
         let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
         
-        return CGRect(origin: fillFrame.origin, size: fillFrameAdjustedSize)
+        return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
     }
     
     private func cornerRadiusFor(view: UIView) -> CGFloat {
