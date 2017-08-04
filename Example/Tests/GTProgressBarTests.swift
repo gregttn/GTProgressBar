@@ -86,6 +86,17 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
+    func testLayoutSubviews_shouldCalculateCorrectFrameForFillViewWhenRestrictingBarHeight() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 40)) { view in
+            view.barMaxHeight = 20
+        }
+        
+        let fillView = view.subviews[fillViewIndex]
+        
+        let expectedFrame = CGRect(x:45, y: 14, width: 51, height: 12)
+        expect(fillView.frame).to(equal(expectedFrame))
+    }
+    
     func testLayoutSubviews_shouldRenderFillViewWithRoundedCorners() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         let fillView = view.subviews[fillViewIndex]
