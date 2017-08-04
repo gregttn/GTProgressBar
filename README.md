@@ -23,6 +23,24 @@ This component is written using Swift 3 so you will need to run Xcode 8 or highe
 
 Many properties of GTProgressBar can be configured. Most of them can be configured in Interface Builder (@IBInspectable).
 
+* orientation: GTProgressBarOrientation
+  This property allows you to specify the orientation of the bar: horizontal or vertical. By default it is set to horizontal
+
+  ```swift
+  progressBar.orientation = GTProgressBarOrientation.vertical
+  ```
+
+* @IBInspectable orientationInt: Int
+  This property allows you to specify the orientation of the bar as Int. It defaults to horizontal. Current mapping is
+
+  0 -> GTProgressBarOrientation.horizontal
+
+  1 -> GTProgressBarOrientation.vertical
+
+  ```swift
+  progressBar.orientationInt = 1
+  ```
+
 * @IBInspectable progress: CGFloat
 
   This property specifies how much of the bar is filled. The allowed values are from 0.0 to 1.0 . Default is 0.
