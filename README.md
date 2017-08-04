@@ -147,10 +147,18 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
 
 * barMaxHeight: CGFloat?
 
-  This property allows you to specify the max height of the progress bar. By default the the progress bar will be sized to match the height of the whole view. If the max height is larger than the available view height it will be ignored.
+  This property allows you to specify the max height of the progress bar. By default the progress bar will be sized to match the height of the whole view. If the max height is larger than the available view height it will be ignored.
 
   ```swift
   progressBar.barMaxHeight = 12
+  ```
+
+* barMaxWidth: CGFloat?
+
+  This property allows you to specify the max width of the progress bar. By default the progress bar will be sized to match the available free width. If the max width is larger than the available width it will be ignored.
+
+  ```swift
+  progressBar.barMaxWidth = 12
   ```
 
 * labelPosition: GTProgressBarLabelPosition
