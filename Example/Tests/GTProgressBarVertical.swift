@@ -85,6 +85,17 @@ class GTProgressBarVertical: XCTestCase {
         expect(view.frame.size.width).to(equal(width))
     }
     
+    func testBarCenteredInViewWhenWidthRestricted() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.barMaxWidth = 20
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.center.x).to(equal(view.center.x))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
         ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)

@@ -226,12 +226,16 @@ public class GTProgressBar: UIView {
         backgroundView.frame = frameCalculator.backgroundViewFrame()
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
         
-        if (barMaxHeight != nil) {
+        if (isBarSizeRestricted()) {
             frameCalculator.center(view: backgroundView, parent: self)
         }
         
         fillView.frame = createFrameCalculator().fillViewFrameFor(progress: _progress)
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+    }
+    
+    private func isBarSizeRestricted() -> Bool {
+        return barMaxHeight != nil || (orientation == .vertical && barMaxWidth != nil)
     }
     
     private func createFrameCalculator() -> FrameCalculator {

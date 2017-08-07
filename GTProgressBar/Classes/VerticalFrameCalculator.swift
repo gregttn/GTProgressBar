@@ -14,6 +14,7 @@ extension VerticalFrameCalculator {
     
     func center(view: UIView, parent: UIView) {
         let center = parent.convert(parent.center, from: parent.superview)
+        
         view.center = CGPoint(x: center.x, y: view.center.y)
     }
     
