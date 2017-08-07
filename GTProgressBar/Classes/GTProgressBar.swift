@@ -277,6 +277,11 @@ public class GTProgressBar: UIView {
             return cornerRadius
         }
         
-        return min(view.frame.width, view.frame.height) / 2 * 0.7
+        switch orientation {
+        case .horizontal:
+            return view.frame.height / 2 * 0.7
+        case .vertical:
+            return view.frame.width / 2 * 0.7
+        }
     }
 }
