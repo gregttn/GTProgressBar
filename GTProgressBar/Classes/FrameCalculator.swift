@@ -66,7 +66,7 @@ extension FrameCalculator {
 
 extension FrameCalculator {
     func fillViewFrameFor(progress: CGFloat) -> CGRect {
-        let offset = barBorderWidth + barFillInset
+        let offset = barFillInset == 0 ? 0 : barBorderWidth + barFillInset
         let fillFrame = backgroundViewFrame().insetBy(dx: offset, dy: offset)
         
         switch orientation {

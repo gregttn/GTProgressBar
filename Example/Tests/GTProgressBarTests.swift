@@ -905,6 +905,19 @@ class GTProgressBarTests: XCTestCase {
         expect(view.orientation).to(equal(GTProgressBarOrientation.horizontal))
     }
     
+    func testFillViewHasTheSameFrameAsBackgroundViewWhenNoInsetsSetAndFullProgressSet() {
+        let view = setupView() { view in
+            view.barFillInset = 0
+            view.progress = 1
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        let fillView = backgroundView.subviews.first!
+        
+        expect(fillView.frame.origin).to(equal(CGPoint.zero))
+        expect(fillView.frame.size).to(equal(backgroundView.frame.size))
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
