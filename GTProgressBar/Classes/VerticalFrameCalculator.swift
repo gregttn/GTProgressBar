@@ -18,9 +18,8 @@ extension VerticalFrameCalculator {
     }
     
     func sizeThatFits(_ size: CGSize) -> CGSize {
-        let minProgressBarHeight = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
         let labelContainerSize = self.labelContainerSize()
-        let totalHeight = labelContainerSize.height + max(minProgressBarHeight, barMaxHeight ?? minProgressBarHeight)
+        let totalHeight = labelContainerSize.height + orientationBasedMinimumHeight()
         
         var height: CGFloat = 0
         if  let _ = barMaxHeight {
@@ -32,6 +31,18 @@ extension VerticalFrameCalculator {
         let width =  max(size.width, max(labelContainerSize.width, minimumProgressBarWidth))
         
         return CGSize(width: width, height: height)
+    }
+    
+    private func orientationBasedMinimumHeight() -> CGFloat {
+        let totalBorderHeight = barBorderWidth * 2.0
+        let totalInsetHeight = barFillInset * 2.0
+        var minimumBarHeight = totalBorderHeight + totalInsetHeight + minimumProgressBarFillHeight
+        
+        if orientation == .vertical {
+            minimumBarHeight = max(minimumBarHeight, minimumProgressBarHeightForVerticalOrientation)
+        }
+        
+        return max(minimumBarHeight, barMaxHeight ?? minimumBarHeight)
     }
 }
 

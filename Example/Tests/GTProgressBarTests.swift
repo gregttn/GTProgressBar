@@ -53,7 +53,7 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.layer.borderWidth).to(equal(2))
     }
     
-    func testLayoutSubviews_shouldRenderBackgroundViewWithRoundedCorners() {
+    func testLayoutSubviews_shouldRenderBackgroundViewWithRoundedCornersBasedOnTheHeight() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         let backgroundView = view.subviews[backgroundViewIndex]
         

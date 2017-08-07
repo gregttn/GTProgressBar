@@ -11,6 +11,7 @@ import Foundation
 internal protocol FrameCalculator {
     var minimumProgressBarWidth: CGFloat {get}
     var minimumProgressBarFillHeight: CGFloat {get}
+    var minimumProgressBarHeightForVerticalOrientation: CGFloat {get}
 
     var hasLabel: Bool {get}
     var insets: UIEdgeInsets {get}
@@ -29,6 +30,7 @@ internal protocol FrameCalculator {
 
 extension FrameCalculator {
     var minimumProgressBarWidth: CGFloat { return 20}
+    var minimumProgressBarHeightForVerticalOrientation: CGFloat { return 20}
     var minimumProgressBarFillHeight: CGFloat { return 1 }
 }
 

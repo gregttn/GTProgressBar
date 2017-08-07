@@ -16,7 +16,7 @@ class GTProgressBarVertical: XCTestCase {
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
     private let minimumBarWidth: CGFloat = 20
-    private let minimumBarHeight: CGFloat = 9
+    private let minimumBarHeight: CGFloat = 20
     
     func testShouldCalculateCorrectFramesWhenVerticalBarWithoutLabel() {
         let view = setupView() { view in
@@ -56,6 +56,34 @@ class GTProgressBarVertical: XCTestCase {
         expect(fillView.frame).to(equal(expectedFillViewFrame))
     }
     
+    func testSizeToFitCreatesMinimalSizeWithHorizontalLabelAlignment() {
+        let view = setupView()
+        
+        view.frame = CGRect.zero
+        
+        view.sizeToFit()
+        
+        let width: CGFloat = labelFrameSize.width + labelInsets.left + labelInsets.right + minimumBarWidth
+        
+        expect(view.frame.size.height).to(equal(minimumBarHeight))
+        expect(view.frame.size.width).to(equal(width))
+    }
+    
+    func testSizeToFitCreatesMinimalSizeWithVerticalLabelAlignment() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+        }
+        
+        view.frame = CGRect.zero
+        
+        view.sizeToFit()
+        
+        let height: CGFloat = labelFrameSize.height + labelInsets.top + labelInsets.bottom + minimumBarHeight
+        let width: CGFloat = labelFrameSize.width + labelInsets.left + labelInsets.right
+        
+        expect(view.frame.size.height).to(equal(height))
+        expect(view.frame.size.width).to(equal(width))
+    }
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
         ) -> GTProgressBar {

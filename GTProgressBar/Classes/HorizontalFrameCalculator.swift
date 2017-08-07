@@ -12,13 +12,25 @@ internal protocol HorizontalFrameCalculator: FrameCalculator {}
 
 extension HorizontalFrameCalculator {
     func sizeThatFits(_ size: CGSize) -> CGSize {
-        let minProgressBarHeight = (barBorderWidth * 2.0) + (barFillInset * 2.0) + minimumProgressBarFillHeight
-        let labelContainerSize = self.labelContainerSize()
+        let minProgressBarHeight = orientationBasedMinHeight()
         
+        let labelContainerSize = self.labelContainerSize()
         let height = max(labelContainerSize.height, minProgressBarHeight)
         let width =  max(size.width, labelContainerSize.width + minimumProgressBarWidth)
         
         return CGSize(width: width, height: height)
+    }
+    
+    private func orientationBasedMinHeight() -> CGFloat {
+        let totalBorderHeight = barBorderWidth * 2.0
+        let totalInsetHeight = barFillInset * 2.0
+        var minProgressBarHeight =  totalBorderHeight + totalInsetHeight + minimumProgressBarFillHeight
+        
+        if orientation == .vertical {
+            minProgressBarHeight = max(minProgressBarHeight, minimumProgressBarHeightForVerticalOrientation)
+        }
+        
+        return minProgressBarHeight
     }
     
     func center(view: UIView, parent: UIView) {
