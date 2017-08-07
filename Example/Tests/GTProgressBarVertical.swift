@@ -12,6 +12,7 @@ import GTProgressBar
 
 class GTProgressBarVertical: XCTestCase {
     private let backgroundViewIndex = 1
+    private let labelViewIndex = 0
     private let labelFrameSize: CGSize = CGSize(width: 31, height: 15)
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
@@ -85,7 +86,76 @@ class GTProgressBarVertical: XCTestCase {
         expect(view.frame.size.width).to(equal(width))
     }
     
-    func testBarCenteredInViewWhenWidthRestricted() {
+    func testLabelCenteredHorizontallyWhenLabelOnTheTop() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+        }
+        
+        let label = view.subviews[labelViewIndex]
+        
+        expect(label.center.x).to(equal(view.center.x))
+    }
+    
+    func testLabelCenteredHorizontallyWhenLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .bottom
+        }
+        
+        let label = view.subviews[labelViewIndex]
+        
+        expect(label.center.x).to(equal(view.center.x))
+    }
+    
+    func testLabelCenteredVerticallyWhenLabelOnTheRight() {
+        let view = setupView() { view in
+            view.labelPosition = .right
+        }
+        
+        let label = view.subviews[labelViewIndex]
+        
+        expect(label.center.y).to(equal(view.center.y))
+    }
+    
+    func testLabelCenteredVerticallyWhenLabelOnTheLeft() {
+        let view = setupView() { view in
+            view.labelPosition = .left
+        }
+        
+        let label = view.subviews[labelViewIndex]
+        
+        expect(label.center.y).to(equal(view.center.y))
+    }
+    
+    func testBarCenteredHorizontally() {
+        let view = setupView()
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.center.y).to(equal(view.center.y))
+    }
+    
+    func testBarCenteredVerticallyWhenNoLabel() {
+        let view = setupView() { view in
+            view.displayLabel = false
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.center.x).to(equal(view.center.x))
+    }
+    
+    func testBarCenteredVerticallyWhenNoLabelAndWidthRestricted() {
+        let view = setupView() { view in
+            view.displayLabel = false
+            view.barMaxWidth = 20
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.center.x).to(equal(view.center.x))
+    }
+    
+    func testBarCenteredVerticallyWhenWidthRestrictedAndLabelOnTheTop() {
         let view = setupView() { view in
             view.labelPosition = .top
             view.barMaxWidth = 20
@@ -95,6 +165,18 @@ class GTProgressBarVertical: XCTestCase {
         
         expect(backgroundView.center.x).to(equal(view.center.x))
     }
+    
+    func testBarCenteredVerticallyWhenWidthRestrictedAndLabelOnTheBottom() {
+        let view = setupView() { view in
+            view.labelPosition = .top
+            view.barMaxWidth = 20
+        }
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.center.x).to(equal(view.center.x))
+    }
+    
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
         ) -> GTProgressBar {

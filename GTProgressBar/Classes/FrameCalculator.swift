@@ -18,14 +18,19 @@ internal protocol FrameCalculator {
     var barBorderWidth: CGFloat {get}
     var barFillInset: CGFloat {get}
     var barMaxHeight: CGFloat? {get}
+    var barMaxWidth: CGFloat? {get}
     var font: UIFont {get}
     var orientation: GTProgressBarOrientation {get}
+    var parentFrame: CGRect {get}
     
     func labelFrame() -> CGRect
+    func labelOrigin() -> CGPoint
     func backgroundViewFrame() -> CGRect
     
-    func center(view: UIView, parent: UIView)
+    func centerLabel(label: UILabel)
+    func centerBar(bar: UIView)
     func sizeThatFits(_ size: CGSize) -> CGSize
+    
 }
 
 extension FrameCalculator {
@@ -35,6 +40,14 @@ extension FrameCalculator {
 }
 
 extension FrameCalculator {
+    public func labelFrame() -> CGRect {
+        if (!self.hasLabel) {
+            return CGRect.zero
+        }
+        
+        return CGRect(origin: labelOrigin(), size: self.labelFrameSize())
+    }
+    
     func labelContainerSize() -> CGSize {
         if (!self.hasLabel) {
             return CGSize.zero

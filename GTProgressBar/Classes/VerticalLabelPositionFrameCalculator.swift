@@ -8,15 +8,11 @@
 
 import Foundation
 
-internal protocol VerticalFrameCalculator: FrameCalculator {}
+internal protocol VerticalLabelPositionFrameCalculator: FrameCalculator {
+    func backgroundViewOrigin() -> CGPoint
+}
 
-extension VerticalFrameCalculator {
-    
-    func center(view: UIView, parent: UIView) {
-        let center = parent.convert(parent.center, from: parent.superview)
-        
-        view.center = CGPoint(x: center.x, y: view.center.y)
-    }
+extension VerticalLabelPositionFrameCalculator {
     
     func sizeThatFits(_ size: CGSize) -> CGSize {
         let labelContainerSize = self.labelContainerSize()
@@ -45,55 +41,28 @@ extension VerticalFrameCalculator {
         
         return max(minimumBarHeight, barMaxHeight ?? minimumBarHeight)
     }
-}
-
-internal class LabelTopFrameCalculator: VerticalFrameCalculator {
-    let hasLabel: Bool
-    let parentFrame: CGRect
-    let barMaxHeight: CGFloat?
-    let barMaxWidth: CGFloat?
-    let insets: UIEdgeInsets
-    let font: UIFont
-    let barBorderWidth: CGFloat
-    let barFillInset: CGFloat
-    let orientation: GTProgressBarOrientation
     
-    lazy private var _labelFrame: CGRect = {
-        if (!self.hasLabel) {
-            return CGRect.zero
+    func centerLabel(label: UILabel) {
+        if let parent = label.superview {
+            label.centerHorizontally(parent: parent)
         }
-    
-        let origin = CGPoint(x: 0, y: self.insets.top)
-        
-        return CGRect(origin: origin, size: self.labelFrameSize())
-    }()
-    
-    public init(progressBar: GTProgressBar) {
-        self.hasLabel = progressBar.displayLabel
-        self.barMaxHeight = progressBar.barMaxHeight
-        self.barMaxWidth = progressBar.barMaxWidth
-        self.parentFrame = progressBar.frame
-        self.insets = progressBar.progressLabelInsets
-        self.font = progressBar.font
-        self.barBorderWidth = progressBar.barBorderWidth
-        self.barFillInset = progressBar.barFillInset
-        self.orientation = progressBar.orientation
     }
     
-    public func labelFrame() -> CGRect {
-        return _labelFrame
+    func centerBar(bar: UIView) {
+        if let parent = bar.superview {
+            bar.centerHorizontally(parent: parent)
+        }
     }
     
     public func backgroundViewFrame() -> CGRect {
         let height = min(parentFrame.size.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
-        let width = min(self.barMaxWidth ?? parentFrame.width, parentFrame.width)
-        let origin = CGPoint(x: 0, y: labelContainerSize().height)
+        let width = min(barMaxWidth ?? parentFrame.width, parentFrame.width)
         
-        return CGRect(origin: origin, size: CGSize(width: width, height: height))
+        return CGRect(origin: backgroundViewOrigin(), size:  CGSize(width: width, height: height))
     }
 }
 
-internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
+internal class LabelTopFrameCalculator: VerticalLabelPositionFrameCalculator {
     let hasLabel: Bool
     let parentFrame: CGRect
     let barMaxHeight: CGFloat?
@@ -103,16 +72,6 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
     let orientation: GTProgressBarOrientation
-    
-    lazy private var _labelFrame: CGRect = {
-        if (!self.hasLabel) {
-            return CGRect.zero
-        }
-        
-        let origin = CGPoint(x: 0, y: self.backgroundViewFrame().height + self.insets.top)
-        
-        return CGRect(origin: origin, size: self.labelFrameSize())
-    }()
     
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
@@ -126,15 +85,43 @@ internal class LabelBottomFrameCalculator: VerticalFrameCalculator {
         self.orientation = progressBar.orientation
     }
     
-    public func labelFrame() -> CGRect {
-        return _labelFrame
+    func backgroundViewOrigin() -> CGPoint {
+        return CGPoint(x: 0, y: labelContainerSize().height)
     }
     
-    public func backgroundViewFrame() -> CGRect {
-        let height = min(parentFrame.height - labelContainerSize().height, barMaxHeight ?? parentFrame.size.height)
-        let width = min(self.barMaxWidth ?? parentFrame.width, parentFrame.width)
-        let size = CGSize(width: width, height: height)
-        
-        return CGRect(origin: CGPoint.zero, size: size)
+    func labelOrigin() -> CGPoint {
+        return CGPoint(x: 0, y: self.insets.top)
+    }
+}
+
+internal class LabelBottomFrameCalculator: VerticalLabelPositionFrameCalculator {
+    let hasLabel: Bool
+    let parentFrame: CGRect
+    let barMaxHeight: CGFloat?
+    let barMaxWidth: CGFloat?
+    let insets: UIEdgeInsets
+    let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
+    let orientation: GTProgressBarOrientation
+    
+    public init(progressBar: GTProgressBar) {
+        self.hasLabel = progressBar.displayLabel
+        self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
+        self.parentFrame = progressBar.frame
+        self.insets = progressBar.progressLabelInsets
+        self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
+        self.orientation = progressBar.orientation
+    }
+    
+    func backgroundViewOrigin() -> CGPoint {
+        return CGPoint.zero
+    }
+    
+    func labelOrigin() -> CGPoint {
+        return CGPoint(x: 0, y: self.backgroundViewFrame().height + self.insets.top)
     }
 }

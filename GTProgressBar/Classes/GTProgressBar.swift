@@ -221,21 +221,14 @@ public class GTProgressBar: UIView {
         let frameCalculator: FrameCalculator = createFrameCalculator()
         
         progressLabel.frame = frameCalculator.labelFrame()
-        frameCalculator.center(view: progressLabel, parent: self)
+        frameCalculator.centerLabel(label: progressLabel)
 
         backgroundView.frame = frameCalculator.backgroundViewFrame()
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
-        
-        if (isBarSizeRestricted()) {
-            frameCalculator.center(view: backgroundView, parent: self)
-        }
-        
+        frameCalculator.centerBar(bar: backgroundView)
+
         fillView.frame = createFrameCalculator().fillViewFrameFor(progress: _progress)
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
-    }
-    
-    private func isBarSizeRestricted() -> Bool {
-        return barMaxHeight != nil || (orientation == .vertical && barMaxWidth != nil)
     }
     
     private func createFrameCalculator() -> FrameCalculator {
