@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/GTProgressBar.svg?style=flat)](http://cocoapods.org/pods/GTProgressBar)
 [![Platform](https://img.shields.io/cocoapods/p/GTProgressBar.svg?style=flat)](http://cocoapods.org/pods/GTProgressBar)
 
-GTProgressBar is a customisable progress bar. You can adjust many visual settings of the progress bar to suit your use case. Customisation can be done in both the Interface Builder and in code. Here is a preview from the example app:
+GTProgressBar is a customisable progress bar. It supports both vertical and horizontal orientation, You can adjust many visual settings of the progress bar to suit your use case. Customisation can be done in both the Interface Builder and in code. Here is a preview from the example app:
 
 ![Preview](https://raw.githubusercontent.com/gregttn/GTProgressBar/master/demo.gif)
 
