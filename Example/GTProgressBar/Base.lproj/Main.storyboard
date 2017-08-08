@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dO2-KO-HPq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dO2-KO-HPq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -561,6 +561,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-Ae-hXE" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -594,6 +597,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rZ-N0-QrQ" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -623,6 +629,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -660,6 +669,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3g-on-m3n" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -696,6 +708,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQH-ND-MgZ" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -731,6 +746,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="barFillInset">
                                                 <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -773,6 +791,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQN-fV-f1g" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -806,6 +827,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetBottom">
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ld-NX-zfm" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -835,6 +859,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelPositionInt">
                                                 <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -869,6 +896,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetTop">
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="barMaxWidthInt">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -899,16 +929,6 @@
                     <tabBarItem key="tabBarItem" title="Vertical" image="vertical" id="jma-41-XUO"/>
                     <connections>
                         <outlet property="progressBar" destination="7o5-Qz-cFq" id="AVR-4Y-bM3"/>
-                        <outletCollection property="progressBars" destination="SVK-Pa-KZ1" collectionClass="NSMutableArray" id="oRm-rR-q41"/>
-                        <outletCollection property="progressBars" destination="7rZ-N0-QrQ" collectionClass="NSMutableArray" id="A9e-lA-GKH"/>
-                        <outletCollection property="progressBars" destination="3iw-Ae-hXE" collectionClass="NSMutableArray" id="1Lq-4N-7K9"/>
-                        <outletCollection property="progressBars" destination="EQz-dg-xqN" collectionClass="NSMutableArray" id="jgw-33-iL1"/>
-                        <outletCollection property="progressBars" destination="7o5-Qz-cFq" collectionClass="NSMutableArray" id="t3i-Ou-Vy4"/>
-                        <outletCollection property="progressBars" destination="FQN-fV-f1g" collectionClass="NSMutableArray" id="2nt-GJ-tfF"/>
-                        <outletCollection property="progressBars" destination="1Ld-NX-zfm" collectionClass="NSMutableArray" id="XEE-x3-Rjo"/>
-                        <outletCollection property="progressBars" destination="zjY-GH-aFp" collectionClass="NSMutableArray" id="yuP-fi-9kI"/>
-                        <outletCollection property="progressBars" destination="W3g-on-m3n" collectionClass="NSMutableArray" id="fWT-L4-MHz"/>
-                        <outletCollection property="progressBars" destination="RQH-ND-MgZ" collectionClass="NSMutableArray" id="bFw-AU-sRp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkZ-dm-kIT" sceneMemberID="firstResponder"/>

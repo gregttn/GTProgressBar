@@ -66,9 +66,23 @@ public class GTProgressBar: UIView {
         }
     }
     
+    @IBInspectable
+    public var barMaxHeightInt: Int = 0 {
+        didSet {
+            self.barMaxHeight = barMaxHeightInt == 0 ? nil : CGFloat(barMaxHeightInt)
+        }
+    }
+    
     public var barMaxWidth: CGFloat? {
         didSet {
             self.setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var barMaxWidthInt: Int = 0 {
+        didSet {
+            self.barMaxWidth = barMaxWidthInt == 0 ? nil : CGFloat(barMaxWidthInt)
         }
     }
     

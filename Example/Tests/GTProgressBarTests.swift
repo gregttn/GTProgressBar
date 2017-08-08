@@ -918,6 +918,24 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.frame.size).to(equal(backgroundView.frame.size))
     }
     
+    func testSettingBarMaxHeightIntPopulatesTheBarMaxHeightVariable() {
+        let view = setupView()
+        
+        view.barMaxHeight = nil
+        view.barMaxHeightInt = 2
+        
+        expect(view.barMaxHeight!).to(equal(CGFloat(view.barMaxHeightInt)))
+    }
+    
+    func testSettingBarMaxHeightIntOfZeroMakesTheBarMaxHeightVariableAbsent() {
+        let view = setupView()
+        
+        view.barMaxHeight = 2.0
+        view.barMaxHeightInt = 0
+        
+        expect(view.barMaxHeight).to(beNil())
+    }
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
