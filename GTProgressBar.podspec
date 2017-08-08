@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GTProgressBar'
-  s.version          = '0.1.3'
+  s.version          = '0.2.0'
   s.summary          = 'GTProgressBar is a customisable progress bar written in Swift 3'
 
 # This description is used to generate tags and improve search results.
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-GTProgressBar is a customisable progress bar written in Swift 3.
+GTProgressBar is a customisable progress bar written in Swift 3. It supports both vertical and horizontal orientation.
                        DESC
 
   s.homepage         = 'https://github.com/gregttn/GTProgressBar'
