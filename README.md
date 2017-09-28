@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This component is written using Swift 3 so you will need to run Xcode 8 or higher.
+This component is written using Swift 4 so you will need to run Xcode 9 or higher.
 
 # Usage
 
@@ -229,7 +229,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
 To put it altogether here is a complete example configure GTProgressBar in code:
 
 ```swift
-var progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
+let progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
 progressBar.progress = 1
 progressBar.barBorderColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
 progressBar.barFillColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
