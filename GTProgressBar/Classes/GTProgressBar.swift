@@ -293,6 +293,8 @@ public class GTProgressBar: UIView {
             return view.frame.height / 2 * 0.7
         case .vertical:
             return view.frame.width / 2 * 0.7
+        case .antiClockwise:
+            return view.frame.width / 2 * 0.7
         }
     }
 }
