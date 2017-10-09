@@ -79,6 +79,10 @@ extension FrameCalculator {
             let origin = CGPoint(x: offset, y: fillFrame.height - fillFrameAdjustedSize.height + offset)
             
             return CGRect(origin: origin, size: fillFrameAdjustedSize)
+        case .antiClockwise:
+            let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
+            
+            return CGRect(origin: CGPoint(x: fillFrame.width - fillFrameAdjustedSize.width, y: offset), size: fillFrameAdjustedSize)
         }
     }
 }
