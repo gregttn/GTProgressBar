@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		6327836C1F39E9FC000E9F75 /* GTProgressBarOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836B1F39E9FC000E9F75 /* GTProgressBarOrientation.swift */; };
 		632783711F39EA07000E9F75 /* HorizontalLabelPositionFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836D1F39EA07000E9F75 /* HorizontalLabelPositionFrameCalculator.swift */; };
-		632783721F39EA07000E9F75 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836E1F39EA07000E9F75 /* UILabelExtensions.swift */; };
 		632783731F39EA07000E9F75 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836F1F39EA07000E9F75 /* UIViewExtensions.swift */; };
 		632783741F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632783701F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift */; };
 		BC8B28261EBA3CC900BF1A1C /* GTProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BC8B28241EBA3CC900BF1A1C /* GTProgressBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC8B28331EBA3DD800BF1A1C /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */; };
 		BC8B28341EBA3DD800BF1A1C /* GTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */; };
 		BC8B28351EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B28301EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift */; };
-		BC8B28361EBA3DD800BF1A1C /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B28311EBA3DD800BF1A1C /* UILabelExtensions.swift */; };
+		BCFF4CF71F7D476800441B46 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836E1F39EA07000E9F75 /* UILabelExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameCalculator.swift; sourceTree = "<group>"; };
 		BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBar.swift; sourceTree = "<group>"; };
 		BC8B28301EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBarLabelPosition.swift; sourceTree = "<group>"; };
-		BC8B28311EBA3DD800BF1A1C /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +80,6 @@
 				BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */,
 				BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */,
 				BC8B28301EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift */,
-				BC8B28311EBA3DD800BF1A1C /* UILabelExtensions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -125,11 +122,12 @@
 		BC8B28181EBA3CC900BF1A1C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = gregttn;
 				TargetAttributes = {
 					BC8B28201EBA3CC900BF1A1C = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -166,12 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC8B28361EBA3DD800BF1A1C /* UILabelExtensions.swift in Sources */,
+				BCFF4CF71F7D476800441B46 /* UILabelExtensions.swift in Sources */,
 				6327836C1F39E9FC000E9F75 /* GTProgressBarOrientation.swift in Sources */,
 				632783731F39EA07000E9F75 /* UIViewExtensions.swift in Sources */,
 				BC8B28331EBA3DD800BF1A1C /* FrameCalculator.swift in Sources */,
 				BC8B28341EBA3DD800BF1A1C /* GTProgressBar.swift in Sources */,
-				632783721F39EA07000E9F75 /* UILabelExtensions.swift in Sources */,
 				632783741F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift in Sources */,
 				BC8B28351EBA3DD800BF1A1C /* GTProgressBarLabelPosition.swift in Sources */,
 				632783711F39EA07000E9F75 /* HorizontalLabelPositionFrameCalculator.swift in Sources */,
@@ -191,7 +188,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -199,7 +198,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -245,7 +248,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -253,7 +258,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -296,7 +305,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregttn.GTProgressBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -314,7 +324,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregttn.GTProgressBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
