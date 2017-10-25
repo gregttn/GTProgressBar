@@ -23,25 +23,25 @@ This component is written using Swift 4 so you will need to run Xcode 9 or highe
 
 Many properties of GTProgressBar can be configured. Most of them can be configured in Interface Builder (@IBInspectable).
 
-* orientation: GTProgressBarOrientation
-  This property allows you to specify the orientation of the bar: horizontal or vertical. By default it is set to horizontal
+* `orientation: GTProgressBarOrientation`
+  This property allows you to specify the orientation of the bar: `horizontal` or `vertical`. By default it is set to horizontal
 
   ```swift
   progressBar.orientation = GTProgressBarOrientation.vertical
   ```
 
-* @IBInspectable orientationInt: Int
+* `@IBInspectable orientationInt: Int`
   This property allows you to specify the orientation of the bar as Int. It defaults to horizontal. Current mapping is
 
-  0 -> GTProgressBarOrientation.horizontal
+  0 -> `GTProgressBarOrientation.horizontal`
 
-  1 -> GTProgressBarOrientation.vertical
+  1 -> `GTProgressBarOrientation.vertical`
 
   ```swift
   progressBar.orientationInt = 1
   ```
 
-* @IBInspectable progress: CGFloat
+* `@IBInspectable progress: CGFloat`
 
   This property specifies how much of the bar is filled. The allowed values are from 0.0 to 1.0 . Default is 0.
   If progress label is displayed the value provided in here will be displayed as %
@@ -51,31 +51,31 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progress = 0.5
   ```
 
-* @IBInspectable displayLabel: Bool
+* `@IBInspectable displayLabel: Bool`
 
-  This property specifies if the progress label should be displayed. Default is true.
+  This property specifies if the progress label should be displayed. Default is `true`.
 
   ```swift
   progressBar.displayLabel = false
   ```
 
-* @IBInspectable barBorderColor: UIColor
+* `@IBInspectable barBorderColor: UIColor`
 
-  This property specifies the colour of the bar's border. Default is UIColor.black
+  This property specifies the colour of the bar's border. Default is `UIColor.black`
 
   ```swift
   progressBar.barBorderColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
 
-* @IBInspectable barBackgroundColor: UIColor
+* `@IBInspectable barBackgroundColor: UIColor`
 
-  This property specifies the background colour of the progress bar within the control. Default is UIColor.white
+  This property specifies the background colour of the progress bar within the control. Default is `UIColor.white`
 
   ```swift
   progressBar.barBackgroundColor = UIColor(red:0.77, green:0.93, blue:0.78, alpha:1.0)
   ```
 
-* @IBInspectable barFillColor: UIColor
+* `@IBInspectable barFillColor: UIColor`
 
   This property specifies the fill colour of the progress bar. Default is UIColor.white
 
@@ -83,7 +83,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barFillColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
 
-* @IBInspectable barBorderWidth: CGFloat
+* `@IBInspectable barBorderWidth: CGFloat`
 
   This property specifies the width of the progress bar's border. Default is 2
 
@@ -91,7 +91,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barBorderWidth = 1
   ```
 
-* @IBInspectable barFillInset: CGFloat
+* `@IBInspectable barFillInset: CGFloat`
 
   This property specifies the inset between the fill of the bar and its border. Default is 2
 
@@ -99,23 +99,23 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barFillInset = 1
   ```
 
-* @IBInspectable labelTextColor: UIColor
+* `@IBInspectable labelTextColor: UIColor`
 
-  This property specifies the fill colour of the label. Default is UIColor.black
+  This property specifies the fill colour of the label. Default is `UIColor.black`
 
   ```swift
   progressBar.labelTextColor = UIColor(red:0.35, green:0.80, blue:0.36, alpha:1.0)
   ```
 
-* progressLabelInsets: UIEdgeInsets
+* `progressLabelInsets: UIEdgeInsets`
 
-  This property specifies the insets for the progress label. Default is UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+  This property specifies the insets for the progress label. Default is `UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)`
 
   ```swift
   progressBar.progressLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
   ```
 
-* @IBInspectable progressLabelInsetLeft: CGFloat
+* `@IBInspectable progressLabelInsetLeft: CGFloat`
 
   This property allows you to specify the left property of the progressLabelInsets in the Interface Builder. Default is 0.
 
@@ -123,7 +123,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progressLabelInsetLeft = 5.0
   ```
 
-* @IBInspectable progressLabelInsetRight: CGFloat
+* `@IBInspectable progressLabelInsetRight: CGFloat`
 
   This property allows you to specify the right property of the progressLabelInsets in the Interface Builder. Default is 0.
 
@@ -131,7 +131,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progressLabelInsetRight = 5.0
   ```
 
-* @IBInspectable progressLabelInsetTop: CGFloat
+* `@IBInspectable progressLabelInsetTop: CGFloat`
 
   This property allows you to specify the top property of the progressLabelInsets in the Interface Builder. Default is 0.
 
@@ -139,7 +139,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progressLabelInsetTop = 5.0
   ```
 
-* @IBInspectable progressLabelInsetBottom: CGFloat
+* `@IBInspectable progressLabelInsetBottom: CGFloat`
 
   This property allows you to specify the bottom property of the progressLabelInsets in the Interface Builder. Default is 0.
 
@@ -147,7 +147,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.progressLabelInsetBottom = 5.0
   ```
 
-* @IBInspectable cornerRadius: CGFloat
+* `@IBInspectable cornerRadius: CGFloat`
 
   This property specifies the radius of corners. Default is 0.0
 
@@ -155,22 +155,22 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.cornerRadius = 10.0
   ```
 
-* font: UIFont
+* `font: UIFont`
 
-  This property allows you to specify the font for the progress label. Default is UIFont.systemFont(ofSize: 12)
+  This property allows you to specify the font for the progress label. Default is `UIFont.systemFont(ofSize: 12)`
 
   ```swift
   progressBar.font = UIFont.boldSystemFont(ofSize: 18)
   ```
 
-* barMaxHeight: CGFloat?
+* `barMaxHeight: CGFloat?`
 
   This property allows you to specify the max height of the progress bar. By default the progress bar will be sized to match the height of the whole view. If the max height is larger than the available view height it will be ignored.
 
   ```swift
   progressBar.barMaxHeight = 12
   ```
-* @IBInspectable barMaxHeightInt: Int
+* `@IBInspectable barMaxHeightInt: Int`
 
   This property allows you to specify the max height of the progress bar as an integer in the Interface Builder. By default the progress bar will be sized to match the height of the whole view. If the max height is larger than the available view height it will be ignored. If you set this property to 0 there will be no restriction on the height of the bar.
 
@@ -178,7 +178,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barMaxHeightInt = 12
   ```
 
-* barMaxWidth: CGFloat?
+* `barMaxWidth: CGFloat?`
 
   This property allows you to specify the max width of the progress bar. By default the progress bar will be sized to match the available free width. If the max width is larger than the available width it will be ignored.
 
@@ -186,7 +186,7 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barMaxWidth = 12
   ```
 
-* @IBInspectable barMaxWidthInt: Int
+* `@IBInspectable barMaxWidthInt: Int`
 
   This property allows you to specify the max width of the progress bar as an integer in the Interface Builder. By default the progress bar will be sized to match the available free width. If the max width is larger than the available width it will be ignored. If you set this property to 0 there will be no restriction on the width of the bar.
 
@@ -194,31 +194,31 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.barMaxWidthInt = 12
   ```
 
-* labelPosition: GTProgressBarLabelPosition
+* `labelPosition: GTProgressBarLabelPosition`
 
-  This property allows you to specify on which side the progress label should be placed. Default is GTProgressBarLabelPosition.left
+  This property allows you to specify on which side the progress label should be placed. Default is `GTProgressBarLabelPosition.left`
 
   ```swift
   progressBar.labelPosition = GTProgressBarLabelPosition.right
   ```
 
-* @IBInspectable  labelPositionInt: Int
+* `@IBInspectable  labelPositionInt: Int`
 
   This property allows you to specify the position of the progress label using integers in the Interface Builder. Current mapping is
 
-  0 -> GTProgressBarLabelPosition.left
+  0 -> `GTProgressBarLabelPosition.left`
 
-  1 -> GTProgressBarLabelPosition.right
+  1 -> `GTProgressBarLabelPosition.right`
 
-  2 -> GTProgressBarLabelPosition.top
+  2 -> `GTProgressBarLabelPosition.top`
 
-  3 -> GTProgressBarLabelPosition.bottom
+  3 -> `GTProgressBarLabelPosition.bottom`
 
   ```swift
   progressBar.labelPosition = GTProgressBarLabelPosition.right
   ```
 
-* animateTo(progress: CGFloat)
+* `animateTo(progress: CGFloat)`
 
   This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
 
