@@ -88,6 +88,17 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
+    func testLayoutSubviews_shouldCalculateCorrectFrameForFillViewWithAntiClockwiseDirection() {
+        let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { (v: GTProgressBar) in
+            v.orientation = .antiClockwise
+        }
+        
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        
+        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 92)
+        expect(fillView.frame).to(equal(expectedFrame))
+    }
+    
     func testLayoutSubviews_shouldCalculateCorrectFrameForFillViewWhenRestrictingBarHeight() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 40)) { view in
             view.barMaxHeight = 20
@@ -101,6 +112,16 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldRenderFillViewWithRoundedCorners() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        
+        let expectedRadius: CGFloat = 0.7
+        expect(fillView.layer.cornerRadius).to(beCloseTo(expectedRadius, within: 0.01))
+    }
+    
+    func testLayoutSubviews_shouldRenderFillViewWithRoundedCornersWhenUsingAntiClockwiseDirection() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { (v: GTProgressBar) in
+            v.orientation = .antiClockwise
+        }
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
         let expectedRadius: CGFloat = 0.7
@@ -134,6 +155,22 @@ class GTProgressBarTests: XCTestCase {
         let offset: CGFloat = 4
         let expectedFrameWidth: CGFloat = (view.frame.width - insetsOffset - 2*offset - labelFrameSize.width)/2
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
+    }
+    
+    func testLayoutSubivews_shouldSetCorrectPositionForFillViewWhenProgressSetAndAnticlockwiseDirection() {
+        let view = setupView() { v in
+            v.orientation = .antiClockwise
+            v.progress = 0.5
+        }
+        
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        let offset: CGFloat = 4
+        let expectedFrameWidth: CGFloat = (view.frame.width - insetsOffset - 2*offset - labelFrameSize.width)/2
+        let expectedFrameOrigin: CGPoint = CGPoint(x: backgroundView.frame.width - expectedFrameWidth - offset, y: offset)
+        expect(fillView.frame.width).to(equal(expectedFrameWidth))
+        expect(fillView.frame.origin).to(equal(expectedFrameOrigin))
     }
     
     func testLayoutSubivews_shouldNotAllowNegativeValuesForProgress() {

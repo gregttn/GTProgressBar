@@ -67,7 +67,8 @@ extension FrameCalculator {
 extension FrameCalculator {
     func fillViewFrameFor(progress: CGFloat) -> CGRect {
         let offset = barFillInset == 0 ? 0 : barBorderWidth + barFillInset
-        let fillFrame = backgroundViewFrame().insetBy(dx: offset, dy: offset)
+        let backgroundFrame = backgroundViewFrame()
+        let fillFrame = backgroundFrame.insetBy(dx: offset, dy: offset)
         
         switch orientation {
         case .horizontal:
@@ -81,8 +82,9 @@ extension FrameCalculator {
             return CGRect(origin: origin, size: fillFrameAdjustedSize)
         case .antiClockwise:
             let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
+            let origin = CGPoint(x: offset + fillFrame.width - fillFrameAdjustedSize.width, y: offset)
             
-            return CGRect(origin: CGPoint(x: fillFrame.width - fillFrameAdjustedSize.width, y: offset), size: fillFrameAdjustedSize)
+            return CGRect(origin: origin, size: fillFrameAdjustedSize)
         }
     }
 }

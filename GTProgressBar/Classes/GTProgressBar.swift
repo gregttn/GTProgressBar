@@ -241,7 +241,7 @@ public class GTProgressBar: UIView {
         backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
         frameCalculator.centerBar(bar: backgroundView)
 
-        fillView.frame = createFrameCalculator().fillViewFrameFor(progress: _progress)
+        fillView.frame = frameCalculator.fillViewFrameFor(progress: _progress)
         fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
     }
     
@@ -294,7 +294,7 @@ public class GTProgressBar: UIView {
         case .vertical:
             return view.frame.width / 2 * 0.7
         case .antiClockwise:
-            return view.frame.width / 2 * 0.7
+            return view.frame.height / 2 * 0.7
         }
     }
 }

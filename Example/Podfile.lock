@@ -1,5 +1,5 @@
 PODS:
-  - GTProgressBar (0.2.0)
+  - GTProgressBar (0.2.1)
   - Nimble (7.0.2)
 
 DEPENDENCIES:
@@ -11,9 +11,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  GTProgressBar: f05bb63f64c98f475f2a1dd9b9e5744dcaaa503d
+  GTProgressBar: 4a0e398d5bb3b2cf7ed018363f2af39b5c52ffcf
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
 
 PODFILE CHECKSUM: 8fe6957405c7e8487409c85fdb21bb2a1545acfb
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
