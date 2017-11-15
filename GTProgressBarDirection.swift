@@ -8,5 +8,6 @@
 import Foundation
 
 public enum GTProgressBarDirection: Int {
-    case anticlocwise
+    case clockwise
+    case anticlockwise
 }
