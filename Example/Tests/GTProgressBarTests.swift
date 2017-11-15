@@ -99,6 +99,16 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
+    func testSettingIntDirectionAssignsCorrectDirectionEnumValue() {
+        let view = setupView()
+        
+        view.directionInt = 1
+        expect(view.direction).to(equal(GTProgressBarDirection.anticlockwise))
+        
+        view.directionInt = 0
+        expect(view.direction).to(equal(GTProgressBarDirection.clockwise))
+    }
+    
     func testLayoutSubviews_shouldCalculateCorrectFrameForFillViewWhenRestrictingBarHeight() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 40)) { view in
             view.barMaxHeight = 20

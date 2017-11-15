@@ -199,6 +199,18 @@ public class GTProgressBar: UIView {
     
     public var direction: GTProgressBarDirection = GTProgressBarDirection.clockwise {
         didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable
+    public var directionInt: Int = 0 {
+        didSet {
+            let enumDirection = GTProgressBarDirection(rawValue: directionInt)
+            
+            if let direction = enumDirection {
+                self.direction = direction
+            }
         }
     }
     
