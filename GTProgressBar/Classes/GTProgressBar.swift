@@ -197,6 +197,11 @@ public class GTProgressBar: UIView {
         }
     }
     
+    public var direction: GTProgressBarDirection = GTProgressBarDirection.clockwise {
+        didSet {
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubviews()
@@ -293,8 +298,6 @@ public class GTProgressBar: UIView {
             return view.frame.height / 2 * 0.7
         case .vertical:
             return view.frame.width / 2 * 0.7
-        case .antiClockwise:
-            return view.frame.height / 2 * 0.7
         }
     }
 }

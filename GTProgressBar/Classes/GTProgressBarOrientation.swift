@@ -11,5 +11,4 @@ import Foundation
 public enum GTProgressBarOrientation: Int {
     case horizontal
     case vertical
-    case antiClockwise
 }

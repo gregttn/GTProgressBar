@@ -21,6 +21,7 @@ internal protocol FrameCalculator {
     var barMaxWidth: CGFloat? {get}
     var font: UIFont {get}
     var orientation: GTProgressBarOrientation {get}
+    var direction: GTProgressBarDirection {get}
     var parentFrame: CGRect {get}
     
     func labelFrame() -> CGRect
@@ -73,16 +74,13 @@ extension FrameCalculator {
         switch orientation {
         case .horizontal:
             let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
-    
-            return CGRect(origin: CGPoint(x: offset, y: offset), size: fillFrameAdjustedSize)
+            let directionXCoordinateAdjustement = direction == .clockwise ? 0.0 : fillFrame.width - fillFrameAdjustedSize.width
+            let origin = CGPoint(x: offset + directionXCoordinateAdjustement, y: offset)
+            
+            return CGRect(origin: origin, size: fillFrameAdjustedSize)
         case .vertical:
             let fillFrameAdjustedSize = CGSize(width: fillFrame.width, height: fillFrame.height * progress)
             let origin = CGPoint(x: offset, y: fillFrame.height - fillFrameAdjustedSize.height + offset)
-            
-            return CGRect(origin: origin, size: fillFrameAdjustedSize)
-        case .antiClockwise:
-            let fillFrameAdjustedSize = CGSize(width: fillFrame.width * progress, height: fillFrame.height)
-            let origin = CGPoint(x: offset + fillFrame.width - fillFrameAdjustedSize.width, y: offset)
             
             return CGRect(origin: origin, size: fillFrameAdjustedSize)
         }

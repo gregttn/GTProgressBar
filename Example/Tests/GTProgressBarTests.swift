@@ -90,7 +90,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldCalculateCorrectFrameForFillViewWithAntiClockwiseDirection() {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100)) { (v: GTProgressBar) in
-            v.orientation = .antiClockwise
+            v.direction = .anticlockwise
         }
         
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
@@ -120,7 +120,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubviews_shouldRenderFillViewWithRoundedCornersWhenUsingAntiClockwiseDirection() {
         let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { (v: GTProgressBar) in
-            v.orientation = .antiClockwise
+            v.direction = .anticlockwise
         }
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
@@ -159,7 +159,7 @@ class GTProgressBarTests: XCTestCase {
     
     func testLayoutSubivews_shouldSetCorrectPositionForFillViewWhenProgressSetAndAnticlockwiseDirection() {
         let view = setupView() { v in
-            v.orientation = .antiClockwise
+            v.direction = .anticlockwise
             v.progress = 0.5
         }
         

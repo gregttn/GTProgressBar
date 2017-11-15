@@ -72,6 +72,7 @@ internal class LabelTopFrameCalculator: VerticalLabelPositionFrameCalculator {
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
     let orientation: GTProgressBarOrientation
+    let direction: GTProgressBarDirection
     
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
@@ -83,6 +84,7 @@ internal class LabelTopFrameCalculator: VerticalLabelPositionFrameCalculator {
         self.barBorderWidth = progressBar.barBorderWidth
         self.barFillInset = progressBar.barFillInset
         self.orientation = progressBar.orientation
+        self.direction = progressBar.direction
     }
     
     func backgroundViewOrigin() -> CGPoint {
@@ -104,6 +106,7 @@ internal class LabelBottomFrameCalculator: VerticalLabelPositionFrameCalculator 
     let barBorderWidth: CGFloat
     let barFillInset: CGFloat
     let orientation: GTProgressBarOrientation
+    let direction: GTProgressBarDirection
     
     public init(progressBar: GTProgressBar) {
         self.hasLabel = progressBar.displayLabel
@@ -115,6 +118,7 @@ internal class LabelBottomFrameCalculator: VerticalLabelPositionFrameCalculator 
         self.barBorderWidth = progressBar.barBorderWidth
         self.barFillInset = progressBar.barFillInset
         self.orientation = progressBar.orientation
+        self.direction = progressBar.direction
     }
     
     func backgroundViewOrigin() -> CGPoint {
