@@ -57,6 +57,20 @@ class GTProgressBarVertical: XCTestCase {
         expect(fillView.frame).to(equal(expectedFillViewFrame))
     }
     
+    func testShouldChangeCalculateCorrectFrameForFillViewWhenAnticlockwiseDirectionUsed() {
+        let view = setupView() { view in
+            view.displayLabel = false
+            view.progress = 0.1
+            view.direction = .anticlockwise
+        }
+        
+        view.animateTo(progress: 0.5)
+        
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        let expectedFillViewFrame = CGRect(origin: CGPoint(x: 4, y: 4), size: CGSize(width:92, height: 46))
+        expect(fillView.frame).to(equal(expectedFillViewFrame))
+    }
+    
     func testSizeToFitCreatesMinimalSizeWithHorizontalLabelAlignment() {
         let view = setupView()
         

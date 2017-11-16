@@ -80,7 +80,8 @@ extension FrameCalculator {
             return CGRect(origin: origin, size: fillFrameAdjustedSize)
         case .vertical:
             let fillFrameAdjustedSize = CGSize(width: fillFrame.width, height: fillFrame.height * progress)
-            let origin = CGPoint(x: offset, y: fillFrame.height - fillFrameAdjustedSize.height + offset)
+            let directionYCoordinateAdjustement = direction == .clockwise ? fillFrame.height - fillFrameAdjustedSize.height : 0.0
+            let origin = CGPoint(x: offset, y: offset + directionYCoordinateAdjustement)
             
             return CGRect(origin: origin, size: fillFrameAdjustedSize)
         }
