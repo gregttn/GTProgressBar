@@ -41,6 +41,24 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.orientationInt = 1
   ```
 
+* `direction: GTProgressBarDirection`
+This property allows you to specify the direction of the progress bar content: `clockwise` or `anticlockwise`. By default it is set to clockwise
+
+```swift
+progressBar.direction = GTProgressBarDirection.anticlockwise
+```
+
+* `@IBInspectable directionInt: Int`
+This property allows you to specify the direction of the progress bar content as Int. It defaults to clockwise. Current mapping is
+
+0 -> `GTProgressBarDirection.clockwise`
+
+1 -> `GTProgressBarDirection.anticlockwise`
+
+```swift
+progressBar.orientationInt = 1
+```
+
 * `@IBInspectable progress: CGFloat`
 
   This property specifies how much of the bar is filled. The allowed values are from 0.0 to 1.0 . Default is 0.
@@ -241,6 +259,7 @@ progressBar.progressLabelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right
 progressBar.font = UIFont.boldSystemFont(ofSize: 18)
 progressBar.labelPosition = GTProgressBarLabelPosition.right
 progressBar.barMaxHeight = 12
+progressBar.direction = GTProgressBarDirection.anticlockwise
 
 view.addSubview(progressBar)
 ```
