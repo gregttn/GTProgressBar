@@ -42,22 +42,21 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   ```
 
 * `direction: GTProgressBarDirection`
-This property allows you to specify the direction of the progress bar content: `clockwise` or `anticlockwise`. By default it is set to clockwise
-
-```swift
-progressBar.direction = GTProgressBarDirection.anticlockwise
-```
+  This property allows you to specify the direction of the progress bar content: `clockwise` or `anticlockwise`. By default it is set to clockwise
+  ```swift
+  progressBar.direction = GTProgressBarDirection.anticlockwise
+  ```
 
 * `@IBInspectable directionInt: Int`
-This property allows you to specify the direction of the progress bar content as Int. It defaults to clockwise. Current mapping is
+  This property allows you to specify the direction of the progress bar content as Int. It defaults to clockwise. Current mapping is
 
-0 -> `GTProgressBarDirection.clockwise`
+  0 -> `GTProgressBarDirection.clockwise`
 
-1 -> `GTProgressBarDirection.anticlockwise`
+  1 -> `GTProgressBarDirection.anticlockwise`
 
-```swift
-progressBar.orientationInt = 1
-```
+  ```swift
+  progressBar.orientationInt = 1
+  ```
 
 * `@IBInspectable progress: CGFloat`
 
