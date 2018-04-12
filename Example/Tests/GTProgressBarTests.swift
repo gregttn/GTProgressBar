@@ -1006,7 +1006,7 @@ class GTProgressBarTests: XCTestCase {
             view.cornerTypeInt = GTProgressBarCornerType.square.rawValue
         }
         
-        expect(view.cornerType).to(equal(.square))
+        expect(view.cornerType).to(equal(GTProgressBarCornerType.square))
     }
     
     func testShouldNotSetCornerTypeWhenCornerTypeIntOutOfBounds() {
@@ -1015,7 +1015,7 @@ class GTProgressBarTests: XCTestCase {
             view.cornerTypeInt = 10
         }
         
-        expect(view.cornerType).to(equal(.square))
+        expect(view.cornerType).to(equal(GTProgressBarCornerType.square))
     }
     
     
