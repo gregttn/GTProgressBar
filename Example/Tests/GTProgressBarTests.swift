@@ -1001,6 +1001,23 @@ class GTProgressBarTests: XCTestCase {
         expect(fillView.layer.cornerRadius).to(equal(0.0))
     }
     
+    func testShouldAllowSettingCornerTypeInt() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { view in
+            view.cornerTypeInt = GTProgressBarCornerType.square.rawValue
+        }
+        
+        expect(view.cornerType).to(equal(.square))
+    }
+    
+    func testShouldNotSetCornerTypeWhenCornerTypeIntOutOfBounds() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { view in
+            view.cornerType = .square
+            view.cornerTypeInt = 10
+        }
+        
+        expect(view.cornerType).to(equal(.square))
+    }
+    
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {

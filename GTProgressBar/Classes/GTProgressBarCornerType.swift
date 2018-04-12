@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum GTProgressBarCornerType {
+public enum GTProgressBarCornerType: Int {
     case square
     case rounded
 }
