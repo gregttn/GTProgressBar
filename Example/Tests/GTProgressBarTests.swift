@@ -983,6 +983,25 @@ class GTProgressBarTests: XCTestCase {
         expect(view.barMaxHeight).to(beNil())
     }
     
+    func testBackgroundViewHasNoRadiusWhenSquareCornersSet() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { view in
+            view.cornerType = GTProgressBarCornerType.square
+        }
+        let backgroundView = view.subviews[backgroundViewIndex]
+        
+        expect(backgroundView.layer.cornerRadius).to(equal(0.0))
+    }
+    
+    func testFillViewHasNoRadiusWhenSqaureCornersSet() {
+        let view = setupView(frame: CGRect(x: 0, y: 0, width: 100, height: 10)) { view in
+            view.cornerType = GTProgressBarCornerType.square
+        }
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        
+        expect(fillView.layer.cornerRadius).to(equal(0.0))
+    }
+    
+    
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
         let view = GTProgressBar(frame: frame)
