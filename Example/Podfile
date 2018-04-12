@@ -1,6 +1,7 @@
 use_frameworks!
 
 target 'GTProgressBar_Example' do
+  platform :ios, '8.3'
   pod 'GTProgressBar', :path => '../'
 
   target 'GTProgressBar_Tests' do
