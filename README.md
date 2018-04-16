@@ -235,6 +235,26 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.labelPosition = GTProgressBarLabelPosition.right
   ```
 
+* `cornerType: GTProgressBarCornerType`
+
+  This property allows you to specify the type of the corner (square or rounded). Default is `GTProgressBarCornerType.rounded`
+
+  ```swift
+  progressBar.cornerType = GTProgressBarCornerType.square
+    ```
+
+* `@IBInspectable  cornerTypeInt: Int`
+
+  This property allows you to specify the type of the corner  using integers in the Interface Builder. Current mapping is
+
+  0 -> `GTProgressBarCornerType.square`
+
+  1 -> `GTProgressBarCornerType.rounded`
+
+  ```swift
+  progressBar.cornerTypeInt = GTProgressBarCornerType.rounded.rawValue
+  ```
+
 * `animateTo(progress: CGFloat)`
 
   This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
