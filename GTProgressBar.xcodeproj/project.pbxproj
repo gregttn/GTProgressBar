@@ -12,6 +12,7 @@
 		632783731F39EA07000E9F75 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6327836F1F39EA07000E9F75 /* UIViewExtensions.swift */; };
 		632783741F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632783701F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift */; };
 		63811CAF1FBEE29500B5CF1D /* GTProgressBarDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63811CAE1FBEE29500B5CF1D /* GTProgressBarDirection.swift */; };
+		63825C15208685480072D52B /* GTProgressBarCornerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63825C14208685480072D52B /* GTProgressBarCornerType.swift */; };
 		BC8B28261EBA3CC900BF1A1C /* GTProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BC8B28241EBA3CC900BF1A1C /* GTProgressBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC8B28331EBA3DD800BF1A1C /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282E1EBA3DD800BF1A1C /* FrameCalculator.swift */; };
 		BC8B28341EBA3DD800BF1A1C /* GTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B282F1EBA3DD800BF1A1C /* GTProgressBar.swift */; };
@@ -26,6 +27,7 @@
 		6327836F1F39EA07000E9F75 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		632783701F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalLabelPositionFrameCalculator.swift; sourceTree = "<group>"; };
 		63811CAE1FBEE29500B5CF1D /* GTProgressBarDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBarDirection.swift; sourceTree = "<group>"; };
+		63825C14208685480072D52B /* GTProgressBarCornerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTProgressBarCornerType.swift; sourceTree = "<group>"; };
 		BC8B28211EBA3CC900BF1A1C /* GTProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8B28241EBA3CC900BF1A1C /* GTProgressBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTProgressBar.h; sourceTree = "<group>"; };
 		BC8B28251EBA3CC900BF1A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				6327836D1F39EA07000E9F75 /* HorizontalLabelPositionFrameCalculator.swift */,
 				6327836E1F39EA07000E9F75 /* UILabelExtensions.swift */,
+				63825C14208685480072D52B /* GTProgressBarCornerType.swift */,
 				6327836F1F39EA07000E9F75 /* UIViewExtensions.swift */,
 				632783701F39EA07000E9F75 /* VerticalLabelPositionFrameCalculator.swift */,
 				6327836B1F39E9FC000E9F75 /* GTProgressBarOrientation.swift */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63825C15208685480072D52B /* GTProgressBarCornerType.swift in Sources */,
 				BCFF4CF71F7D476800441B46 /* UILabelExtensions.swift in Sources */,
 				63811CAF1FBEE29500B5CF1D /* GTProgressBarDirection.swift in Sources */,
 				6327836C1F39E9FC000E9F75 /* GTProgressBarOrientation.swift in Sources */,
