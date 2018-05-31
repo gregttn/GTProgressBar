@@ -135,6 +135,7 @@ public class GTProgressBar: UIView {
             self._progress = min(max(newValue,0), 1)
             
             self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
