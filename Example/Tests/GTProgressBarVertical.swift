@@ -57,6 +57,22 @@ class GTProgressBarVertical: XCTestCase {
         expect(fillView.frame).to(equal(expectedFillViewFrame))
     }
     
+    func testCompletionHandlerFiredwWhenUsingAnimateTo() {
+        let view = setupView() { view in
+            view.displayLabel = false
+            view.progress = 0.1
+        }
+        
+        var completion = false
+        view.animateTo(progress: 0.5) {
+            completion = true
+        }
+        
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+        
+        expect(completion).toEventually(equal(true))
+    }
+    
     func testShouldChangeCalculateCorrectFrameForFillViewWhenAnticlockwiseDirectionUsed() {
         let view = setupView() { view in
             view.displayLabel = false

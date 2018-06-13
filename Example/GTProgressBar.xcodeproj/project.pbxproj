@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		09A46CAAC4A3B857B2857E69 /* Pods-GTProgressBar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTProgressBar_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GTProgressBar_Tests/Pods-GTProgressBar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		0A7ECB32A688135E0359055D /* GTProgressBar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GTProgressBar.podspec; path = ../GTProgressBar.podspec; sourceTree = "<group>"; };
+		0A7ECB32A688135E0359055D /* GTProgressBar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GTProgressBar.podspec; path = ../GTProgressBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1797AC8D1579733AE0BA202D /* Pods-GTProgressBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTProgressBar_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GTProgressBar_Example/Pods-GTProgressBar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		214875FE6AD99995EF2E8C1D /* Pods_GTProgressBar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTProgressBar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		235023BCDEFD09FBF2313F95 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };

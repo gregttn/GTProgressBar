@@ -297,7 +297,7 @@ public class GTProgressBar: UIView {
         progressLabel.text = "\(Int(_progress * 100))%"
     }
     
-    public func animateTo(progress: CGFloat) {
+    public func animateTo(progress: CGFloat, completion: (() -> Void)? = nil) {
         let newProgress = min(max(progress,0), 1)
         let fillViewFrame = createFrameCalculator().fillViewFrameFor(progress: newProgress)
         let frameChange: () -> () = {
@@ -307,14 +307,19 @@ public class GTProgressBar: UIView {
         }
         
         if #available(iOS 10.0, *) {
-            UIViewPropertyAnimator(duration: 0.8, curve: .easeInOut, animations: frameChange)
-                .startAnimation()
+            let animation = UIViewPropertyAnimator(duration: 0.8, curve: .easeInOut, animations: frameChange)
+            animation.addCompletion { (position) in
+                completion?()
+            }
+            animation.startAnimation()
         } else {
             UIView.animate(withDuration: 0.8,
                 delay: 0,
                 options: [UIViewAnimationOptions.curveEaseInOut],
                 animations: frameChange,
-                completion: nil);
+                completion: { (finished) in 
+                    completion?()
+            });
         }
     }
     
