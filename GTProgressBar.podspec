@@ -20,7 +20,7 @@ GTProgressBar is a customisable progress bar written in Swift 4. It supports bot
   s.source           = { :git => 'https://github.com/gregttn/GTProgressBar.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/gregttn'
 
-  s.ios.deployment_target = '8.3'
+  s.ios.deployment_target = '9.0'
   s.tvos.deployment_target  = '10.0'
 
   s.source_files = 'GTProgressBar/Classes/**/*'
