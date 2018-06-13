@@ -255,15 +255,17 @@ Many properties of GTProgressBar can be configured. Most of them can be configur
   progressBar.cornerTypeInt = GTProgressBarCornerType.rounded.rawValue
   ```
 
-* `animateTo(progress: CGFloat)`
+* `animateTo(progress: CGFloat, completion: (() -> Void)?)`
 
-  This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value.
+  This method animates the progress bar to the value specified. The allowed values are from 0.0 to 1.0 . If invalid value is provided it will be capped to the nearest allowed value. This method also accepts a completion callback executed when the animation completes.
 
   ```swift
-  progressBar.animateTo(progress: 0.9)
+  progressBar.animateTo(progress: 0.9) {
+    print("Animation completed")
+  }
   ```
 
-To put it altogether here is a complete example configure GTProgressBar in code:
+To put it altogether here is an example configuration of GTProgressBar in code:
 
 ```swift
 let progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
