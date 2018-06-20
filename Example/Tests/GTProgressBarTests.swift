@@ -223,10 +223,32 @@ class GTProgressBarTests: XCTestCase {
         expect(backgroundView.backgroundColor).to(equal(UIColor.yellow))
     }
     
+    func testShouldNotAllowSettingProgressBarBackgroundColorToClear() {
+        let view = setupView() { v in
+            v.barBackgroundColor = UIColor.yellow
+        }
+        
+        view.barBackgroundColor = UIColor.clear
+        
+        let backgroundView = view.subviews[backgroundViewIndex]
+        expect(backgroundView.backgroundColor).to(equal(UIColor.yellow))
+    }
+    
     func testShouldAllowSettingProgressBarFillColor() {
         let view = setupView() { v in
             v.barFillColor = UIColor.blue
         }
+        
+        let fillView = view.subviews[backgroundViewIndex].subviews.first!
+        expect(fillView.backgroundColor).to(equal(UIColor.blue))
+    }
+    
+    func testShouldNotAllowSettingProgressBarFillColorToClear() {
+        let view = setupView() { v in
+            v.barFillColor = UIColor.blue
+        }
+        
+        view.barFillColor = UIColor.clear
         
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         expect(fillView.backgroundColor).to(equal(UIColor.blue))
