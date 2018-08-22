@@ -1040,6 +1040,25 @@ class GTProgressBarTests: XCTestCase {
         expect(view.cornerType).to(equal(GTProgressBarCornerType.square))
     }
     
+    func testShouldRoundDownTheProgressPercentageForLabel() {
+        let view = setupView() { view in
+            view.progress = 0.953
+        }
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.text).to(equal("95%"))
+    }
+    
+    func testShouldRoundUpTheProgressPercentageForLabel() {
+        let view = setupView() { view in
+            view.progress = 0.949
+        }
+        
+        let label: UILabel = view.subviews.first! as! UILabel
+        
+        expect(label.text).to(equal("95%"))
+    }
     
     private func setupView(frame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100), configure: (GTProgressBar) -> Void = { _ in }
 ) -> GTProgressBar {
