@@ -294,7 +294,7 @@ public class GTProgressBar: UIView {
     }
     
     private func updateProgressLabelText() {
-        progressLabel.text = "\(Int(_progress * 100))%"
+        progressLabel.text = "\(Int(round(_progress * 100)))%"
     }
     
     public func animateTo(progress: CGFloat, completion: (() -> Void)? = nil) {
