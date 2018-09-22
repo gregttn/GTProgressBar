@@ -315,7 +315,7 @@ public class GTProgressBar: UIView {
         } else {
             UIView.animate(withDuration: 0.8,
                 delay: 0,
-                options: [UIViewAnimationOptions.curveEaseInOut],
+                options: [.curveEaseInOut],
                 animations: frameChange,
                 completion: { (finished) in 
                     completion?()
