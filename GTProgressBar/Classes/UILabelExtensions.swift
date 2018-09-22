@@ -11,7 +11,7 @@ import Foundation
 internal extension UILabel {
     internal static func sizeFor(content: NSString, font: UIFont) -> CGSize {
         let text: NSString = content
-        let textSize = text.size(withAttributes: [NSAttributedStringKey.font : font])
+        let textSize = text.size(withAttributes: [NSAttributedString.Key.font : font])
         
         return CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
     }

@@ -3,13 +3,13 @@
 # * https://github.com/supermarin/xcpretty#usage
 language: objective-c
 podfile: Example/Podfile
-osx_image: xcode9.1
+osx_image: xcode10
 before_install:
  - gem install cocoapods
  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
  - pod repo update
  - pod install --project-directory=Example
 script:
- - set -o pipefail && xcodebuild test -workspace Example/GTProgressBar.xcworkspace -scheme GTProgressBar-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone SE'  ONLY_ACTIVE_ARCH=NO | xcpretty -c
+ - set -o pipefail && xcodebuild test -workspace Example/GTProgressBar.xcworkspace -scheme GTProgressBar-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR'  ONLY_ACTIVE_ARCH=NO | xcpretty -c
 after_success:
  - sleep 10
