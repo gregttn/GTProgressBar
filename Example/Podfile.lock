@@ -1,23 +1,19 @@
 PODS:
-  - GTProgressBar (0.3.0)
+  - GTProgressBar (0.3.2)
   - Nimble (7.3.1)
 
 DEPENDENCIES:
   - GTProgressBar (from `../`)
   - Nimble (= 7.3.1)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Nimble
-
 EXTERNAL SOURCES:
   GTProgressBar:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  GTProgressBar: 3792771e3289e767456552dbc3cd0138fbabdaf6
+  GTProgressBar: 1be296f05a5e24326b5385e098574508b92d8b88
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
 
 PODFILE CHECKSUM: 4d0d81b56cb25ed4480f18635ab3d34fd08742c1
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.4.0
