@@ -313,13 +313,19 @@ public class GTProgressBar: UIView {
             }
             animation.startAnimation()
         } else {
+            #if swift(>=4.2)
+            let animationOptions = UIView.AnimationOptions.curveEaseInOut
+            #else
+            let animationOptions = UIViewAnimationOptions.curveEaseInOut
+            #endif
+
             UIView.animate(withDuration: 0.8,
                 delay: 0,
-                options: [UIViewAnimationOptions.curveEaseInOut],
+                options: [animationOptions],
                 animations: frameChange,
                 completion: { (finished) in 
                     completion?()
-            });
+            })
         }
     }
     
@@ -344,7 +350,7 @@ public class GTProgressBar: UIView {
         override public var backgroundColor: UIColor? {
             didSet {
                 if backgroundColor == nil || backgroundColor == UIColor.clear {
-                    backgroundColor = oldValue;
+                    backgroundColor = oldValue
                 }
             }
         }
