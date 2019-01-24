@@ -24,5 +24,5 @@ GTProgressBar is a customisable progress bar written in Swift 4. It supports bot
   s.tvos.deployment_target  = '10.0'
 
   s.source_files = 'GTProgressBar/Classes/**/*'
-  s.swift_version = '4.0'  
+  s.swift_version = '4.2'  
 end
