@@ -6,7 +6,7 @@ podfile: Example/Podfile
 osx_image: xcode10.2
 before_install:
  - gem install cocoapods
- - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+ - gem install xcpretty --no-document --quiet
  - pod repo update
  - pod install --project-directory=Example
 script:
