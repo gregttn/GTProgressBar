@@ -9,12 +9,12 @@
 import UIKit
 
 internal extension UIView {
-    internal func centerHorizontally(parent: UIView) {
+    func centerHorizontally(parent: UIView) {
         let center = parent.convert(parent.center, from: parent.superview)
         self.center = CGPoint(x: center.x, y: self.center.y)
     }
     
-    internal func centerVertically(parent: UIView) {
+    func centerVertically(parent: UIView) {
         let center = parent.convert(parent.center, from: parent.superview)
         self.center = CGPoint(x: self.center.x, y: center.y)
     }
