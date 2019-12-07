@@ -1,10 +1,10 @@
 PODS:
   - GTProgressBar (0.3.3)
-  - Nimble (8.0.1)
+  - Nimble (8.0.4)
 
 DEPENDENCIES:
   - GTProgressBar (from `../`)
-  - Nimble (= 8.0.1)
+  - Nimble (= 8.0.4)
 
 SPEC REPOS:
   trunk:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GTProgressBar: 3afd161864337f719b2782815a1890d3839a2154
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
 
-PODFILE CHECKSUM: e435e286571b7979811817989e008d861a05a82b
+PODFILE CHECKSUM: 46ffc38fa7faa28b02f26589b99ed942da2a0275
 
 COCOAPODS: 1.8.4
