@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This component is written using Swift 4 so you will need to run Xcode 9 or higher.
+This component is written using Swift 5 so you will need to run Xcode 11 or higher.
 
 # Usage
 
