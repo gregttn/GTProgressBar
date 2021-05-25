@@ -330,23 +330,6 @@ public class GTProgressBar: UIView {
         }
     }
     
-    private func cornerRadiusFor(view: UIView) -> CGFloat {
-        if cornerType == .square {
-            return 0.0
-        }
-        
-        if cornerRadius != 0.0 {
-            return cornerRadius
-        }
-        
-        switch orientation {
-        case .horizontal:
-            return view.frame.height / 2 * 0.7
-        case .vertical:
-            return view.frame.width / 2 * 0.7
-        }
-    }
-    
     private func setCornerRadiusFor(view:UIView) {
         switch self.cornerType {
         case .square:
