@@ -273,11 +273,12 @@ public class GTProgressBar: UIView {
         frameCalculator.centerLabel(label: progressLabel)
 
         backgroundView.frame = frameCalculator.backgroundViewFrame()
-        backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
+        
+        self.setCornerRadiusFor(view: backgroundView)
         frameCalculator.centerBar(bar: backgroundView)
 
         fillView.frame = frameCalculator.fillViewFrameFor(progress: _progress)
-        fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+        self.setCornerRadiusFor(view: fillView)
     }
     
     private func createFrameCalculator() -> FrameCalculator {
@@ -344,6 +345,37 @@ public class GTProgressBar: UIView {
         case .vertical:
             return view.frame.width / 2 * 0.7
         }
+    }
+    
+    private func setCornerRadiusFor(view:UIView) {
+        switch self.cornerType {
+        case .square:
+            view.layer.cornerRadius = 0.0
+            
+        case .rounded:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+            }
+            
+        case .topCornersOnly:
+            if #available(iOS 11.0, *) {
+                view.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+            } else {
+                fatalError("This case is available from iOS 11+ only.")
+            }
+            
+        case .bottomCornersOnly:
+            if #available(iOS 11.0, *) {
+                view.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+            } else {
+                fatalError("This case is available from iOS 11+ only.")
+            }
+
+        }
+        
     }
     
     class NoClearView: UIView {
