@@ -338,17 +338,17 @@ public class GTProgressBar: UIView {
         case .rounded:
             switch orientation {
             case .horizontal:
-                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+                view.layer.cornerRadius = view.frame.height / 2
             case .vertical:
-                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+                view.layer.cornerRadius = view.frame.width / 2
             }
             
         case .topCornersOnly:
             switch orientation {
             case .horizontal:
-                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+                view.layer.cornerRadius = view.frame.height / 2
             case .vertical:
-                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+                view.layer.cornerRadius = view.frame.width / 2
             }
             
             if #available(iOS 11.0, *) {
@@ -360,9 +360,9 @@ public class GTProgressBar: UIView {
         case .bottomCornersOnly:
             switch orientation {
             case .horizontal:
-                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+                view.layer.cornerRadius = view.frame.height / 2
             case .vertical:
-                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+                view.layer.cornerRadius = view.frame.width / 2 
             }
             
             if #available(iOS 11.0, *) {
