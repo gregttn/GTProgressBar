@@ -361,6 +361,13 @@ public class GTProgressBar: UIView {
             }
             
         case .topCornersOnly:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+            }
+            
             if #available(iOS 11.0, *) {
                 view.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
             } else {
@@ -368,6 +375,13 @@ public class GTProgressBar: UIView {
             }
             
         case .bottomCornersOnly:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2 * 0.7
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2 * 0.7
+            }
+            
             if #available(iOS 11.0, *) {
                 view.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
             } else {
