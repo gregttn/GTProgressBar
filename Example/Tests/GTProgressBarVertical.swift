@@ -13,7 +13,7 @@ import GTProgressBar
 class GTProgressBarVertical: XCTestCase {
     private let backgroundViewIndex = 1
     private let labelViewIndex = 0
-    private let labelFrameSize: CGSize = CGSize(width: 31, height: 15)
+    private let labelFrameSize: CGSize = CGSize(width: 32, height: 15)
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
     private let minimumBarWidth: CGFloat = 20

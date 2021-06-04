@@ -12,7 +12,7 @@ import GTProgressBar
 
 class GTProgressBarTests: XCTestCase {
     private let backgroundViewIndex = 1
-    private let labelFrameSize: CGSize = CGSize(width: 31, height: 15)
+    private let labelFrameSize: CGSize = CGSize(width: 32, height: 15)
     private let labelInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     private let insetsOffset: CGFloat = 10
     private let minimumBarWidth: CGFloat = 20
@@ -84,7 +84,7 @@ class GTProgressBarTests: XCTestCase {
         let view = setupView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 92)
+        let expectedFrame = CGRect(x:4, y: 4, width: 50, height: 92)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -95,7 +95,7 @@ class GTProgressBarTests: XCTestCase {
         
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 92)
+        let expectedFrame = CGRect(x:4, y: 4, width: 50, height: 92)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -116,7 +116,7 @@ class GTProgressBarTests: XCTestCase {
         
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrame = CGRect(x:4, y: 4, width: 51, height: 12)
+        let expectedFrame = CGRect(x:4, y: 4, width: 50, height: 12)
         expect(fillView.frame).to(equal(expectedFrame))
     }
     
@@ -201,7 +201,7 @@ class GTProgressBarTests: XCTestCase {
 
         let fillView = view.subviews[backgroundViewIndex].subviews.first!
         
-        let expectedFrameWidth: CGFloat = 51
+        let expectedFrameWidth: CGFloat = 50
         expect(fillView.frame.width).to(equal(expectedFrameWidth))
     }
     
@@ -566,7 +566,7 @@ class GTProgressBarTests: XCTestCase {
         
         let label: UILabel = view.subviews.first! as! UILabel
         
-        let labelOrigin = CGPoint(x: 34.5, y: 0)
+        let labelOrigin = CGPoint(x: 34, y: 0)
         expect(label.frame.size).to(equal(labelFrameSize))
         expect(label.frame.origin).to(equal(labelOrigin))
     }
@@ -579,7 +579,7 @@ class GTProgressBarTests: XCTestCase {
         
         let label: UILabel = view.subviews.first! as! UILabel
         
-        let labelOrigin = CGPoint(x: 34.5, y: 5)
+        let labelOrigin = CGPoint(x: 34, y: 5)
         expect(label.frame.origin).to(equal(labelOrigin))
     }
     
@@ -641,7 +641,7 @@ class GTProgressBarTests: XCTestCase {
          
         let label: UILabel = view.subviews.first! as! UILabel
          
-        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height)
+        let labelOrigin = CGPoint(x: 34, y: view.frame.height - labelFrameSize.height)
         expect(label.frame.size).to(equal(labelFrameSize))
         expect(label.frame.origin).to(equal(labelOrigin))
      }
@@ -655,7 +655,7 @@ class GTProgressBarTests: XCTestCase {
          
         let label: UILabel = view.subviews.first! as! UILabel
          
-        let labelOrigin = CGPoint(x: 34.5, y: view.frame.height - labelFrameSize.height - insets.bottom)
+        let labelOrigin = CGPoint(x: 34, y: view.frame.height - labelFrameSize.height - insets.bottom)
         expect(label.frame.origin).to(equal(labelOrigin))
      }
     
@@ -719,7 +719,7 @@ class GTProgressBarTests: XCTestCase {
         let label: UILabel = view.subviews.first! as! UILabel
         let backgroundView = view.subviews[backgroundViewIndex]
         
-        let labelOrigin = CGPoint(x: 34.5, y: backgroundView.frame.height)
+        let labelOrigin = CGPoint(x: 34, y: backgroundView.frame.height)
         
         expect(label.frame.size).to(equal(labelFrameSize))
         expect(label.frame.origin).to(equal(labelOrigin))
