@@ -18,7 +18,8 @@ let package = Package(
             name: "GTProgressBar",
             dependencies: [
             ],
-            path: "GTProgressBar"
+            path: "GTProgressBar",
+            exclude: ["GTProgressBar.h", "Info.plist"]
         ),
         .testTarget(
             name: "GTProgressBarTests",
