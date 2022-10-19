@@ -1,0 +1,22 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "8f91f5c080ee05dfa082fbbdc06113a444cc9a4781f02ab54a8aa8fd08142ceb"
+build_start_time: [1666207641, 690278053]
+build_end_time: [1666207644, 691113948]
+inputs:
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/FrameCalculator.swift": !private [1666206677, 663552284]
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBar.swift": !private [1666206704, 524290561]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarCornerType.swift"
+  : !private [1666206704, 524476051]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarDirection.swift"
+  : !private [1666206677, 663858652]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarLabelPosition.swift"
+  : !private [1666206677, 663961172]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarOrientation.swift"
+  : !private [1666206677, 664058446]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/HorizontalLabelPositionFrameCalculator.swift"
+  : !private [1666206677, 664181470]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/UILabelExtensions.swift"
+  : !private [1666206677, 664291620]
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/UIViewExtensions.swift": !private [1666206677, 664384365]
+  ? "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/VerticalLabelPositionFrameCalculator.swift"
+  : !private [1666206677, 664503812]

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 internal protocol FrameCalculator {
     var minimumProgressBarWidth: CGFloat {get}

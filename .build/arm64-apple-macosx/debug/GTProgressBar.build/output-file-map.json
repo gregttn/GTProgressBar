@@ -1,0 +1,65 @@
+{
+  "": {
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/master.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/FrameCalculator.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/FrameCalculator.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/FrameCalculator.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/FrameCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/FrameCalculator.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBar.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBar.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBar.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBar~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBar.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarCornerType.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarCornerType.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarCornerType.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarCornerType~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarCornerType.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarDirection.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarDirection.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarDirection.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarDirection~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarDirection.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarLabelPosition.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarLabelPosition.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarLabelPosition.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarLabelPosition~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarLabelPosition.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/GTProgressBarOrientation.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarOrientation.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarOrientation.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarOrientation~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/GTProgressBarOrientation.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/HorizontalLabelPositionFrameCalculator.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/HorizontalLabelPositionFrameCalculator.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/HorizontalLabelPositionFrameCalculator.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/HorizontalLabelPositionFrameCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/HorizontalLabelPositionFrameCalculator.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/UILabelExtensions.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UILabelExtensions.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UILabelExtensions.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UILabelExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UILabelExtensions.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/UIViewExtensions.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UIViewExtensions.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UIViewExtensions.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UIViewExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/UIViewExtensions.swiftdeps"
+  },
+  "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/GTProgressBar/Classes/VerticalLabelPositionFrameCalculator.swift": {
+    "dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/VerticalLabelPositionFrameCalculator.d",
+    "object": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/VerticalLabelPositionFrameCalculator.swift.o",
+    "swiftmodule": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/VerticalLabelPositionFrameCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/Classes/VerticalLabelPositionFrameCalculator.swiftdeps"
+  }
+}

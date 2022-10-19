@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 internal protocol VerticalLabelPositionFrameCalculator: FrameCalculator {
     func backgroundViewOrigin() -> CGPoint
