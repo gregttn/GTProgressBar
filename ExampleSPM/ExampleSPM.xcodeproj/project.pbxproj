@@ -13,6 +13,7 @@
 		635EC10A29008CB700114C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635EC10829008CB700114C86 /* Main.storyboard */; };
 		635EC10C29008CB800114C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635EC10B29008CB800114C86 /* Assets.xcassets */; };
 		635EC10F29008CB800114C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635EC10D29008CB800114C86 /* LaunchScreen.storyboard */; };
+		635EC11A29008F8000114C86 /* GTProgressBar in Frameworks */ = {isa = PBXBuildFile; productRef = 635EC11929008F8000114C86 /* GTProgressBar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635EC11A29008F8000114C86 /* GTProgressBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +46,7 @@
 				635EC11629008D0000114C86 /* Packages */,
 				635EC10129008CB700114C86 /* ExampleSPM */,
 				635EC10029008CB700114C86 /* Products */,
+				635EC11829008F8000114C86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +80,13 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		635EC11829008F8000114C86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,6 +103,9 @@
 			dependencies = (
 			);
 			name = ExampleSPM;
+			packageProductDependencies = (
+				635EC11929008F8000114C86 /* GTProgressBar */,
+			);
 			productName = ExampleSPM;
 			productReference = 635EC0FF29008CB700114C86 /* ExampleSPM.app */;
 			productType = "com.apple.product-type.application";
@@ -368,6 +381,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		635EC11929008F8000114C86 /* GTProgressBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GTProgressBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 635EC0F729008CB700114C86 /* Project object */;
 }
