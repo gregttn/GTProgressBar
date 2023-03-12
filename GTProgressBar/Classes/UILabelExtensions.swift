@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 internal extension UILabel {
     static func sizeFor(content: NSString, font: UIFont) -> CGSize {

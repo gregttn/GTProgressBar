@@ -273,11 +273,12 @@ public class GTProgressBar: UIView {
         frameCalculator.centerLabel(label: progressLabel)
 
         backgroundView.frame = frameCalculator.backgroundViewFrame()
-        backgroundView.layer.cornerRadius = cornerRadiusFor(view: backgroundView)
+        
+        self.setCornerRadiusFor(view: backgroundView)
         frameCalculator.centerBar(bar: backgroundView)
 
         fillView.frame = frameCalculator.fillViewFrameFor(progress: _progress)
-        fillView.layer.cornerRadius = cornerRadiusFor(view: fillView)
+        self.setCornerRadiusFor(view: fillView)
     }
     
     private func createFrameCalculator() -> FrameCalculator {
@@ -297,7 +298,7 @@ public class GTProgressBar: UIView {
         progressLabel.text = "\(Int(round(_progress * 100)))%"
     }
     
-    public func animateTo(progress: CGFloat, completion: (() -> Void)? = nil) {
+    public func animateTo(progress: CGFloat,duration:TimeInterval = 0.8, completion: (() -> Void)? = nil) {
         let newProgress = min(max(progress,0), 1)
         let fillViewFrame = createFrameCalculator().fillViewFrameFor(progress: newProgress)
         let frameChange: () -> () = {
@@ -307,7 +308,7 @@ public class GTProgressBar: UIView {
         }
         
         if #available(iOS 10.0, *) {
-            let animation = UIViewPropertyAnimator(duration: 0.8, curve: .easeInOut, animations: frameChange)
+            let animation = UIViewPropertyAnimator(duration: duration, curve: .easeInOut, animations: frameChange)
             animation.addCompletion { (position) in
                 completion?()
             }
@@ -319,7 +320,7 @@ public class GTProgressBar: UIView {
             let animationOptions = UIViewAnimationOptions.curveEaseInOut
             #endif
 
-            UIView.animate(withDuration: 0.8,
+            UIView.animate(withDuration: duration,
                 delay: 0,
                 options: [animationOptions],
                 animations: frameChange,
@@ -329,21 +330,49 @@ public class GTProgressBar: UIView {
         }
     }
     
-    private func cornerRadiusFor(view: UIView) -> CGFloat {
-        if cornerType == .square {
-            return 0.0
+    private func setCornerRadiusFor(view:UIView) {
+        switch self.cornerType {
+        case .square:
+            view.layer.cornerRadius = 0.0
+            
+        case .rounded:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2
+            }
+            
+        case .topCornersOnly:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2
+            }
+            
+            if #available(iOS 11.0, *) {
+                view.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+            } else {
+                fatalError("This case is available from iOS 11+ only.")
+            }
+            
+        case .bottomCornersOnly:
+            switch orientation {
+            case .horizontal:
+                view.layer.cornerRadius = view.frame.height / 2
+            case .vertical:
+                view.layer.cornerRadius = view.frame.width / 2 
+            }
+            
+            if #available(iOS 11.0, *) {
+                view.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+            } else {
+                fatalError("This case is available from iOS 11+ only.")
+            }
+
         }
         
-        if cornerRadius != 0.0 {
-            return cornerRadius
-        }
-        
-        switch orientation {
-        case .horizontal:
-            return view.frame.height / 2 * 0.7
-        case .vertical:
-            return view.frame.width / 2 * 0.7
-        }
     }
     
     class NoClearView: UIView {

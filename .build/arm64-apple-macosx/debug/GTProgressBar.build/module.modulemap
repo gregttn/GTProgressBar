@@ -1,0 +1,4 @@
+module GTProgressBar {
+    header "/Users/mussacharles/Library/Developer/OpenSource/ApplePlatForm/Forked/GTProgressBar/.build/arm64-apple-macosx/debug/GTProgressBar.build/GTProgressBar-Swift.h"
+    requires objc
+}
